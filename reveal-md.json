@@ -1,0 +1,10 @@
+{
+        "theme": "blood",
+        "title": "Data Services Hub",
+        "revealOptions": {
+                "transition": "fade"
+        },
+        "separator": "<!--s-->",
+        "verticalSeparator": "<!--v-->",
+        "css": "custom.css"
+}
