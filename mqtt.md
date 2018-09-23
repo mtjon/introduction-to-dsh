@@ -239,6 +239,7 @@ mosquitto_pub -h mqtt.dev.kpn-dsh.com \
 <br>
 <br>
 <br>
+
 ## Next
 <!-- .slide: data-background="./images/sign.jpg" --> 
 The next tutorial (Streaming over Kafka) will explain how you can process
