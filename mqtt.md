@@ -182,7 +182,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 
 On MacOSX use --cafile iso --capath:
 ```bash
-mosquitto_sub -h mqtt.dev.kpn-dsh.com -p 8883 \
+mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -t "/tt/dshdemoshared/$THING_ID/#" \
 --cafile /usr/local/etc/openssl/cert.pem \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -v
@@ -221,7 +221,7 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 On MacOSX: execute the following command:
 ```bash
 while sleep 1; do date "+$THING_ID%S"; done | \
-mosquitto_pub -h mqtt.dev.kpn-dsh.com \
+mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 -p 8883 -t "/tt/dshdemoshared/$THING_ID/" \
 --cafile /usr/local/etc/openssl/cert.pem \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -l
