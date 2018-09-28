@@ -102,7 +102,7 @@ Did you just blindly give away credentials on an unknown website?  <!-- .element
 Command-line alternative:
 ```bash
 cat rest-token.txt | \
-sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(...\)*\).*/\1/" | \
+sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
 base64 -d | \
 jq .
 ```
@@ -153,7 +153,7 @@ Use jwt.io or use the command-line alternative:
 
 ```bash
 cat mqtt-token.txt | \
-sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(...\)*\).*/\1/" | \
+sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
 base64 -d | \
 jq .
 ```

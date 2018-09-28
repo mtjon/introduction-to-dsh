@@ -84,7 +84,7 @@ You need to be logged in to use this registry:
 ```bash
 docker login dataserviceshub-docker-$TENANT.jfrog.io
 ```
-Now you can push your container to the tenant's artifactory:
+Now you can push your container to the tenant's docker registry:
 
 ```bash
 docker push \
