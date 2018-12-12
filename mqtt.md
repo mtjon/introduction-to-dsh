@@ -99,11 +99,18 @@ Did you just blindly give away credentials on an unknown website?  <!-- .element
 <!--s-->
 <!-- .slide: data-background="./images/bridge2.jpg" --> 
 ## Contents of a JWT
-Command-line alternative:
+Command-line alternative for linux:
 ```bash
 cat rest-token.txt | \
 sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
 base64 -d | \
+jq .
+```
+Command-line alternative for MacOSX:
+```bash
+cat rest-token.txt | \
+sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
+base64 -D | \
 jq .
 ```
 <!--s-->
@@ -149,12 +156,20 @@ curl -X POST \
 <!--s-->
 <!-- .slide: data-background="./images/lake.jpg" --> 
 ## Inspect the JWT
-Use jwt.io or use the command-line alternative:
+Use jwt.io or use the command-line alternative for linux:
 
 ```bash
 cat mqtt-token.txt | \
 sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
 base64 -d | \
+jq .
+```
+Use jwt.io or use the command-line alternative for MacOSX:
+
+```bash
+cat mqtt-token.txt | \
+sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
+base64 -D | \
 jq .
 ```
 
