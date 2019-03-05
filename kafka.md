@@ -10,8 +10,10 @@
 - _Installed:_ Git
 - _Installed:_ java SDK 8
 - _Installed:_ maven (mvn) 
+- _Installed:_ DSH UMP-client
+- _Available:_ tenant UID
 - _Available:_ docker registry credentials
-- _Available:_ An API-Key
+- _Available:_ API-Key
 
 <!--s-->
 <!-- .slide: data-background="./images/star.jpg" --> 
@@ -45,7 +47,7 @@ Learn to deploy an application on DSH that connects to DSH kafka
 
 - Change your pwd (present working directory) to `tenant-example`
 - Open the `Dockerfile` in your favorite text-editor
-- Modify the __ENV id 1024__ line according to the comment above it and save the
+- Modify the `ENV id 1024` line according to the comment above it and save the
   modification
 
 <!--s-->
@@ -128,7 +130,7 @@ registry. Next step is getting that container running on the DSH.
 <!--s-->
 <!-- .slide: data-background="./images/jelly4.jpg" --> 
 ## Deploy application
-- Create amp definition (see _tenant-example.json_)
+- create AMP definition (see `tenant-example.json`)
 - modify the name of the image
 - modify the user if needed
 - and click _deploy_
