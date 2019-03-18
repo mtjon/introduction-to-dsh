@@ -1,9 +1,15 @@
-<!-- .slide: data-background="./images/ocean.jpg" -->
+---
+title: "Introduction to DSH"
+separator: <!--s-->
+verticalSeparator: <!--v-->
+theme: themes/kpn.css
+revealOptions:
+    transition: 'slide'
+---
 ## An introduction to<br>the Data Services Hub
 
 <!--s-->
 
-<!-- .slide: data-background="./images/allthree.png" -->
 ## What is the DSH?
 <br>
 ### Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -14,7 +20,6 @@
 
 <!--s-->
 
-<!-- .slide: data-background="./images/platform.jpg" -->
 ### Platform 
 
 - A (software) platform is basically anything you can build (applications) on
@@ -24,14 +29,12 @@
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streaming.jpg" -->
 ### Streaming Data Platform 
 = <!-- .element: class="fragment" data-fragment-index="1" -->
 ### A platform that does something with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streaming.jpg" -->
 ## Streaming Data?
 
 > ...data that is generated continuously by thousands of data
@@ -42,14 +45,12 @@ https://aws.amazon.com/streaming-data
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streaming.jpg" -->
 ## And out?
 
 > A streaming data platform should also be able to continuously sent selected
 > data records to thousands of data syncs.
 
 <!--s-->
-<!-- .slide: data-background="./images/streaming.jpg" -->
 ### Different types of streaming data
 
 ![Huge](./images/huge2.png) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
@@ -57,7 +58,6 @@ https://aws.amazon.com/streaming-data
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streaming.jpg" -->
 ### streaming data on DSH 
 
 - MQTT
@@ -73,7 +73,6 @@ MQTT \* sources/sinks =~ Kafka * sources/sinks <!-- .element: class="fragment" d
 
 <!--s-->
 
-<!-- .slide: data-background="./images/bridge.jpg" -->
 ### bridge
 
 - MQTT topic prefix = Kafka cluster name <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -91,13 +90,11 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 
 <!--s-->
 
-<!-- .slide: data-background="./images/bridge.jpg" -->
 
 ![Duck](./images/duck.jpg) 
 
 <!--s-->
 
-<!-- .slide: data-background="./images/bridge.jpg" -->
 ### Rarely updated data sources
 
 - Latest value store indexing service
@@ -107,7 +104,6 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 
 <!--s-->
 
-<!-- .slide: data-background="./images/bridge.jpg" -->
 ### Bridge (bis)
 
 - MQTT allows wildcard subscriptions: `/tt/topic/some/prefix/#`
@@ -117,13 +113,11 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streaming.jpg" -->
 
 ![Bottles](./images/bottles.jpg)
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streaming.jpg" -->
 ### External data sources 
 
 - most will not be adapted to stream to DSH
@@ -131,7 +125,6 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 - need ways to pull in that data (and make it streaming)
 
 <!--s-->
-<!-- .slide: data-background="./images/streaming.jpg" -->
 ## Wrap up
 
 - MQTT for low volume, many sources/sinks
@@ -142,14 +135,12 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 
 <!--s-->
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ### Stream Processing Platform
 =  <!-- .element: class="fragment" data-fragment-index="1" -->
 ### A platform that does  <!-- .element: class="fragment" data-fragment-index="1" --> _stream processing_  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ## Stream Processing?
 
 > ... is the processing of data in motion, or in other words,
@@ -159,14 +150,12 @@ https://data-artisans.com/what-is-stream-processing
 
 <!--s-->
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ![Dam](./images/damandfountain.jpg)<!-- .element: class="thin" -->
 
 
 
 <!--s-->
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ## Where to process?
 
 Where it makes sense =
@@ -176,7 +165,6 @@ Where it makes sense =
 
 <!--s-->
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ## Many ways to process the data
 
 - Many frameworks for stream processing
@@ -186,7 +174,6 @@ Where it makes sense =
 
 <!--s-->
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ## Security nightmare
 
 - Need to allow other people on your platform for proximity
@@ -195,7 +182,6 @@ Where it makes sense =
 
 <!--s-->
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ## DC/OS
 
 - Started with DC/OS as base platform 
@@ -204,7 +190,6 @@ Where it makes sense =
 
 <!--s-->
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ## Securing
 
 - Custom container manager to force correct use of docker
@@ -215,7 +200,6 @@ Where it makes sense =
 
 
 
-<!-- .slide: data-background="./images/processing.jpg" -->
 ## Wrap up
 
 - DC/OS
@@ -224,7 +208,6 @@ Where it makes sense =
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ###  Data Stream Platform
 
 = <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -234,7 +217,6 @@ Where it makes sense =
 
 
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ### Data Stream?
 
 A sequence of digitally encoded signals used to represent information in transmission.
@@ -243,7 +225,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ### Many data streams
 
 - Need some organization for all these streams
@@ -253,7 +234,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ### Authenticate
 
 - Certificates for tenant (container) authentication towards Kafka
@@ -262,7 +242,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ### Device management
 
 - Do not have it
@@ -271,7 +250,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ### Access control
 
 - Fine grained on MQTT
@@ -281,7 +259,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ### Kafka: Some implicit rules
 
 -  _stream._ topic
@@ -291,7 +268,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ### Data lineage
 
 - On mqtt: add info about producer to the message (envelopes)
@@ -300,7 +276,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 ### Kafka lineage
 
 -  stream.topic   _.tenant_  <!-- .element: class="fragment" data-fragment-index="1" --> 
@@ -309,7 +284,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 <!--s-->
 
-<!-- .slide: data-background="./images/streams.jpg" -->
 
 ## Wrap up
 
@@ -321,4 +295,3 @@ A sequence of digitally encoded signals used to represent information in transmi
 <!--s-->
 
 ## From here
-<!-- .slide: data-background="./images/ocean.jpg" -->
