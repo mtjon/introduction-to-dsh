@@ -6,6 +6,7 @@ theme: themes/kpn.css
 revealOptions:
     transition: 'slide'
 ---
+<!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
 # Tutorial
 ## Streaming over MQTT
 
