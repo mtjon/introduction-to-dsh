@@ -16,12 +16,30 @@ div.backgrounds {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .reveal .controls:before {
 content: url("/images/kpnlogo-control.png");
-padding-right: 100px;
+padding-right: 120px;
+top: -18px;
 position: relative;
 }
 
+
+/*
+body:before {
+  position: absolute;
+  content: "";
+  display: block;
+  background: url('/images/kpnlogo-control.png') left top no-repeat;
+  width: 120px;
+  height: 50px;
+  bottom: 30px;
+  right: 150px;
+  background-size: 120px 50px;
+  z-index: 9999;
+}
+
+*/
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
