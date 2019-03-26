@@ -294,5 +294,5 @@ A sequence of digitally encoded signals used to represent information in transmi
 - Kafka topics scheme
 
 <!--s-->
-
+<!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
 ## From here

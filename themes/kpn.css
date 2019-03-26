@@ -19,6 +19,7 @@ div.backgrounds {
 .reveal .controls:before {
 content: url("/images/kpnlogo-control.png");
 padding-right: 100px;
+position: relative;
 }
 
 /*********************************************

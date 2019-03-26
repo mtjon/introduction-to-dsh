@@ -182,6 +182,6 @@ whoami
 - Select _configuration_
 - Choose _destroy_ and confirm
 <!--s-->
-<!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
-# Thank you for participating.
-## End of Kafka Tutorial
+<!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
+## Thank you for participating.
+### End of Kafka Tutorial

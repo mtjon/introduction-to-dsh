@@ -241,5 +241,6 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
   msgs/sec.<!-- .element: class="fragment" -->
 
 <!--s-->
+<!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
 ## Next
 <!-- .element: class="lefty" -->The next tutorial (Streaming over Kafka) will explain how you can process data sent over mqtt in bulk on DSH.
