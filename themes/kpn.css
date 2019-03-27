@@ -16,15 +16,6 @@ div.backgrounds {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.reveal .controls:before {
-content: url("/images/kpnlogo-control.png");
-padding-right: 120px;
-top: -18px;
-position: relative;
-}
-
-
 /*
 body:before {
   position: absolute;
@@ -286,6 +277,13 @@ body {
  *********************************************/
 .reveal .controls {
   color: #FFFFFF; }
+
+  .reveal .controls:before {
+    content: url("/images/kpnlogo-control.png");
+    padding-right: 120px;
+    top: -13px;
+    position: relative;
+    }
 
 /*********************************************
  * PROGRESS BAR
