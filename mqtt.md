@@ -1,10 +1,5 @@
 ---
 title: "Introduction to DSH: MQTT"
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: themes/kpn.css
-revealOptions:
-    transition: 'slide'
 ---
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
 # Tutorial
@@ -115,6 +110,7 @@ sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
 base64 -D | \
 jq .
 ```
+
 <!--s-->
 ## MQTT tokens
 
@@ -197,6 +193,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 --cafile /usr/local/etc/openssl/cert.pem \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -v
 ```
+
 <!--s-->
 ## Notes
 - The username (`-u ...`) is not required for the DSH; it gets overruled
@@ -212,7 +209,6 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 - To see any data on our subscription, we need to publish some first
 - Open a new terminal, we are going to use it to periodically send a message to DSH over mqtt
   - Ensure the required environment variables are available
-
 
 <!--s-->
 ## Command
@@ -233,6 +229,7 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 --cafile /usr/local/etc/openssl/cert.pem \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -l
 ```
+
 <!--s-->
 ## Notes
 - What do you see? Why?

@@ -1,10 +1,5 @@
 ---
 title: "Introduction to DSH: Kafka"
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: themes/kpn.css
-revealOptions:
-    transition: 'slide'
 ---
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
 # Streaming over Kafka

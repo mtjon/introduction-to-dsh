@@ -1,10 +1,9 @@
 {
-        "theme": "blood",
+        "theme": "themes/kpn.css",
         "title": "Data Services Hub",
         "revealOptions": {
-                "transition": "fade"
+                "transition": "slide"
         },
         "separator": "<!--s-->",
-        "verticalSeparator": "<!--v-->",
-        "css": "custom.css"
+        "verticalSeparator": "<!--v-->"
 }

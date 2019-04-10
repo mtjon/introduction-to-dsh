@@ -1,16 +1,10 @@
 ---
 title: "Introduction to DSH"
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: themes/kpn.css
-revealOptions:
-    transition: 'slide'
 ---
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
 ## An introduction to<br>the Data Services Hub
 
 <!--s-->
-
 ## What is the DSH?
 <br>
 ### Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -20,7 +14,6 @@ revealOptions:
 ### Data Stream Platform <!-- .element: class="fragment" data-fragment-index="3" -->
 
 <!--s-->
-
 ### Platform 
 
 - A (software) platform is basically anything you can build (applications) on
@@ -29,13 +22,11 @@ revealOptions:
 - Not hamper creativity <!-- .element: class="fragment" data-fragment-index="2" -->
 
 <!--s-->
-
 ### Streaming Data Platform 
 = <!-- .element: class="fragment" data-fragment-index="1" -->
 ### A platform that does something with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
-
 ## Streaming Data?
 
 > ...data that is generated continuously by thousands of data
@@ -45,7 +36,6 @@ revealOptions:
 https://aws.amazon.com/streaming-data
 
 <!--s-->
-
 ## And out?
 
 > A streaming data platform should also be able to continuously sent selected
@@ -58,7 +48,6 @@ https://aws.amazon.com/streaming-data
 ![Manneke](./images/manneke.jpg) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
 <!--s-->
-
 ### streaming data on DSH 
 
 - MQTT
@@ -73,7 +62,6 @@ https://aws.amazon.com/streaming-data
 MQTT \* sources/sinks =~ Kafka * sources/sinks <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
-
 ### bridge
 
 - MQTT topic prefix = Kafka cluster name <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -90,12 +78,9 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
 <!--s-->
-
-
 ![Duck](./images/duck.jpg) 
 
 <!--s-->
-
 ### Rarely updated data sources
 
 - Latest value store indexing service
@@ -104,7 +89,6 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 - currently: retrieved on MQTT subscription
 
 <!--s-->
-
 ### Bridge (bis)
 
 - MQTT allows wildcard subscriptions: `/tt/topic/some/prefix/#`
@@ -113,12 +97,9 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 - No wildcards below a certain topic depth  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
-
-
 ![Bottles](./images/bottles.jpg)
 
 <!--s-->
-
 ### External data sources 
 
 - most will not be adapted to stream to DSH
@@ -135,13 +116,11 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 - latest value store for quicker syncing with the data source
 
 <!--s-->
-
 ### Stream Processing Platform
 =  <!-- .element: class="fragment" data-fragment-index="1" -->
 ### A platform that does  <!-- .element: class="fragment" data-fragment-index="1" --> _stream processing_  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
-
 ## Stream Processing?
 
 > ... is the processing of data in motion, or in other words,
@@ -150,13 +129,9 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 https://data-artisans.com/what-is-stream-processing
 
 <!--s-->
-
 ![Dam](./images/damandfountain.jpg)<!-- .element: class="thin" -->
 
-
-
 <!--s-->
-
 ## Where to process?
 
 Where it makes sense =
@@ -165,7 +140,6 @@ Where it makes sense =
 - Close to the data (on the platform) if you need a lot of data
 
 <!--s-->
-
 ## Many ways to process the data
 
 - Many frameworks for stream processing
@@ -174,7 +148,6 @@ Where it makes sense =
 
 
 <!--s-->
-
 ## Security nightmare
 
 - Need to allow other people on your platform for proximity
@@ -182,7 +155,6 @@ Where it makes sense =
 
 
 <!--s-->
-
 ## DC/OS
 
 - Started with DC/OS as base platform 
@@ -190,7 +162,6 @@ Where it makes sense =
 - Tenants run docker containers on top
 
 <!--s-->
-
 ## Securing
 
 - Custom container manager to force correct use of docker
@@ -198,9 +169,6 @@ Where it makes sense =
 - Calico for network isolation
 
 <!--s-->
-
-
-
 ## Wrap up
 
 - DC/OS
@@ -208,16 +176,12 @@ Where it makes sense =
 - Tenant networks
 
 <!--s-->
-
 ###  Data Stream Platform
 
 = <!-- .element: class="fragment" data-fragment-index="1" -->
 ### a platform that holds many different <!-- .element: class="fragment" data-fragment-index="1" --> _data streams_ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
-
-
-
 ### Data Stream?
 
 A sequence of digitally encoded signals used to represent information in transmission.
@@ -225,7 +189,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 [Federal Standard 1037C](https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm)
 
 <!--s-->
-
 ### Many data streams
 
 - Need some organization for all these streams
@@ -234,7 +197,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 - Need to control access to topics <!-- .element: class="fragment" data-fragment-index="2" -->
 
 <!--s-->
-
 ### Authenticate
 
 - Certificates for tenant (container) authentication towards Kafka
@@ -242,7 +204,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 - Tokens for MQTT authentication of devices/things and users
 
 <!--s-->
-
 ### Device management
 
 - Do not have it
@@ -250,7 +211,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 - But: (ac)counting (device/thing ids)
 
 <!--s-->
-
 ### Access control
 
 - Fine grained on MQTT
@@ -259,16 +219,13 @@ A sequence of digitally encoded signals used to represent information in transmi
 - Coarse grained on Kafka: can you read/write a topic
 
 <!--s-->
-
 ### Kafka: Some implicit rules
 
 -  _stream._ topic
 -  _internal._ topic 
 -  _scratch._ topic
 
-
 <!--s-->
-
 ### Data lineage
 
 - On mqtt: add info about producer to the message (envelopes)
@@ -276,16 +233,12 @@ A sequence of digitally encoded signals used to represent information in transmi
 - Offers no way to enforce this   <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
-
-### Kafka lineage
-
+### Kafka lineage 
 -  stream.topic   _.tenant_  <!-- .element: class="fragment" data-fragment-index="1" --> 
 -  internal.topic   _.tenant_ <!-- .element: class="fragment" data-fragment-index="1" -->
 -  scratch.topic   _.tenant_ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
-
-
 ## Wrap up
 
 - MQTT api keys & tokens 
