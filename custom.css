@@ -1,3 +1,15 @@
+.nobullets ul {
+	list-style-type: none;
+}
+
 .lefty {
     text-align: left;
+}
+
+.thin {
+	width: 55%;
+}
+
+.thinner {
+	width: 40%;
 }
