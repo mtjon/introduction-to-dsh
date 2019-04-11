@@ -109,29 +109,22 @@ $$ \text{MQTT} \cdot \frac{sources}{sinks} \approx \text{Kafka} \cdot \frac{sour
 <!--s-->
 # Bridge
 
-- MQTT allows wildcard subscriptions: `/tt/topic/some/prefix/#`
-- Which latest value store instance?
-- All wildcards must map to 1 instance <!-- .element: class="fragment" data-fragment-index="1" -->
-- No wildcards below a certain topic depth  <!-- .element: class="fragment" data-fragment-index="1" -->
+- MQTT protocol adapter
+	- acts _as if_ it is MQTT broker
+	- actually interfaces with Kafka
+- like MQTT
+	- allows wildcard subscriptions:
 
-<!--v-->
-## Rarely updated data sources
-
-- Latest value store indexing service
-- tracks keys in a stream
-- distributed in-memory key-value store
-- currently: retrieved on MQTT subscription
+    ```/platform/stream/topic/#```
 
 <!--v-->
 ## Bridge
 
-$$
-\begin{align}
+$$\begin{align}
 \text{MQTT topic prefix} &= \text{Kafka cluster name} \\\\\\  
 \text{MQTT topic infix}  &= \text{Kafka topic name} \\\\\\
 \text{keys in Kafka}     &= \text{MQTT topic suffix} \\\\\\ 
-\end{align}
-$$
+\end{align}$$
 
 ```scala
 MQTT(topic="/tt/cam/id", data="...")
@@ -143,6 +136,21 @@ $=$
 Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 ```
 <!-- .element: class="fragment" data-fragment-index="2" -->
+
+<!--v-->
+## Rarely updated data sources
+
+- Latest value store indexing service
+- tracks keys in a stream
+- distributed in-memory key-value store
+
+<!--v-->
+## External data sources 
+
+- most data sources are not MQTT
+- most data sources do not stream
+- most data sources will require custom adapters
+    - allow tenants to write their own
 
 <!--s-->
 <!-- .slide: data-transition="fade" -->
@@ -157,7 +165,7 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 ![dsh-overview-5](images/dsh-overview-5-dsh-overview.svg)<!-- .element: class="plain" -->
 
 <!--s-->
-# Wrap up
+# Wrap-up
 
 - MQTT for low volume, many sources/sinks
 - Kafka for high volume, few sources/sinks
@@ -166,18 +174,10 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 - latest value store for quicker syncing with the data source
 
 <!--s-->
-## External data sources 
-
-- most will not be adapted to stream to DSH
-- most don't even stream
-- need ways to pull in that data (and make it streaming)
-
-<!--s-->
 # Stream Processing Platform
-=  <!-- .element: class="fragment" data-fragment-index="1" -->
-## A platform that does  <!-- .element: class="fragment" data-fragment-index="1" --> _stream processing_  <!-- .element: class="fragment" data-fragment-index="1" -->
+A platform that does  <!-- .element: class="fragment" data-fragment-index="1" --> _stream processing_  <!-- .element: class="fragment" data-fragment-index="1" -->
 
-<!--s-->
+<!--v-->
 ## Stream Processing
 
 > &hellip; is the processing of data in motion, or in other words,
@@ -185,18 +185,17 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 
 https://data-artisans.com/what-is-stream-processing
 
-<!--s-->
+<!--v-->
 ![Dam](./images/damandfountain.jpg)<!-- .element: class="thin" -->
 
-<!--s-->
+<!--v-->
 ## Where to process
 
-Where it makes sense
+- At the edge; i.e. on the device 
+- On the DSH; e.g. if you need a lot of data
+- External; e.g. if specific resources are required
 
-- At the edge where possible (selective)
-- Close to the data (on the platform) if you need a lot of data
-
-<!--s-->
+<!--v-->
 ## Many ways to process the data
 
 - Many frameworks for stream processing
@@ -206,36 +205,55 @@ Where it makes sense
 No _One framework to rule them all_, but the DSH to _bind them_.
 
 <!--s-->
+# Wrap-up
+
+- DSH can process streams: 
+    - but is not always the right place to do it
+    - and does not dictate how to process them
+
+<!--s-->
 # Security nightmare
 
 - Need to allow other people on your platform for proximity
 - And they can use whatever software they want on the platform
 
-<!--s-->
+<!--v-->
 ## DC/OS
 
 - Started with DC/OS as base platform 
 - Supported by most stream processing frameworks
 - Tenants run docker containers on top
 
-<!--s-->
+<!--v-->
 ## Securing
 
 - Custom container manager to force correct use of Docker
 - Custom resource manager to control resource requests
 - Calico for network isolation
 
-<!--s-->
-# Wrap up
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## DC/OS
 
-- DC/OS
+![DC/OS](images/dsh-overview-4-dsh-overview.svg)<!-- .element: class="plain" -->
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## DC/OS
+
+![DC/OS](images/dsh-overview-6-dsh-overview.svg)<!-- .element: class="plain" -->
+<!--s-->
+
+# Wrap-up
+
+- DC/OS as base
 - Docker + extra restrictions
 - Tenant networks
 
 <!--s-->
 # Data Stream Platform
 
-a platform that holds many different _data streams_
+a platform that holds many different <!-- .element: class="fragment" data-fragment-index="1" -->_data streams_<!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--v-->
 ## Data Stream
@@ -247,17 +265,18 @@ A sequence of digitally encoded signals used to represent information in transmi
 <!--v-->
 ## Many data streams
 
-- Need some organization for all these streams
+- Streams need organizing
 - DSH topics $ \approx $ Kafka topics
-- Need to control access to topics <!-- .element: class="fragment" data-fragment-index="2" -->
-	- Manage at topic level using custom tooling <!-- .element: class="fragment" data-fragment-index="1" -->
+- Need to control access to topics
+	- Manage at topic level using custom tooling
+    - Based on Access Control Lists (ACLs)
 
 <!--v-->
 ## Authenticate
 
 - Certificates for tenant (container) authentication towards Kafka
 - API keys to authenticate tenants that want to let devices/things/users connect to the platform
-- Tokens for MQTT authentication of devices/things and users
+- Tokens for MQTT authentication of devices/things/users
 - REST token for authentication of MQTT token requests
 
 <!--v-->
@@ -289,7 +308,6 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 - DSH does not manage devices
 - Up to the tenant 
-- But: (ac)counting (device/thing ids)
 
 <!--v-->
 ## Access control
@@ -301,7 +319,7 @@ A sequence of digitally encoded signals used to represent information in transmi
   - read/write on topic-level
 
 <!--v-->
-## Kafka: Some implicit rules
+## Kafka: some implicit rules
 
 -  _stream._ topic
 -  _internal._ topic 
@@ -310,18 +328,17 @@ A sequence of digitally encoded signals used to represent information in transmi
 <!--v-->
 ## Data lineage
 
-- On mqtt: add info about producer to the message (envelopes)
-- On kafka? 
-- Offers no way to enforce this   <!-- .element: class="fragment" data-fragment-index="1" -->
+- MQTT: add info about producer to the message (envelopes)
+- Kafka: offers no way to enforce this
 
 <!--v-->
 ## Kafka lineage 
--  stream.topic   _.tenant_  <!-- .element: class="fragment" data-fragment-index="1" --> 
--  internal.topic   _.tenant_ <!-- .element: class="fragment" data-fragment-index="1" -->
--  scratch.topic   _.tenant_ <!-- .element: class="fragment" data-fragment-index="1" -->
+-  stream.topic_.tenant_  <!-- .element: class="fragment" data-fragment-index="1" --> 
+-  internal.topic_.tenant_ <!-- .element: class="fragment" data-fragment-index="1" -->
+-  scratch.topic_.tenant_ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
-# Wrap up
+# Wrap-up
 
 - API keys, REST token & MQTT tokens 
 - Kafka certificates
