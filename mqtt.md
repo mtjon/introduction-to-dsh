@@ -169,7 +169,7 @@ jq .
 <!--s-->
 ## Subscribe
 
-- We will all subscribe to _dshdemoshared_, a stream created specifically for
+- We will all subscribe to _training_, a stream created specifically for
   this tutorial.
 - If you inspect the mqtt token, you will see that the allowed pattern for the
   subscription is `+/#`
@@ -182,14 +182,14 @@ jq .
 <!-- .element: class="lefty" -->On Linux, execute the following command:
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/dshdemoshared/$THING_ID/#" --capath /etc/ssl/certs/ \
+-t "/tt/training/$THING_ID/#" --capath /etc/ssl/certs/ \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -v
 ```
 
 <!-- .element: class="lefty" -->On macOS, use `--cafile iso --capath`:
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/dshdemoshared/$THING_ID/#" \
+-t "/tt/training/$THING_ID/#" \
 --cafile /usr/local/etc/openssl/cert.pem \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -v
 ```
@@ -216,7 +216,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 ```bash
 while sleep 1; do date "+$THING_ID%S"; done | \
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
--p 8883 -t "/tt/dshdemoshared/$THING_ID/" \
+-p 8883 -t "/tt/training/$THING_ID/" \
 --capath /etc/ssl/certs/ \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -l
 ```
@@ -225,7 +225,7 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 ```bash
 while sleep 1; do date "+$THING_ID%S"; done | \
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
--p 8883 -t "/tt/dshdemoshared/$THING_ID/" \
+-p 8883 -t "/tt/training/$THING_ID/" \
 --cafile /usr/local/etc/openssl/cert.pem \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -l
 ```
