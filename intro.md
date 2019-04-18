@@ -12,6 +12,13 @@ title: "Introduction to DSH"
 - Data Stream Platform <!-- .element: class="fragment" data-fragment-index="3" -->
 
 <!--s-->
+# Overview
+* Totaal overzicht van de DSH (inclusief control plane, etc etc)
+    * Cloud agnostisch, yade yade
+    * USP vaker terug laten komen en aansluiten op BizDev verhaal
+* Wat is een Tenant
+
+<!--s-->
 # Platform 
 
 - A (software) platform is anything you can build (applications) on
@@ -33,11 +40,14 @@ A platform that does something with <!-- .element: class="fragment" data-fragmen
 
 https://aws.amazon.com/streaming-data
 
+Note: speaker notes toevoegen
+
+
 <!--v-->
 ## And out?
 
 > A streaming data platform should also be able to continuously send selected
-> data records to thousands of data syncs.
+> data records to thousands of data sinks.
 
 &ndash;according to us
 
@@ -48,13 +58,16 @@ Not all datastreams are created equal
 ![Huge](./images/huge2.png) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 ![Manneke](./images/manneke.jpg) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
+Digitale waterval?
+
 <!--v-->
 ## Streaming data on DSH 
 
 Focus on two types of streams:
-- MQTT
-- Kafka
+- MQTT (manneke pis)
+- Kafka (waterval)
 
+Note: Kafka == waterval Mqtt == manneke
 <!--v-->
 ## MQTT
 
@@ -62,25 +75,30 @@ Focus on two types of streams:
 - Suitable for many simultaneous connections
 - Widespread use in *Internet of Things*
 
+Note: toevoegen; MQTT voordelen zoals bij SensorThings
+
 <!--v-->
 ## Kafka
 
 - Highly scalable in volume of data
-- Messaging backbone for LinkedIn
+- Messaging backbone for LinkedIn, Netflix, Yahoo, Twiter, Goldman Sachs
 
 <!--v-->
-## Kafka vs MQTT
+## MQTT vs Kafka
 
 - MQTT
-  - _must_ be low volume (max 10 msgs/sec)
-  - can have many sources/sinks
+  - _usually_ low volume _(default 10 msgs/sec)_
+  - can have many sources/sinks (millions)
   - sources/sinks can reside outside of DSH
 - Kafka
   - can have high volume (millions of msgs/sec)
   - _must_ have few sources/sinks
-  - sources/sinks _must_ reside inside DSH
+  - sources/sinks reside inside DSH
 
 $$ \text{MQTT} \cdot \frac{sources}{sinks} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ <!-- .element: class="fragment" data-fragment-index="1" -->
+$$ \frac{sources_{mqtt}}{sinks_{mqtt}}} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ <!-- .element: class="fragment" data-fragment-index="1" -->
+
+Note: kafka sources/ sinks can also reside outside of DSH
 
 <!--s-->
 <!-- .slide: data-transition="fade" -->
@@ -117,6 +135,8 @@ $$ \text{MQTT} \cdot \frac{sources}{sinks} \approx \text{Kafka} \cdot \frac{sour
 
     ```/platform/stream/topic/#```
 
+Note: @Casper go fix! Verhaal verbeteren
+
 <!--v-->
 ## Bridge
 
@@ -137,6 +157,8 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 ```
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
+Note: clearly explain that Kafka only has a single topic, whereas MQTT has multiple levels
+
 <!--v-->
 ## Rarely updated data sources
 
@@ -147,9 +169,9 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 <!--v-->
 ## External data sources 
 
-- most data sources are not MQTT
-- most data sources do not stream
-- most data sources will require custom adapters
+- are not always MQTT
+- do not always stream
+- will require custom adapters
     - allow tenants to write their own
 
 <!--s-->
@@ -171,7 +193,7 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 - Kafka for high volume, few sources/sinks
 - bridge (protocol adaptor) to tie them together 
 - custom data source adapters for external data 
-- latest value store for quicker syncing with the data source
+- latest value store for instant syncing with rarely changing data source
 
 <!--s-->
 # Stream Processing Platform
@@ -185,15 +207,15 @@ A platform that does  <!-- .element: class="fragment" data-fragment-index="1" --
 
 https://data-artisans.com/what-is-stream-processing
 
-<!--v-->
-![Dam](./images/damandfountain.jpg)<!-- .element: class="thin" -->
+Note: key point; process the data while in motion.
 
 <!--v-->
 ## Where to process
 
-- At the edge; i.e. on the device 
-- On the DSH; e.g. if you need a lot of data
-- External; e.g. if specific resources are required
+- At the edge where possible and necessary
+- Close to the data (on the DSH) if you need a lot of data from multiple sources
+
+Note: emphasize necessaty of data&mdash;ECG sensors. 
 
 <!--v-->
 ## Many ways to process the data
@@ -247,8 +269,10 @@ No _One framework to rule them all_, but the DSH to _bind them_.
 # Wrap-up
 
 - DC/OS as base
-- Docker + extra restrictions
-- Tenant networks
+- Docker + extra security
+- Tenant network isolation
+
+Note: question to audience "how do tenants communicate?" KAFKAAAAA
 
 <!--s-->
 # Data Stream Platform
@@ -258,7 +282,7 @@ a platform that holds many different <!-- .element: class="fragment" data-fragme
 <!--v-->
 ## Data Stream
 
-A sequence of digitally encoded signals used to represent information in transmission.
+> A sequence of digitally encoded signals used to represent information in transmission.
 
 [Federal Standard 1037C](https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm)
 
@@ -275,9 +299,9 @@ A sequence of digitally encoded signals used to represent information in transmi
 ## Authenticate
 
 - Certificates for tenant (container) authentication towards Kafka
-- API keys to authenticate tenants that want to let devices/things/users connect to the platform
-- Tokens for MQTT authentication of devices/things/users
+- API key to authenticate tenants that want to let devices/things/users connect to the platform
 - REST token for authentication of MQTT token requests
+- Tokens for MQTT authentication of devices/things/users
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
@@ -297,6 +321,8 @@ A sequence of digitally encoded signals used to represent information in transmi
 
 ![Authentication Relations](images/authentication-relations-3-auth.svg)<!-- .element: class="plain" -->
 
+Note: emphasize why the REST token is required -> multiple protocols in future
+
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
@@ -306,36 +332,27 @@ A sequence of digitally encoded signals used to represent information in transmi
 <!--v-->
 ## Device management
 
+- Provides the necessary building blocks
 - DSH does not manage devices
-- Up to the tenant 
+- Up to the tenant to implement
+
+Note: improve!
 
 <!--v-->
 ## Access control
 
 - Fine-grained on MQTT
   - read `/tt/topic/fixed/tenant/+/#`
-  - write `/tt/topic/other/tenant/+`
+  - write `/tt/topic/other/tenant/`
 - Coarse-grained on Kafka
   - read/write on topic-level
 
 <!--v-->
-## Kafka: some implicit rules
-
+## Kafka
+Three Kafka stream-types
 -  _stream._ topic
 -  _internal._ topic 
 -  _scratch._ topic
-
-<!--v-->
-## Data lineage
-
-- MQTT: add info about producer to the message (envelopes)
-- Kafka: offers no way to enforce this
-
-<!--v-->
-## Kafka lineage 
--  stream.topic_.tenant_  <!-- .element: class="fragment" data-fragment-index="1" --> 
--  internal.topic_.tenant_ <!-- .element: class="fragment" data-fragment-index="1" -->
--  scratch.topic_.tenant_ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--s-->
 # Wrap-up
