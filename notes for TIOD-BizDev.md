@@ -57,5 +57,16 @@
 
 # part 2
 
-## tips
+## tops
 - aparte start, AJ is weer meteen leidend, maar is wel iets minder prominent aanwezig
+- gestructureerde start werkt beter
+- inschatting niveau correcter
+- separation pub/sub is clear, but the explanation regarding the need for separate tokens is very helpful
+
+## tips
+- syncpoints are recommended, as some users are struggling or trailing
+- Some of the actions are too complex for certain types of individuals; certain concepts need to be constantly in view (which UID, what is an API-key, flow to get MQTT token, etc.)
+- the commands are needlessly complicated, what with the sleep and everything. NOTE: AJ states that the sleep makes it into a heartbeat-signal, which is helpful later on. However, the do date part can possibly be replaced (making the -l flag useless).
+- Difficulty curve is now a bit jittery, as step-wise copy-pasting is broken up by undirected self-learning and retrospective explanation.
+- AJ did recap, which shares knowledge and reinforces memory. Intersperse smaller ones throughout the training.
+- Going through ALL THE STEPS before the training is imperative. Incidentally, don't plan trainings in the morning, so we can give Klarrio or whatever the time to fix whatever needs fixing.

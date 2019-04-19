@@ -157,7 +157,7 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 ```
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Note: clearly explain that Kafka only has a single topic, whereas MQTT has multiple levels
+Note: clearly explain that MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the structure is kept, but ACLs are no longer applied.
 
 <!--v-->
 ## Rarely updated data sources
