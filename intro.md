@@ -6,82 +6,97 @@ title: "Introduction to DSH"
 
 <!--s-->
 # What is the DSH?
+AWESOME <!-- .element: class="fragment" data-fragment-index="1" -->
+
+
+<!--v-->
+# Why is the DSH awesome?
 <!-- .slide: class="nobullets" -->
-- Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="1" -->
-- Stream Processing Platform <!-- .element: class="fragment" data-fragment-index="2" -->
-- Data Stream Platform <!-- .element: class="fragment" data-fragment-index="3" -->
+- Data platform <!-- .element: class="fragment" data-fragment-index="1" -->
+- Data (as events) <!-- .element: class="fragment" data-fragment-index="2" -->
+- Sharing <!-- .element: class="fragment" data-fragment-index="3" -->
+- Processing <!-- .element: class="fragment" data-fragment-index="4" -->
+- Scalable <!-- .element: class="fragment" data-fragment-index="5" -->
+- Secure <!-- .element: class="fragment" data-fragment-index="6" -->
+- Low-latency <!-- .element: class="fragment" data-fragment-index="7" -->
 
-<!--s-->
-# Overview
-* Totaal overzicht van de DSH (inclusief control plane, etc etc)
-    * Cloud agnostisch, yade yade
-    * USP vaker terug laten komen en aansluiten op BizDev verhaal
-* Wat is een Tenant
+Note: incomplete list, obvs'.
 
-<!--s-->
-# Platform 
+<!--v-->
 
+# Definition: Streaming Data Platform 
+
+A platform that does something with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
+
+<!--v-->
+
+# Definition: platform 
 - A (software) platform is anything you can build (applications) on
 - Provides reusable infrastructure
 - Takes care of recurring and tedious tasks
 - Should not hamper creativity
 
 <!--s-->
-# Streaming Data Platform 
 
-A platform that does something with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
-
-<!--v-->
-## Streaming Data
-
+# Definition: Streaming Data
 > &hellip;data that is generated continuously by thousands of data
 > sources, which typically send in the data records simultaneously, and in
 > small sizes (order of Kilobytes). 
 
 https://aws.amazon.com/streaming-data
 
-Note: speaker notes toevoegen
-
+Note: this is a quote, and as such only applies to the view of the person making the quote
 
 <!--v-->
-## And out?
+
+## A better definition: Streaming Data
 
 > A streaming data platform should also be able to continuously send selected
 > data records to thousands of data sinks.
 
 &ndash;according to us
 
-<!--s-->
+<!--v-->
 # Types of streaming data
 
 Not all datastreams are created equal
-![Huge](./images/huge2.png) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
-![Manneke](./images/manneke.jpg) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+![tap](./images/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+![rain](./images/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
-Digitale waterval?
+<!-- .center: -->
+One source, low volume | many sources, high volume  <!-- .element: class="fragment" data-fragment-index="2" -->
 
-<!--v-->
-## Streaming data on DSH 
+Single sensor | Stream processing  <!-- .element: class="fragment" data-fragment-index="3" -->
 
-Focus on two types of streams:
-- MQTT (manneke pis)
-- Kafka (waterval)
+MQTT | Kafka  <!-- .element: class="fragment" data-fragment-index="4" -->
 
-Note: Kafka == waterval Mqtt == manneke
 <!--v-->
 ## MQTT
-
+- Messaging protocol
+- ISO/IEC 20922 and, OASIS standard
 - Lightweight messaging protocol
 - Suitable for many simultaneous connections
-- Widespread use in *Internet of Things*
+- Widespread in the *Internet of Things*
 
-Note: toevoegen; MQTT voordelen zoals bij SensorThings
+<!--v-->
 
+## MQTT vs HTTP
+![mqtt-wins](./images/http_vs_mqtt.png) <!-- .element: class="fragment" data-fragment-index="1" -->
+
+Note: MQTT is tiny, efficient, and has nearly no overhead. As a result, less loss of messages, can run on smaller devices, and lower power usage (click, show picture)
 <!--v-->
 ## Kafka
 
-- Highly scalable in volume of data
-- Messaging backbone for LinkedIn, Netflix, Yahoo, Twiter, Goldman Sachs
+- Can handle huge volume of data
+- Event-based
+- Fast!
+- Simple
+- Messaging backbone for:  <!-- .element: class="fragment" data-fragment-index="1" -->
+    - LinkedIn
+    - Netflix
+    - Yahoo
+    - Twitter
+    - Goldman Sachs
 
 <!--v-->
 ## MQTT vs Kafka
@@ -96,13 +111,14 @@ Note: toevoegen; MQTT voordelen zoals bij SensorThings
   - sources/sinks reside inside DSH
 
 $$ \text{MQTT} \cdot \frac{sources}{sinks} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ <!-- .element: class="fragment" data-fragment-index="1" -->
-$$ \frac{sources_{mqtt}}{sinks_{mqtt}}} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 Note: kafka sources/ sinks can also reside outside of DSH
 
 <!--s-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
+
+IN PROGRESS, NO TOUCHIES
 
 ![dsh-overview-1](images/dsh-overview-1-dsh-overview.svg)<!-- .element: class="plain" -->
 
