@@ -226,6 +226,8 @@ Note: emphasize necessaty of data&mdash;ECG sensors.
 
 No _One framework to rule them all_, but the DSH to _bind them_.
 
+Note: analogy: you can bring your project to Black&Decker, and then you'll have a workshop with Black&Decker tools. We provide an empty toolshed; you want to use a Gamma drill? You use a Gamma drill. Alternatively: if you have a BMW, you'll to bring it to a garage that is familiar with BMW. However, we provide an empty shed, you bring your own tools. We don't care if you're going to come in with a BMW, Audi, or a horse.
+
 <!--s-->
 # Wrap-up
 
