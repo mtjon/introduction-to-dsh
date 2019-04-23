@@ -60,8 +60,8 @@ Note: this is a quote, and as such only applies to the view of the person making
 # Types of streaming data
 
 Not all datastreams are created equal
-![tap](./images/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
-![rain](./images/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+![tap](./images/animaged/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
 <!-- .center: -->
 One source, low volume | many sources, high volume  <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -81,10 +81,11 @@ MQTT | Kafka  <!-- .element: class="fragment" data-fragment-index="4" -->
 <!--v-->
 
 ## MQTT vs HTTP
-![mqtt-wins](./images/http_vs_mqtt.png) <!-- .element: class="fragment" data-fragment-index="1" -->
+![mqtt-wins](./images/http_vs_mqtt.png) <!-- .element: class="plain" data-fragment-index="1" -->
 
 Note: MQTT is tiny, efficient, and has nearly no overhead. As a result, less loss of messages, can run on smaller devices, and lower power usage (click, show picture)
 <!--v-->
+
 ## Kafka
 
 - Can handle huge volume of data
@@ -118,40 +119,78 @@ Note: kafka sources/ sinks can also reside outside of DSH
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-IN PROGRESS, NO TOUCHIES
-
-![dsh-overview-1](images/dsh-overview-1-dsh-overview.svg)<!-- .element: class="plain" -->
+![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="plain" width="200%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-2](images/dsh-overview-2-dsh-overview.svg)<!-- .element: class="plain" -->
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="plain" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-3](images/dsh-overview-3-dsh-overview.svg)<!-- .element: class="plain" -->
+![dsh-overview-3](images/dsh/dsh-tenants.svg)<!-- .element: class="plain" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-4](images/dsh-overview-4-dsh-overview.svg)<!-- .element: class="plain" -->
+![dsh-overview-4](images/dsh/dsh-dcos.svg)<!-- .element: class="plain" -->
 
 <!--s-->
-# Bridge
+# MQTT bridge
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="plain" -->
 
-- MQTT protocol adapter
-	- acts _as if_ it is MQTT broker
-	- actually interfaces with Kafka
-- like MQTT
-	- allows wildcard subscriptions:
+- Protocol adapter
+    - MQTT interface with Kafka
+- Like MQTT: allows wildcard subscriptions:<!-- .element: class="fragment" data-fragment-index="1" -->
 
-    ```/platform/stream/topic/#```
+ ```/platform/stream/topic/#```<!-- .element: class="fragment" data-fragment-index="1" -->
 
-Note: @Casper go fix! Verhaal verbeteren
+Note: wildcard subscriptions follow
+
+<!--v-->
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_base.svg)<!-- .element: class="plain" -->
+
+Example topic structure
+
+<!--v-->
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_everything.svg)<!-- .element: class="plain" -->
+
+```bash
+mosquitto_sub -t "#"
+```
+<!--v-->
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_sensor.svg)<!-- .element: class="plain" -->
+
+```bash
+mosquitto_sub -t "house/Study/Tele/SENSOR/#"
+```
+
+<!--v-->
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_branch.svg)<!-- .element: class="plain" -->
+```bash
+mosquitto_sub -t "house/Study/Tele/#"
+```
+<!--v-->
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_sensorS.svg)<!-- .element: class="plain" -->
+
+```bash
+mosquitto_sub -t "house/+/Tele/SENSOR/#"
+```
+
+<!--v-->
+
+
+[![asciicast](https://asciinema.org/a/242386.svg)](https://asciinema.org/a/242386)
+<!-- <script id="asciicast-WXXC4cMVi73TxVpLS8aB02Ucr" src="https://asciinema.org/a/WXXC4cMVi73TxVpLS8aB02Ucr.js" async></script> -->
 
 <!--v-->
 ## Bridge
@@ -325,19 +364,19 @@ a platform that holds many different <!-- .element: class="fragment" data-fragme
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication-relations-1-auth.svg)<!-- .element: class="plain" -->
+![Authentication Relations](images/authentication/authentication-relations-1-auth.svg)<!-- .element: class="plain" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication-relations-2-auth.svg)<!-- .element: class="plain" -->
+![Authentication Relations](images/authentication/authentication-relations-2-auth.svg)<!-- .element: class="plain" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication-relations-3-auth.svg)<!-- .element: class="plain" -->
+![Authentication Relations](images/authentication/authentication-relations-3-auth.svg)<!-- .element: class="plain" -->
 
 Note: emphasize why the REST token is required -> multiple protocols in future
 
@@ -345,7 +384,7 @@ Note: emphasize why the REST token is required -> multiple protocols in future
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication-relations-4-auth.svg)<!-- .element: class="plain" -->
+![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="plain" -->
 
 <!--v-->
 ## Device management
