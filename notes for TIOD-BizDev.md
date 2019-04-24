@@ -70,3 +70,12 @@
 - Difficulty curve is now a bit jittery, as step-wise copy-pasting is broken up by undirected self-learning and retrospective explanation.
 - AJ did recap, which shares knowledge and reinforces memory. Intersperse smaller ones throughout the training.
 - Going through ALL THE STEPS before the training is imperative. Incidentally, don't plan trainings in the morning, so we can give Klarrio or whatever the time to fix whatever needs fixing.
+
+
+
+# Overview
+
+* Totaal overzicht van de DSH (inclusief control plane, etc etc)
+    * Cloud agnostisch, yade yade
+    * USP vaker terug laten komen en aansluiten op BizDev verhaal
+* Wat is een Tenant
