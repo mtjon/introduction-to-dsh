@@ -13,3 +13,12 @@ revealOptions:
 - Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="1" -->
 - Stream Processing Platform <!-- .element: class="fragment" data-fragment-index="2" -->
 - Data Stream Platform <!-- .element: class="fragment" data-fragment-index="3" -->
+
+<!--s-->
+# Wrap-up
+
+- DSH can process streams: 
+    - but is not always the right place to do it
+    - and does not dictate how to process them
+
+<!--s-->
