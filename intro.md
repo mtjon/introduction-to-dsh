@@ -49,12 +49,10 @@ Note: this is a quote, and as such only applies to the view of the person making
 
 <!--v-->
 
-## A better definition: Streaming Data
+## Our definition: Streaming Data
 
 > A streaming data platform should also be able to continuously send selected
 > data records to thousands of data sinks.
-
-&ndash;according to us
 
 <!--v-->
 # Data Streams
@@ -75,12 +73,14 @@ Not all datastreams are created equal
 ![tap](./images/animated/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 ![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
-<!-- .center: -->
-One source, low volume | many sources, high volume  <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Single sensor | Stream processing  <!-- .element: class="fragment" data-fragment-index="3" -->
-
-MQTT | Kafka  <!-- .element: class="fragment" data-fragment-index="4" -->
+$$
+\begin{align}
+\text{One source, low volume} &| \text{many sources, high volume} \\\\\\  
+\text{Single sensor} &| \text{Stream processing} \\\\\\  
+\text{MQTT} &| \text{Kafka} \\\\\\  
+\end{align}
+$$ <!-- .element: class="thinner fragment" data-fragment-index="2" -->
 
 <!--s-->
 ## MQTT
@@ -104,7 +104,7 @@ Note: more about MQTT later
     - Netflix
     - Yahoo
     - Twitter
-    - Goldman Sachs
+    <!-- - Goldman Sachs -->
 
 <!--v-->
 ## MQTT vs Kafka
@@ -280,7 +280,7 @@ Three Kafka stream-types
 $$\begin{align}
 \text{MQTT topic prefix} &= \text{Kafka cluster name} \\\\\\  
 \text{MQTT topic infix}  &= \text{Kafka topic name} \\\\\\
-\text{keys in Kafka}     &= \text{MQTT topic suffix} \\\\\\ 
+\text{MQTT topic suffix} &= \text{keys in Kafka} \\\\\\ 
 \end{align}$$
 
 ```scala
@@ -346,13 +346,21 @@ Note: analogy: you can bring your project to Black&Decker, and then you'll have 
 - And they can use whatever software they want on the platform
 
 <!--v-->
+<!-- .slide: data-transition="fade" -->
+## Base DSH
+![DC/OS](images/dsh/dsh-tenants.svg)<!-- .element: class="plain" -->
 
-![dsh-overview-5](images/dsh/dsh-dcos.svg)<!-- .element: class="plain" -->
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Calico
+![DC/OS](images/dsh/dsh-calico.svg)<!-- .element: class="plain" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## DC/OS
+![dsh-overview-5](images/dsh/dsh-dcos.svg)<!-- .element: class="plain" -->
 
+<!--v-->
 ![DC/OS](images/old/dsh-overview-6-dsh-overview.svg)<!-- .element: class="plain" -->
 Note: DC/OS is the base, tenants run their docker containers on top of it. DC/OS is supported by most stream processing frameworks
 
@@ -378,7 +386,7 @@ Note: docker is already quite secure, but the DSH ensures you can't hack your wa
 Note: question to audience "how do tenants communicate?" KAFKAAAAA
 
 <!--s-->
-## Authenticate
+# Security Nightmare: authentication
 
 - Certificates for tenant (container) authentication towards Kafka
 - API key to authenticate tenants that want to let devices/things/users connect to the platform
@@ -411,14 +419,14 @@ Note: emphasize why the REST token is required -> multiple protocols in future
 
 ![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="plain" -->
 
-<!--s-->
+<!--v-->
 ## Device management
 
 - DSH does not manage devices
-- Up to the tenant to implement <!-- .element: class="fragment" data-fragment-index="1" -->
-- Provides the necessary building blocks <!-- .element: class="fragment" data-fragment-index="1" -->
+- Up to the tenant to implement <!-- .element: class="fragment" data-fragment-index="2" -->
+- Provides the necessary building blocks <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Note: improve!
+Note: which building blocks?
 
 <!--v-->
 ## Access control
@@ -441,3 +449,4 @@ Note: improve!
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
+# Questions?
