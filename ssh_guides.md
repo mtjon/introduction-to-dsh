@@ -5,20 +5,94 @@ title: "SSH guide"
 # SSH guides
 
 <!--s-->
-# Terminology, definitions, and things to interact with.
-- VM: Virtual Machine. the trainer made one for everyone. It lives in the cloud, and you will need to authenticate to interact with it. We will identify these based on their IP.
-- SSH: secure shell. A way to interact with remote systems (such as our VM)
-- Keyfile: a file, which acts like a key. You will generate your own unique keyfile, which will then be given to your VM.
+<!-- # Terminology -->
+We'll first need to introduce some terminology, definitions, and things you'll interact with.
+
+If you know about SSH, can generate your own ssh-keys, and are familiar with a terminal or shell, you can skip this part.
+<!--v-->
+
+# Terminology
+- VM: Virtual Machine. The trainer made one for everyone. We will identify these based on their IP.
+- SSH: secure shell. A way to interact with remote systems (such as our VM). 
+- Authentication: the VM only allows SSH connections from systems it knows. So, you'll need to authenticate. 
+
+Note: for keyfiles, see next slide.
+
+<!--v-->
+# Keyfiles
+1. You will generate your own unique keyfile.
+2. You will send this keyfile to your trainer.
+3. Your keyfile will be given to your VM, which will then be able to recognize and authenticate your session.
+
+A keyfile consists of two parts:
+- A private key. You do _NOT_ share this, ever.
+- A public key, which you can share. This should have the extionsion `.pub`
+
+<!--v-->
+# Options to connect over SSH
+- Linux and Mac have an SSH client built in.
+- Windows _usually_ does not. 
+    - PowerShell has a SSH-module (Posh-SSH).
+    - Putty is a free SSH (and Telnet) client. There are versions for Linux and Mac as well.
+    - Windows Subsystem for Linux allows you to run Linux commands (including SSH) on your Windows system.
+    - Many more options, use whatever you're comfortable with. We'll discuss the first three.
 
 <!--s-->
 # Do you already have SSH?
-1. Open a terminal, or open PowerShell (WIN+X, A, click `yes`).
+1. Open a terminal (or PowerShell; WIN+X, A, click `yes`).
 2. type `ssh`, and hit `enter`
 
 If you see a response (i.e. not an error), you have SSH!
 Hang back and wait for everyone else to catch up!
 
 <!-- Hang back and let the plebians deal with the horror of installing basic software. -->
+
+
+<!--s-->
+# Getting Putty
+
+1. Download Putty ([64bit](https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.71-installer.msi), [32bit](https://the.earth.li/~sgtatham/putty/latest/w32/putty-0.71-installer.msi))
+2. Open the installer, and follow the instructions. Please ensure the features look like this:
+![](images/ssh/putty_install.png)<!-- .element: class="plain" -->
+
+<!--v-->
+# SSH keys (PuttyGen)
+Open PuttyGen, and look for the 'generate'-button:
+![](images/ssh/puttygen.png)<!-- .element: class="plain" -->
+
+<!--v-->
+
+puttygen privatekey.ppk -O private-openssh -o privatekey.pem
+
+<!--s-->
+
+# Getting WSL
+1. Open PowerShell (WIN+X, A), and run the following command:
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+<!-- - This simple command tells Windows to go and collect the Windows Subsystem for Linux, without you needing to go through all the menu's and clickyboxes. -->
+2. Reboot when prompted.
+3. After rebooting, open the Windows Store, and search for `Ubuntu`.
+4. Click `install` or `download`, and wait for it to complete.
+5. When it's done, there should be an icon for Ubuntu. Click it, set (and remember!) your password.
+7. Go to the next slide (down)
+
+<!--v-->
+# SSH key generation
+8. In your Ubuntu terminal, type 
+```bash
+sudo apt install ssh
+ssh-keygen -t rsa
+```
+9. Follow the instructions. 
+10. Open the `run` dialog in Windows (WIN+R), and enter
+`%LocalAppData%\Packages\`
+11. Find the one that has `Ubuntu` in its name 
+<!-- (CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc) -->
+12. Drill down to `\LocalState\rootfs\home\`, 
+13. Open the folder corresponding to your Ubuntu username, and open the .ssh folder. 
+14. Mail the `.pub` file to the trainer.
 
 <!--s-->
 # Getting SSH (Powershell) 
@@ -66,41 +140,6 @@ And follow the instructions, naming the key as follows: `id_yourname`. If this g
 Open the run dialog (WIN+R), and type `%userprofile%/.ssh`. You should find two files, of which one  the public (`.pub`) key. Send the public key to the trainer.
 
 
-<!--s-->
-# Getting Putty
-
-<!--v-->
-# SSH key generation
-
-<!--s-->
-# Getting WSL
-
-- Open PowerShell (WIN+X, A), and run the following command:
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-```
-<!-- - This simple command tells Windows to go and collect the Windows Subsystem for Linux, without you needing to go through all the menu's and clickyboxes. -->
-- Reboot when prompted.
-- After rebooting, open the Windows Store, and search for `Ubuntu`.
-- Click `install` or `download`, and wait for it to complete.
-- When it's done, there should be an icon for Ubuntu. Click it, set (and remember!) your password.
-- Go to the next slide (down)
-
-<!--v-->
-# SSH key generation
-- In your Ubuntu terminal, type 
-```bash
-sudo apt install ssh
-ssh-keygen -t rsa
-```
-- Follow the instructions. 
-- Open the `run` dialog in Windows (WIN+R), and enter
-`%LocalAppData%\Packages\`
-- Find the one that has `Ubuntu` in its name 
-<!-- (CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc) -->
-- Drill down to `\LocalState\rootfs\home\`, 
-- Open the folder corresponding to your Ubuntu username, and open the .ssh folder. 
-- Mail the `.pub` file to the trainer.
 
 <!--s-->
 # Connecting
@@ -135,6 +174,8 @@ Enter-PSSession -HostName UserA@LinuxServer01 -->
 <!--s-->
 # UMP
 
-https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/dsh-ump-1.2.0-x86_64.AppImage
-https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP-1.2.0.dmg
-https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP+Setup+1.2.0.exe
+[Linux](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/dsh-ump-1.2.0-x86_64.AppImage)
+
+[Mac](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP-1.2.0.dmg)
+
+[Windows](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP+Setup+1.2.0.exe)

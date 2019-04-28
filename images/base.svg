@@ -1060,16 +1060,23 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="863.38921"
-     inkscape:cy="507.5991"
+     inkscape:cx="1014.6565"
+     inkscape:cy="350.42143"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer5"
      showgrid="false"
-     inkscape:window-width="2400"
-     inkscape:window-height="1271"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="381"
+     inkscape:window-y="1841"
+     inkscape:window-maximized="1"
+     showguides="false">
+    <sodipodi:guide
+       position="90.33631,197.68155"
+       orientation="0,1"
+       id="guide16473"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -1078,7 +1085,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1102,7 +1109,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(128.58886,43.822136)"
-     style="display:inline">
+     style="display:none">
     <g
        id="g249511"
        transform="matrix(1.1186096,0,0,1.146335,-11.556194,-10.66199)">
@@ -1183,7 +1190,7 @@
      id="layer7"
      inkscape:label="Sources and sinks"
      transform="translate(117.5978,50.267429)"
-     style="display:inline">
+     style="display:none">
     <g
        id="g8416">
       <rect
@@ -1604,7 +1611,7 @@
        inkscape:groupmode="layer"
        id="layer14"
        inkscape:label="Perfect tenants"
-       style="display:inline">
+       style="display:none">
       <rect
          style="display:inline;opacity:1;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.47839093;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect251019-0-4"
@@ -2030,7 +2037,7 @@
        inkscape:groupmode="layer"
        id="layer8"
        inkscape:label="Custom sink"
-       style="display:inline">
+       style="display:none">
       <path
          transform="translate(1.0625e-6)"
          style="display:inline;opacity:1;fill:none;stroke:#000000;stroke-width:0.87;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Mstart-18-3-1-2-99)"
@@ -2066,7 +2073,7 @@
        inkscape:groupmode="layer"
        id="layer12"
        inkscape:label="Custom source"
-       style="display:inline">
+       style="display:none">
       <g
          id="g8450"
          transform="translate(0,-3.7041668)">
@@ -2132,7 +2139,7 @@
        inkscape:groupmode="layer"
        id="layer16"
        inkscape:label="topics  (coloured)"
-       style="display:inline"
+       style="display:none"
        transform="translate(-117.5978,-50.267429)">
       <text
          transform="translate(117.5978,50.267428)"
@@ -2240,7 +2247,7 @@
        id="layer15"
        inkscape:label="topics"
        transform="translate(-117.5978,-50.267429)"
-       style="display:inline">
+       style="display:none">
       <text
          transform="translate(117.5978,50.267428)"
          xml:space="preserve"
@@ -2457,7 +2464,7 @@
      inkscape:groupmode="layer"
      id="layer11"
      inkscape:label="DCOS"
-     style="display:inline"
+     style="display:none"
      transform="translate(109.47739,16.859422)">
     <rect
        style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.87742668;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
