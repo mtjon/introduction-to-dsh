@@ -1,6 +1,14 @@
 ---
 title: "Introduction to DSH"
 ---
+<!-- .initialize({
+	width: "100%",
+	height: "100%",
+	margin: 0,
+	minScale: 0.2,
+	maxScale: 3
+});-->
+
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
 # An introduction to the Data Services Hub
 
@@ -126,35 +134,34 @@ Note: kafka sources/ sinks can also reside outside of DSH
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="plain" width="200%" -->
+![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="plain" -->
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-2](images/dsh/dsh-sourcessinks.svg)<!-- .element: class="plain" -->
+![dsh-overview-2](images/dsh/dsh-sourcessinks.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-3](images/dsh/dsh-tenants.svg)<!-- .element: class="plain" -->
-
+![dsh-overview-3](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-4](images/dsh/dsh-tenants-contents.svg)<!-- .element: class="plain" -->
+![dsh-overview-4](images/dsh/dsh-tenants-contents.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--s-->
 # MQTT bridge
-![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="plain" -->
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 - Protocol adapter
     - MQTT interface with Kafka
@@ -167,7 +174,7 @@ Note: wildcard subscriptions follow
 <!--v-->
 
 ## MQTT vs HTTP
-![mqtt-wins](./images/http_vs_mqtt_t.png) <!-- .element: class="plain" width="100%"-->
+![mqtt-wins](./images/http_vs_mqtt_t.png)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 Note: MQTT is tiny, efficient, and has nearly no overhead. As a result, less loss of messages, can run on smaller devices, and lower power usage (click, show picture)
 
@@ -176,7 +183,7 @@ Note: MQTT is tiny, efficient, and has nearly no overhead. As a result, less los
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_base.svg)<!-- .element: class="plain" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_base.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 ```bash
 mosquitto_sub -t ""
@@ -186,7 +193,7 @@ mosquitto_sub -t ""
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_everything.svg)<!-- .element: class="plain" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_everything.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 ```bash
 mosquitto_sub -t "#"
@@ -195,7 +202,8 @@ mosquitto_sub -t "#"
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_sensor.svg)<!-- .element: class="plain" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_sensor.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
 
 ```bash
 mosquitto_sub -t "house/Study/Tele/SENSOR/#"
@@ -204,7 +212,7 @@ mosquitto_sub -t "house/Study/Tele/SENSOR/#"
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_branch.svg)<!-- .element: class="plain" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_branch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 ```bash
 mosquitto_sub -t "house/Study/Tele/#"
 ```
@@ -212,13 +220,13 @@ mosquitto_sub -t "house/Study/Tele/#"
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_sensorS.svg)<!-- .element: class="plain" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_sensorS.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 ```bash
 mosquitto_sub -t "house/+/Tele/SENSOR/#"
 ```
 
-Note: mention the storage of values
+Note: mention that MQTT stores the latest value _before_ going to the next slide
 <!--v-->
 
 [![asciicast](https://asciinema.org/a/242386.svg)](https://asciinema.org/a/242386)
@@ -249,20 +257,19 @@ Note: do we say other adapters are in the works?
 
 ## Kafka
 
-![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="plain" -->
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Kafka
 
-![dsh-overview-5](images/dsh/dsh-topics.svg)<!-- .element: class="plain" -->
-
+![dsh-overview-5](images/dsh/dsh-topics.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Kafka
 
-![dsh-overview-5](images/dsh/dsh-topics-coloured.svg)<!-- .element: class="plain" -->
+![dsh-overview-5](images/dsh/dsh-topics-coloured.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!-- ## Kafka and streams -->
 
@@ -348,20 +355,17 @@ Note: analogy: you can bring your project to Black&Decker, and then you'll have 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Base DSH
-![DC/OS](images/dsh/dsh-tenants.svg)<!-- .element: class="plain" -->
-
+![DC/OS](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Calico
-![DC/OS](images/dsh/dsh-calico.svg)<!-- .element: class="plain" -->
-
+![DC/OS](images/dsh/dsh-calico.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## DC/OS
-![dsh-overview-5](images/dsh/dsh-dcos.svg)<!-- .element: class="plain" -->
-
+![dsh-overview-5](images/dsh/dsh-dcos.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
-![DC/OS](images/old/dsh-overview-6-dsh-overview.svg)<!-- .element: class="plain" -->
+![DC/OS](images/old/dsh-overview-6-dsh-overview.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: DC/OS is the base, tenants run their docker containers on top of it. DC/OS is supported by most stream processing frameworks
 
 <!--v-->
@@ -386,7 +390,7 @@ Note: docker is already quite secure, but the DSH ensures you can't hack your wa
 Note: question to audience "how do tenants communicate?" KAFKAAAAA
 
 <!--s-->
-# Security Nightmare: authentication
+# Authentication Nightmare
 
 - Certificates for tenant (container) authentication towards Kafka
 - API key to authenticate tenants that want to let devices/things/users connect to the platform
@@ -397,28 +401,24 @@ Note: question to audience "how do tenants communicate?" KAFKAAAAA
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication/authentication-relations-1-auth.svg)<!-- .element: class="plain" -->
-
+![Authentication Relations](images/authentication/authentication-relations-1-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication/authentication-relations-2-auth.svg)<!-- .element: class="plain" -->
-
+![Authentication Relations](images/authentication/authentication-relations-2-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication/authentication-relations-3-auth.svg)<!-- .element: class="plain" -->
-
+![Authentication Relations](images/authentication/authentication-relations-3-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: emphasize why the REST token is required -> multiple protocols in future
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="plain" -->
-
+![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 ## Device management
 
@@ -449,4 +449,4 @@ Note: which building blocks?
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
-# Questions?
+# Practical part
