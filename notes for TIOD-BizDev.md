@@ -75,7 +75,18 @@
 
 # Overview
 
-* Totaal overzicht van de DSH (inclusief control plane, etc etc)
-    * Cloud agnostisch, yade yade
-    * USP vaker terug laten komen en aansluiten op BizDev verhaal
-* Wat is een Tenant
+- Totaal overzicht van de DSH (inclusief control plane, etc etc)
+    - Cloud agnostisch, yade yade
+    - USP vaker terug laten komen en aansluiten op BizDev verhaal
+- Wat is een Tenant
+
+# evaluation
+- final level seems insufficient
+- complexity is an issue
+- recaps are perceived as helpful, likely partially compensating for the complexity
+- analogies are helpful
+- there is a request for the 'pace on the screen', meaning the location in the presentation respective to the other components.
+- the pace is inconsistent, and syncpoints are recommended
+- sync points in the practical part are essential
+- Multiple requests for building something (microservice, or whatever)
+- validation of understanding helps the group feel listened to, and works as syncpoints
