@@ -160,30 +160,28 @@ Note: kafka sources/ sinks can also reside outside of DSH
 ![dsh-overview-4](images/dsh/dsh-tenants-contents.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--s-->
-# MQTT bridge
+# MQTT
 ![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
+<!--v-->
+## MQTT bridge
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="30%" -->
 - Protocol adapter
     - MQTT interface with Kafka
 - Like MQTT: allows wildcard subscriptions:<!-- .element: class="fragment" data-fragment-index="2" -->
 
- ```/platform/stream/topic/#```<!-- .element: class="fragment" data-fragment-index="2" -->
+ ```
+ /platform/stream/topic/#
+ ```
+ <!-- .element: class="fragment" data-fragment-index="2" -->
 
 Note: wildcard subscriptions follow
-
-<!--v-->
-
-## MQTT vs HTTP
-![mqtt-wins](./images/http_vs_mqtt_t.png)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-Note: MQTT is tiny, efficient, and has nearly no overhead. As a result, less loss of messages, can run on smaller devices, and lower power usage (click, show picture)
-
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_base.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_base.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 ```bash
 mosquitto_sub -t ""
@@ -193,7 +191,7 @@ mosquitto_sub -t ""
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_everything.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_everything.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 ```bash
 mosquitto_sub -t "#"
@@ -202,7 +200,7 @@ mosquitto_sub -t "#"
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_sensor.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_sensor.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 
 ```bash
@@ -212,7 +210,8 @@ mosquitto_sub -t "house/Study/Tele/SENSOR/#"
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_branch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_branch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+
 ```bash
 mosquitto_sub -t "house/Study/Tele/#"
 ```
@@ -220,7 +219,7 @@ mosquitto_sub -t "house/Study/Tele/#"
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
 
-![dsh-overview-4](images/dsh/MQTTtopicstructure_sensorS.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-4](images/dsh/MQTTtopicstructure_sensorS.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 ```bash
 mosquitto_sub -t "house/+/Tele/SENSOR/#"
@@ -230,10 +229,20 @@ Note: mention that MQTT stores the latest value _before_ going to the next slide
 <!--v-->
 
 [![asciicast](https://asciinema.org/a/242386.svg)](https://asciinema.org/a/242386)
-<!-- <script id="asciicast-WXXC4cMVi73TxVpLS8aB02Ucr" src="https://asciinema.org/a/WXXC4cMVi73TxVpLS8aB02Ucr.js" async></script> -->
 
 Note: clearly explain that MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the structure is kept, but ACLs are no longer applied.
 
+<!--v-->
+
+<!-- .slide: data-=<script id="asciicast-242386" src="https://asciinema.org/a/242386.js" async></script> -->
+
+<!--v-->
+
+<!-- .slide: data-background-video="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" data-background-video-loop -->
+
+
+
+Note: clearly explain that MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the structure is kept, but ACLs are no longer applied.
 <!--v-->
 ## Rarely updated data sources
 
@@ -450,3 +459,5 @@ Note: which building blocks?
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
 # Practical part
+
+Note: tell the audience that the next part is for the technical people. The rest can go get coffee and feel inadequate.
