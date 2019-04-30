@@ -34,3 +34,9 @@ MQTT | Kafka  <!-- .element: class="fragment" data-fragment-index="4" -->
 <!-- [![asciicast](https://asciinema.org/a/242386.svg)](https://asciinema.org/a/242386) -->
 <!-- <script id="asciicast-WXXC4cMVi73TxVpLS8aB02Ucr" src="https://asciinema.org/a/WXXC4cMVi73TxVpLS8aB02Ucr.js" async></script> -->
 <!-- .slide: data-iframe='http://www.statdistributions.com'-->
+
+
+
+![test](https://asciinema.org/a/242386.svg) <!-- .element: class="stretch" src="https://asciinema.org/a/242386.svg" width=25% -->
+
+<!--v-->
