@@ -6,6 +6,84 @@ title: "Introduction to DSH: MQTT"
 ## Streaming over MQTT
 
 <!--s-->
+## MQTT bridge
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+Note: MQTT Protocol adapter allows MQTT interface with Kafka
+
+
+Note: wildcard subscriptions follow
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Topic tree
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_base.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+
+```bash
+mosquitto_sub -t ""
+```
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Topic tree
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_everything.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+
+```bash
+mosquitto_sub -t "#"
+```
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Topic tree
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_sensor.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+
+
+```bash
+mosquitto_sub -t "house/Study/Tele/SENSOR/#"
+```
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Topic tree
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_branch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+
+```bash
+mosquitto_sub -t "house/Study/Tele/#"
+```
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Topic tree
+
+![dsh-overview-4](images/dsh/MQTTtopicstructure_sensorS.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+
+```bash
+mosquitto_sub -t "house/+/Tele/SENSOR/#"
+```
+
+Note: mention that MQTT stores the latest value _before_ going to the next slide
+<!--v-->
+
+[![asciicast](https://asciinema.org/a/242386.svg)](https://asciinema.org/a/242386)
+
+Note: clearly explain that MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the structure is kept, but ACLs are no longer applied.
+
+<!--v-->
+
+## Rarely updated data sources
+
+- MQTT stores only the last value
+- DSH implements a 'latest value store'
+<!-- tracks keys in a stream -->
+Note: distributed in-memory key-value store. We saw that as the video started.
+
+<!--s-->
+<!-- .slide: data-transition="fade" -->
+## Authentication relations
+
+![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+<!--s-->
 ## Prerequisites
 
 - Installed: [Curl](https://curl.haxx.se)
@@ -20,7 +98,7 @@ title: "Introduction to DSH: MQTT"
 <!-- .element: class="lefty" -->Learn how to subscribe and publish data on one of the DSH public datastreams
 via MQTT
 
-<!--s-->
+<!--v-->
 ## Steps
 
 1. Get an API-key
@@ -42,7 +120,7 @@ Each of these entities can use this API-key to:
 
 we call these entities<!-- .element: class="lefty fragment" data-fragment-index="2" --> _tenants_<!-- .element: class="lefty fragment" data-fragment-index="2" -->
 
-<!--s-->
+<!--v-->
 ## Get an API-key
 
 Along with the API-key you will also receive: <!-- .element: class="lefty" -->
@@ -63,7 +141,7 @@ export API_KEY=...
 - can be requested over the _REST API_ of DSH on the `/auth/v0/token` endpoint
 - this endpoint requires an _API-key_ and the name of your _tenant_
 
-<!--s-->
+<!--v-->
 ## Command
 ```bash
 curl -X POST \
@@ -72,7 +150,7 @@ curl -X POST \
   -d '{"tenant": "'$TENANT'"}' > rest-token.txt
 ```
 
-<!--s-->
+<!--v-->
 ## Output
 - This command will result in a _REST token_ 
 - This is a _JWT_ containing a set of _REST claims_ 
@@ -94,7 +172,7 @@ JWT (REST token) you received in the previous step.<!-- .element: class="lefty" 
 
 Did you just blindly give away credentials to an unknown website?  <!-- .element: class="lefty fragment" data-fragment-index="1" -->
 
-<!--s-->
+<!--v-->
 ## Contents of a JWT
 <!-- .element: class="lefty" -->Command-line alternative for Linux:
 ```bash
@@ -124,7 +202,7 @@ jq .
 export THING_ID=...
 ```
 
-<!--s-->
+<!--v-->
 ## Command
 ```bash
 curl -X POST \
@@ -133,7 +211,7 @@ curl -X POST \
 -d '{"id":"'$THING_ID'"}' > mqtt-token.txt
 ```
 
-<!--s-->
+<!--v-->
 ## Output
 - This command will result in an _MQTT token_ 
 - This is a _JWT_ containing a set of _claims_ 
@@ -177,7 +255,7 @@ jq .
   - `#` => wildcards are allowed here
   - `word` => you need to copy this verbatim
 
-<!--s-->
+<!--v-->
 ## Command
 <!-- .element: class="lefty" -->On Linux, execute the following command:
 ```bash
@@ -194,7 +272,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -v
 ```
 
-<!--s-->
+<!--v-->
 ## Notes
 - The username (`-u ...`) is not required for the DSH; it gets overruled
   by the `THING_ID` in the token. We put it here because some versions of the
@@ -210,7 +288,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 - Open a new terminal, we are going to use it to periodically send a message to DSH over mqtt
   - Ensure the required environment variables are available
 
-<!--s-->
+<!--v-->
 ## Command
 <!-- .element: class="lefty" -->On Linux, execute the following command:
 ```bash
@@ -230,7 +308,7 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -l
 ```
 
-<!--s-->
+<!--v-->
 ## Notes
 - What do you see? Why?
 - Try replacing `sleep 1` by `true`; what happens?

@@ -57,13 +57,42 @@ Hang back and wait for everyone else to catch up!
 
 <!--v-->
 # SSH keys (PuttyGen)
-Open PuttyGen, and look for the 'generate'-button:
+Open PuttyGen, and hit the 'generate'-button:
+
 ![](images/ssh/puttygen.png)<!-- .element: class="plain" -->
 
 <!--v-->
+You should see your key as text, and need to save it. However, PuttyGen employs a non-standard format.
 
-puttygen privatekey.ppk -O private-openssh -o privatekey.pem
+1. Add a passphrase (_and remember it!_)
+2. Save your public and private key, using the buttons.
+2. Copy-paste the key into a text editor
+3. Save the text file as `id_YOURNAME.pub`. For example: `id_janjanssen.pub`.
+4. Mail the `.pub` file to the trainer.
 
+Note: this *MAY* work as well: ```puttygen privatekey.ppk -O private-openssh -o privatekey.pem```
+
+<!--s-->
+# Using Putty
+
+Open Putty and navigate to `connection/SSH/Auth`. Use `browse` to select your private key.
+
+![](images/ssh/putty_auth.png)<!-- .element: class="plain" -->
+
+
+<!--v-->
+# Using Putty
+
+Navigate to `Session`, and fill in the IP address provided by the trainer. Finally, hit `open`.
+
+![](images/ssh/putty_session.png)<!-- .element: class="plain" -->
+
+<!--v-->
+# Using Putty
+1. You should get a security alert, as your system does not know the remote system. Select `yes`.
+2. Observe the terminal: this is your window to the VM
+2. Use `ubuntu` as the username
+3. Use your passphrase
 <!--s-->
 
 # Getting WSL

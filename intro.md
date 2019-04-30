@@ -175,112 +175,25 @@ Note: kafka sources/ sinks can also reside outside of DSH
  ```
  <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Note: wildcard subscriptions follow
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-## Topic tree
-
-![dsh-overview-4](images/dsh/MQTTtopicstructure_base.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
-
-```bash
-mosquitto_sub -t ""
-```
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-## Topic tree
-
-![dsh-overview-4](images/dsh/MQTTtopicstructure_everything.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
-
-```bash
-mosquitto_sub -t "#"
-```
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-## Topic tree
-
-![dsh-overview-4](images/dsh/MQTTtopicstructure_sensor.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
-
-
-```bash
-mosquitto_sub -t "house/Study/Tele/SENSOR/#"
-```
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-## Topic tree
-
-![dsh-overview-4](images/dsh/MQTTtopicstructure_branch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
-
-```bash
-mosquitto_sub -t "house/Study/Tele/#"
-```
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-## Topic tree
-
-![dsh-overview-4](images/dsh/MQTTtopicstructure_sensorS.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
-
-```bash
-mosquitto_sub -t "house/+/Tele/SENSOR/#"
-```
-
-Note: mention that MQTT stores the latest value _before_ going to the next slide
-<!--v-->
-
-[![asciicast](https://asciinema.org/a/242386.svg)](https://asciinema.org/a/242386)
-
-Note: clearly explain that MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the structure is kept, but ACLs are no longer applied.
-
-<!--v-->
-
-<!-- .slide: data-=<script id="asciicast-242386" src="https://asciinema.org/a/242386.js" async></script> -->
-
-<!--v-->
-
-<!-- .slide: data-background-video="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" data-background-video-loop -->
-
-
-
-Note: clearly explain that MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the structure is kept, but ACLs are no longer applied.
-<!--v-->
-## Rarely updated data sources
-
-- MQTT stores only the last value
-- DSH implements a 'latest value store'
-<!-- tracks keys in a stream -->
-Note: distributed in-memory key-value store. We saw that as the video started.
+Note: wildcard subscriptions later, in the MQTT part
 
 <!--v-->
 ## External data sources 
 
-- are not always MQTT
+- are not always MQTT ... <!-- .element: class="fragment" data-fragment-index="2" -->
 <!-- - do not always stream -->
-- will require custom adapters
-- we allow tenants to write their own adapters
+- ... and will therefore require custom adapters  <!-- .element: class="fragment" data-fragment-index="3" -->
+
+We allow tenants to write their own adapters  <!-- .element: class="fragment" data-fragment-index="4" -->
 
 Note: do we say other adapters are in the works?
 
 <!--s-->
 <!-- .slide: data-transition="fade" -->
 
-## Kafka
+# Kafka
 
 ![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-## Kafka
-
-![dsh-overview-5](images/dsh/dsh-topics.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-## Kafka
-
-![dsh-overview-5](images/dsh/dsh-topics-coloured.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!-- ## Kafka and streams -->
 
 <!--v-->
 
@@ -291,24 +204,9 @@ Three Kafka stream-types
 -  _scratch._ topic
 
 <!--v-->
-## Kafka and the MQTT Bridge
+<!-- .slide: data-transition="fade" -->
+![kafkastreams](images/dsh/dsh-kafkastreams.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
-$$\begin{align}
-\text{MQTT topic prefix} &= \text{Kafka cluster name} \\\\\\  
-\text{MQTT topic infix}  &= \text{Kafka topic name} \\\\\\
-\text{MQTT topic suffix} &= \text{keys in Kafka} \\\\\\ 
-\end{align}$$
-
-```scala
-MQTT(topic="/tt/cam/id", data="...")
-```
-<!-- .element: class="fragment" data-fragment-index="2" -->
-$=$
-<!-- .element: class="fragment" data-fragment-index="2" -->
-```scala
-Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
-```
-<!-- .element: class="fragment" data-fragment-index="2" -->
 
 <!--v-->
 ## Many data streams

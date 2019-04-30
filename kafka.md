@@ -5,6 +5,60 @@ title: "Introduction to DSH: Kafka"
 # Streaming over Kafka
 
 <!--s-->
+# Kafka
+
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+<!--v-->
+
+## Kafka
+Three Kafka stream-types
+-  _stream._ topic
+-  _internal._ topic 
+-  _scratch._ topic
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+![kafkastreams](images/dsh/dsh-kafkastreams.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+
+<!--v-->
+![dsh-topics](images/dsh/dsh-topics.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Kafka
+
+![dsh-topics-coloured](images/dsh/dsh-topics-coloured.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+<!-- ## Kafka and streams -->
+
+<!--v-->
+## Kafka and the MQTT Bridge
+
+$$\begin{align}
+\text{MQTT topic prefix} &= \text{Kafka cluster name} \\\\\\  
+\text{MQTT topic infix}  &= \text{Kafka topic name} \\\\\\
+\text{MQTT topic suffix} &= \text{keys in Kafka} \\\\\\ 
+\end{align}$$
+
+```scala
+MQTT(topic="/tt/cam/id", data="...")
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+$=$
+<!-- .element: class="fragment" data-fragment-index="2" -->
+```scala
+Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+<!--s-->
+## Goal 
+
+Learn to deploy an application on DSH that connects to DSH kafka.
+
+<!--v-->
 ## Prerequisites
 - _Installed:_ Curl
 - _Installed:_ Mosquitto (MQTT-client)
@@ -16,11 +70,6 @@ title: "Introduction to DSH: Kafka"
 - _Available:_ tenant UID
 - _Available:_ docker registry credentials
 - _Available:_ API-Key
-
-<!--s-->
-## Goal 
-
-<!-- .element: class="lefty" -->Learn to deploy an application on DSH that connects to DSH kafka.
 
 <!--s-->
 ## Steps
@@ -39,7 +88,7 @@ title: "Introduction to DSH: Kafka"
   - built with maven
   - builds docker image
 
-<!--s-->
+<!--v-->
 ## Inspect
 ### Dockerfile => UID
 
@@ -48,7 +97,7 @@ title: "Introduction to DSH: Kafka"
 - Modify the `ENV id 1024` line according to the comment above it and save the
   modification
 
-<!--s-->
+<!--v-->
 ## Inspect
 ### pom.xml => tenant 
 - Open the `pom.xml` in your favorite text-editor
@@ -69,7 +118,7 @@ mvn package
 <!-- .element: class="lefty" -->This will build the java binary and the docker image _locally_. Look in the
 output for the name of the docker image.
 
-<!--s-->
+<!--v-->
 ## Push
 <!-- .element: class="lefty" -->Since every tenant has its own docker registry this will be reflected in the
 image tag name:
@@ -87,7 +136,7 @@ docker push \
   dataserviceshub-docker-$TENANT.jfrog.io/tenant-example:...
 ```
 
-<!--s-->
+<!--v-->
 ## Deploying
 <!-- .element: class="lefty" -->The docker image has now been built and safely stored in the docker
 registry.   
@@ -99,19 +148,22 @@ Next step: deploying a container on the DSH.
 - connects to DSH over MQTT
 - can be used to manage/ request resources (_CPUs_, _Memory_, _VHosts_ and _Volumes_)
 - can deploy services/ applications to DSH
-<!--s-->
-## Download
-- Linux:<br>https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/dsh-ump-1.2.0-x86_64.AppImage
-- macOS:<br>https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP-1.2.0.dmg
-- Windows:<br>https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP+Setup+1.2.0.exe
 
-<!--s-->
+<!--v-->
+## Download
+[Linux](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/dsh-ump-1.2.0-x86_64.AppImage)
+
+[Mac](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP-1.2.0.dmg)
+
+[Windows](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP+Setup+1.2.0.exe)
+
+<!--v-->
 ## Connect/Setup UMP
 
 - Click `+` to add a new environment
 - Fill in the requested values
 
-<!--s-->
+<!--v-->
 ## Deploy application
 - Click on the _Add new service_-button 
 - and name it `tenant-example-<your_name>`
@@ -133,7 +185,7 @@ Two commands are supported:
 - restart
 
 <!-- .element: class="lefty" -->Responses to those commands are written on the `response` key.
-<!--s-->
+<!--v-->
 ## Verify
 <!-- .element: class="lefty" -->You can set up an mqtt connection to verify:
 ```bash
@@ -150,7 +202,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -P "`cat mqtt-token.txt`" -u $THING_ID -v
 ```
 
-<!--s-->
+<!--v-->
 ## Verify
 ```bash
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
