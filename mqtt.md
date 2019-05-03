@@ -85,17 +85,16 @@ Note: distributed in-memory key-value store. We saw that as the video started.
 ![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--s-->
 ## Prerequisites
-
-- Installed: [Curl](https://curl.haxx.se)
-- Installed: [Mosquitto](https://mosquitto.org) (MQTT-client)
-- Optionally: [jq](https://stedolan.github.io/jq/)
+- Required: [Curl](https://curl.haxx.se)
+- Required: [Mosquitto](https://mosquitto.org) (MQTT-client)
+- Optional: [jq](https://stedolan.github.io/jq/)
 - Alternative: [Virtual Machine](https://github.com/mtjon/dsh-tut-vm) containing the tools
 - Available: An API-Key (will be provided)
 
 <!--s-->
 ## Goal
 
-<!-- .element: class="lefty" -->Learn how to subscribe and publish data on one of the DSH public datastreams
+Learn how to subscribe and publish data on one of the DSH public datastreams
 via MQTT
 
 <!--v-->
@@ -317,5 +316,5 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
-## Next
-<!-- .element: class="lefty" -->The next tutorial (Streaming over Kafka) will explain how you can process data sent over mqtt in bulk on DSH.
+# Practical part; Kafka
+[Kafka](localhost:1948/kafka.md)
