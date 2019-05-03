@@ -230,5 +230,5 @@ whoami
 - Choose _destroy_ and confirm
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
-## Thank you for participating.
-### End of Kafka Tutorial
+# Congratulations on completing the training!
+Please do remember to fill in the evaluation questionnaire

@@ -108,7 +108,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 7. Go to the next slide (down)
 
 <!--v-->
-# SSH key generation
+# SSH keys (WSL)
 8. In your Ubuntu terminal, type 
 ```bash
 sudo apt install ssh
@@ -123,55 +123,10 @@ ssh-keygen -t rsa
 13. Open the folder corresponding to your Ubuntu username, and open the .ssh folder. 
 14. Mail the `.pub` file to the trainer.
 
-<!--s-->
-# Getting SSH (Powershell) 
-
-Type the following commands in PowerShell (type `y` when asked)
-```powershell
-Find-Module Posh-SSH
-Install-Module Posh-SSH
-```
-You now have PowerShell installed!
-
-First, type `ssh`, and see if it still generates an error. 
-- If the error disappeared, you have SSH! (and you use the default `ssh` command)
-- If yes, go to the next slide (down):
-
-<!--v-->
-# Using SSH (Powershell) 
-Create a new SSH session
-```powershell
-New-SSHSession -ComputerName "YOUR_IP_HERE" -Credential (Get-Credential)
-```
-And follow the instructions.
-
-Finally, run commands using 
-```powershell
-Invoke-SSHCommand -Index 0 -Command "whoami"
-```
-Note that PowerShell sends one command over SSH at a time. Replace `whoami` with the command you want to run.
-
-<!-- ALT:
-Enter-PSSession -HostName UserA@LinuxServer02:22 -KeyFilePath c:\<path>\userAKey_rsa
-Enter-PSSession -HostName UserA@LinuxServer01 -->
-<!--v-->
-
-# Powershell SSH key generation
-
-Start powershell, and run:
-```powershell
-mkdir %userprofile%/.ssh
-cd %userprofile%/.ssh
-ssh-keygen -t rsa -C "your_email@example.com"
-```
-And follow the instructions, naming the key as follows: `id_yourname`. If this generates an error, attract the attention of the trainer.
-
-Open the run dialog (WIN+R), and type `%userprofile%/.ssh`. You should find two files, of which one  the public (`.pub`) key. Send the public key to the trainer.
-
 
 
 <!--s-->
-# Connecting
+# Using WSL
 Let's say you've mailed your public keyfile to the trainer, and he sent you the IP of your VM.
 - Your `ssh key` is in `.ssh`, and is called `id_iot`.
 - The IP you got is 52.59.203.96.
@@ -182,23 +137,7 @@ ssh -i .ssh/id_iot ubuntu@52.59.203.96
 Where the -i flag stands for `identity`, and `ubuntu` is the default username.
 
 Note that if you're using PowerShell and it's not cooperating, go to the next slide (down)
-<!--v-->
-# Using SSH (Powershell) 
-Create a new SSH session
-```powershell
-New-SSHSession -ComputerName "YOUR_IP_HERE" -Credential (Get-Credential)
-```
-And follow the instructions.
 
-Finally, run commands using 
-```powershell
-Invoke-SSHCommand -Index 0 -Command "whoami"
-```
-Note that PowerShell sends one command over SSH at a time. Replace `whoami` with the command you want to run.
-
-<!-- ALT:
-Enter-PSSession -HostName UserA@LinuxServer02:22 -KeyFilePath c:\<path>\userAKey_rsa
-Enter-PSSession -HostName UserA@LinuxServer01 -->
 
 <!--s-->
 # UMP

@@ -78,6 +78,7 @@ The DSH holds many different <!-- .element: class="fragment" data-fragment-index
 # Types of streaming data
 
 Not all datastreams are created equal
+
 ![tap](./images/animated/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 ![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
@@ -356,6 +357,6 @@ Note: which building blocks?
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
-# Practical part
-
+# Practical part; MQTT
+[MQTT](localhost:1948/mqtt.md)
 Note: tell the audience that the next part is for the technical people. The rest can go get coffee and feel inadequate.
