@@ -15,27 +15,18 @@ If you are already familiar with SSH and creating a keypair, you can skip straig
 ## Options to connect over SSH
 - Linux and Mac have an SSH client built in. [Proceed to Generating a keypair in Linux/Mac](#linmac).
 - Windows sometimes comes with ssh. To check, you open Powershell (WIN+X, A, click `yes`) and type `ssh`. You will either get feedback stating:
-    - ssh is unknown, meaning you don't have it, so you should continue to the next step (if Windows doesn't have ssh.
-    - you didn't supply required parameters (meaning you have it, and should proceed to [generating a keypair in Git Bash](#gitbash), as the commands are the same).
+    - you didn't supply required parameters (meaning you have it, and should proceed to [generating a keypair in PowerShell](#powershellkeygen).
+    - ssh is unknown, meaning you don't have it, so you should continue to the next step.
 - If Windows doesn't have ssh, you have several options:
-    - [Windows Subsystem for Linux (WSL)](https://devblogs.microsoft.com/commandline/learn-about-windows-console-and-windows-subsystem-for-linux-wsl/) allows you to run Linux commands (including SSH) on your Windows system.
-    - [Git for windows](https://gitforwindows.org/) allows you to run git commands, through a bash shell. There is even a portable version that does not require admin rights.
+    - [Windows Subsystem for Linux (WSL)](#getwsl) allows you to run Linux commands (including SSH) on your Windows system.
+    - [Git for windows](#getgit) allows you to run git commands, through a bash shell. There is even a portable version that does not require admin rights.
     - Many more options. You can use whatever you're comfortable with. _(note that the format in which PuttyGen stores the keys is _not_ standard; you will need to copy the generated key in a new text file)_
 
 WSL has our preference, with Git for Windows acting as a backup-option. Guide for both options have been included.
 
-## Generating a keypair in Linux/Mac
-<a name="linmac"></a>
-1. In your terminal, type 
-```bash
-ssh-keygen -t rsa
-```
-2. Follow the instructions. Note that you will have to set a password.
-3. It will state in which folder your keypair will have been saved. Use a file explorer to navigate to this folder.
-4. Mail the [public key](##glossary) file to the trainer.
+<a name="getwsl"></a>
 
 ## Getting WSL
-<a name="getwsl"></a>
 1. Open PowerShell (WIN+X, A), and run the following command:
 ```powershell
 Enable-WindowsOptionalFeature -Online -Featureame Microsoft-Windows-Subsystem-Linux
@@ -61,6 +52,7 @@ ssh-keygen -t rsa
 14. Mail the [public key](##glossary) file to the trainer.
 
 ## Using WSL
+<a name="usewsl"></a>
 After you've mailed your public key to the trainer, you will receive the IP of your [VM](##glossary). So:
 - Your `ssh key` is in `.ssh`, and is called `id_iot`. 
 - The IP you got is 52.59.203.96.
@@ -70,8 +62,8 @@ ssh -i .ssh/id_iot ubuntu@52.59.203.96
 ```
 Where the -i flag stands for `identity`, and `ubuntu` is the default username.
 
-
 ## Getting Git Bash
+<a name="getgit"></a>
 1. Download Git for Windows.
     - If you have admin rights, use the [installer](https://github.com/git-for-windows/git/releases/download/v2.21.0.windows.1/Git-2.21.0-64-bit.exe).
     - If you do _not_ have admin rights, use the [portable version](https://github.com/git-for-windows/git/releases/download/v2.21.0.windows.1/PortableGit-2.21.0-64-bit.7z.exe).
@@ -99,6 +91,32 @@ ssh -i id_iot ubuntu@52.59.203.96
 ```
 Where the -i flag stands for `identity`, and `ubuntu` is the default username.
 
+## Generating a keypair in Linux/Mac
+<a name="linmac"></a>
+1. In your terminal, type 
+```bash
+ssh-keygen -t rsa
+```
+2. Follow the instructions. Note that you will have to set a password.
+3. It will state in which folder your keypair will have been saved. Use a file explorer to navigate to this folder.
+4. Mail the [public key](##glossary) file to the trainer.
+
+The rest of the instructions are the same as those under [Using WSL](#usewsl)
+
+## Generating a keypair in Windows PowerShell
+<a name="powershellkeygen"></a>
+1. In PowerShell, type the following commands (press ENTER after each)
+```powershell
+mkdir %userprofile%/.ssh
+cd %userprofile%/.ssh
+ssh-keygen -t rsa -C "your_email@example.com"
+```
+2. Follow the instructions. Note that you will have to set a password.
+3. It will save the key in the folder %userprofile%/.ssh. Use a file explorer to navigate to this folder.
+4. Mail the [public key](##glossary) file to the trainer.
+
+The rest of the instructions are the same as those under [Using WSL](#usewsl)
+
 
 ## Getting UMP
 
@@ -117,6 +135,6 @@ You will be guided through the usage of UMP during the training.
 - VM: Virtual Machine. The trainer made one for everyone. These will be identified based on their IP.
 - SSH: secure shell. A way to interact with remote systems (such as our VM). 
 - Authentication: the VM only allows SSH connections from systems it knows. So, you'll need to authenticate. 
-- A keypair authenticates you as a user, and consists of two parts:
+- A keypair authenticates you as a user. These files should start with `id_` followed by your name (`id_jan`), and consists of two parts:
    - A private key. You do _NOT_ share this, ever.
    - A public key, which you can share. This file tends to end in `.pub`
