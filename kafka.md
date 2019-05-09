@@ -93,7 +93,7 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 ### Dockerfile => UID
 
 - Change your pwd (present working directory) to `tenant-example`
-- Open the `Dockerfile` in your favorite text-editor
+- Open the `Dockerfile` in your favorite text-editor (when in doubt, use [nano](https://wiki.gentoo.org/wiki/Nano/Basics_Guide))
 - Modify the `ENV id 1024` line according to the comment above it and save the
   modification
 
@@ -103,7 +103,7 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 - Open the `pom.xml` in your favorite text-editor
 - Modify the tenant to your tenant
 ```xml
-<tenant>dshdemo2</tenant>
+<tenant>training</tenant>
 ```
 - Modify version to something that contains your name: e.g.
 ```xml
@@ -125,7 +125,7 @@ image tag name:
 ```bash
 dataserviceshub-docker-$TENANT.jfrog.io/image:...
 ```
-<!-- .element: class="lefty" -->You need to be logged in to use this registry:
+<!-- .element: class="lefty" -->You need to be logged in to use this registry (username `training`, password: `ZWQ1ZWEzNDY2`):
 ```bash
 docker login dataserviceshub-docker-$TENANT.jfrog.io
 ```
@@ -150,18 +150,12 @@ Next step: deploying a container on the DSH.
 - can deploy services/ applications to DSH
 
 <!--v-->
-## Download
-[Linux](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/dsh-ump-1.2.0-x86_64.AppImage)
-
-[Mac](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP-1.2.0.dmg)
-
-[Windows](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP+Setup+1.2.0.exe)
-
-<!--v-->
 ## Connect/Setup UMP
 
 - Click `+` to add a new environment
 - Fill in the requested values
+  - Environment name doesn't matter. `training` is good for now.
+  - address is `https://api.poc.kpn-dsh.com`
 
 <!--v-->
 ## Deploy application
@@ -173,13 +167,13 @@ Next step: deploying a container on the DSH.
 ## Deploy application
 - create AMP definition (see `tenant-example.json`)
 - modify the name of the image
-- modify the user if needed
+- modify the user if needed (_verify_ that the user is set to 1054:1054, and ask the trainer if this is still the case)
 - and click _deploy_
 <!--v-->
 ![UMP add service: amp definition](images/UMP-dshdemo-add-service2.png)
 <!--s-->
 ## Test application
-<!-- .element: class="lefty" -->The kpn-tenant-example listens to the `dshdemoshared` topics on the `command` key.  
+<!-- .element: class="lefty" -->The kpn-tenant-example listens to the `training` topics on the `command` key.  
 Two commands are supported:
 - whoami
 - restart
@@ -190,14 +184,14 @@ Two commands are supported:
 <!-- .element: class="lefty" -->You can set up an mqtt connection to verify:
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/dshdemoshared/response/#" \
+-t "/tt/training/response/#" \
 --capath /etc/ssl/certs/ -d -P "`cat mqtt-token.txt`" \
 -u $THING_ID -v
 ```
 <!-- .element: class="lefty" -->On macOS use
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/dshdemoshared/response/#"  \
+-t "/tt/training/response/#"  \
 --cafile /usr/local/etc/openssl/cert.pem -d \ 
 -P "`cat mqtt-token.txt`" -u $THING_ID -v
 ```
@@ -206,14 +200,14 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 ## Verify
 ```bash
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/dshdemoshared/command/" \
+-t "/tt/training/command/" \
 --capath /etc/ssl/certs/ -d -P "`cat mqtt-token.txt`" \
 -u $THING_ID -l
 ```
 <!-- .element: class="lefty" -->On macOS use
 ```bash
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/dshdemoshared/command/" \
+-t "/tt/training/command/" \
 --cafile /usr/local/etc/openssl/cert.pem -d \
 -P "`cat mqtt-token.txt`" -u $THING_ID -l
 ```
