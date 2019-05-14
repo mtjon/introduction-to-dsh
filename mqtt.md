@@ -11,9 +11,6 @@ title: "Introduction to DSH: MQTT"
 
 Note: MQTT Protocol adapter allows MQTT interface with Kafka
 
-
-Note: wildcard subscriptions follow
-
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Topic tree
@@ -317,4 +314,4 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
 # Practical part; Kafka
-[Kafka](localhost:1948/kafka.md)
+[Kafka](localhost:1948/deploying.md)

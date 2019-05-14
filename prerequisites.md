@@ -24,6 +24,22 @@ If you are already familiar with SSH and creating a keypair, you can skip straig
 
 WSL has our preference, with Git for Windows acting as a backup-option. Guide for both options have been included.
 
+<a name="powershellkeygen"></a>
+
+## Generating a keypair in Windows PowerShell
+1. In PowerShell, type the following commands (press ENTER after each)
+```powershell
+mkdir %userprofile%/.ssh
+cd %userprofile%/.ssh
+ssh-keygen -t rsa -C "your_email@example.com"
+```
+2. Follow the instructions. Note that you will have to set a password.
+3. It will save the key in the folder %userprofile%/.ssh. Use a file explorer to navigate to this folder.
+4. Mail the [public key](##glossary) file to the trainer.
+
+The rest of the instructions are the same as those under [Using WSL](#usewsl)
+
+
 <a name="getwsl"></a>
 
 ## Getting WSL
@@ -102,21 +118,6 @@ ssh-keygen -t rsa
 4. Mail the [public key](##glossary) file to the trainer.
 
 The rest of the instructions are the same as those under [Using WSL](#usewsl)
-
-## Generating a keypair in Windows PowerShell
-<a name="powershellkeygen"></a>
-1. In PowerShell, type the following commands (press ENTER after each)
-```powershell
-mkdir %userprofile%/.ssh
-cd %userprofile%/.ssh
-ssh-keygen -t rsa -C "your_email@example.com"
-```
-2. Follow the instructions. Note that you will have to set a password.
-3. It will save the key in the folder %userprofile%/.ssh. Use a file explorer to navigate to this folder.
-4. Mail the [public key](##glossary) file to the trainer.
-
-The rest of the instructions are the same as those under [Using WSL](#usewsl)
-
 
 ## Getting UMP
 
