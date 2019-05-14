@@ -5,13 +5,11 @@
     - can we access this? Nope.
 - Marathon is the docker ochestrator, but Kubernetes should work as well
 - is the heartbeat integrated into the training now?
+- Which options make a .ssh folder when it doesn't exist?
 
 ## tips
 - syncpoints are recommended, as some users are struggling or trailing
 - Going through ALL THE STEPS before the training is imperative. Incidentally, don't plan trainings in the morning, so we can give Klarrio or whatever the time to fix whatever needs fixing.
-
-# Questions
-- Which options make a .ssh folder when it doesn't exist?
 
 <!-- -------------------------------------------------- -->
 

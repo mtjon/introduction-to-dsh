@@ -1,29 +1,42 @@
 ---
-title: "Introduction to DSH: Kafka"
+title: "Introduction to DSH: deploying microservices"
 ---
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
-# Streaming over Kafka
+# Deploying microservices
 
 <!--s-->
-# Kafka
+# Overview
 
-![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-2](images/dsh/dsh-tenants-contents.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 
-## Kafka
+## Kafka streams
 Three Kafka stream-types
 -  _stream._ topic
--  _internal._ topic 
 -  _scratch._ topic
+-  _internal._ topic 
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-![kafkastreams](images/dsh/dsh-kafkastreams.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![kafkastreams](images/dsh/dsh-sourcessinks-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 
 <!--v-->
-![dsh-topics](images/dsh/dsh-topics.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+<!-- .slide: data-transition="fade" -->
+![dsh-topics](images/dsh/dsh-streamstream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+![dsh-topics](images/dsh/dsh-scratchstream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+![dsh-topics](images/dsh/dsh-internalstream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+![dsh-topics](images/dsh/dsh-nopestream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->

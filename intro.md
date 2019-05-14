@@ -34,7 +34,7 @@ Note: incomplete list, obvs'.
 
 # What is the DSH?
 
-A platform that does something with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
+A platform that does something awesome with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--v-->
 
