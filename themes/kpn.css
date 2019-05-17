@@ -12,7 +12,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 div.backgrounds {
   position: absolute;
-  background-image: url("/images/kpn-bg-md.jpg");
+  background-image: url("/images/background/kpn-bg-md.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -21,7 +21,7 @@ body:before {
   position: absolute;
   content: "";
   display: block;
-  background: url('/images/kpnlogo-control.png') left top no-repeat;
+  background: url('/images/background/kpnlogo-control.png') left top no-repeat;
   width: 120px;
   height: 50px;
   bottom: 30px;
@@ -39,7 +39,7 @@ body {
   background-color: #FFFFFF; }
 
 .reveal {
-  font-family: "KPN Metric Light", "Lato", sans-serif;
+  font-family: "Segoe UI", "Lato", sans-serif;
   font-size: 40px;
   font-weight: normal;
   color: #000; }
@@ -279,7 +279,7 @@ body {
   color: #FFFFFF; }
 
   .reveal .controls:before {
-    content: url("/images/kpnlogo-control.png");
+    content: url("/images/background/kpnlogo-control.png");
     padding-right: 120px;
     top: -13px;
     position: relative;
