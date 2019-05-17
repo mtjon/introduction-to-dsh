@@ -313,5 +313,5 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
-# Practical part; Kafka
-[Kafka](localhost:1948/deploying.md)
+# Practical part; deploying microservices
+[Deploying Microservices](localhost:1948/deploying.md)
