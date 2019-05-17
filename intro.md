@@ -1,87 +1,121 @@
 ---
 title: "Introduction to DSH"
 ---
+<!-- .initialize({
+	width: "100%",
+	height: "100%",
+	margin: 0,
+	minScale: 0.2,
+	maxScale: 3
+});-->
+
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
 # An introduction to the Data Services Hub
 
 <!--s-->
 # What is the DSH?
+AWESOME <!-- .element: class="fragment" data-fragment-index="1" -->
+
+
+<!--v-->
+# Why is the DSH awesome?
+What is it?
+What does it do better than others?
+What are the key aspects?
 <!-- .slide: class="nobullets" -->
-- Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="1" -->
-- Stream Processing Platform <!-- .element: class="fragment" data-fragment-index="2" -->
-- Data Stream Platform <!-- .element: class="fragment" data-fragment-index="3" -->
+- Data platform <!-- .element: class="fragment" data-fragment-index="1" -->
+- Data (as events) <!-- .element: class="fragment" data-fragment-index="2" -->
+- Sharing <!-- .element: class="fragment" data-fragment-index="3" -->
+- Processing <!-- .element: class="fragment" data-fragment-index="4" -->
+- Scalable <!-- .element: class="fragment" data-fragment-index="5" -->
+- Secure <!-- .element: class="fragment" data-fragment-index="6" -->
+- Low-latency <!-- .element: class="fragment" data-fragment-index="7" -->
 
-<!--s-->
-# Overview
-* Totaal overzicht van de DSH (inclusief control plane, etc etc)
-    * Cloud agnostisch, yade yade
-    * USP vaker terug laten komen en aansluiten op BizDev verhaal
-* Wat is een Tenant
+Note: incomplete list, obvs'.
 
-<!--s-->
-# Platform 
+<!--v-->
 
+# What is the DSH?
+
+A platform that does something awesome with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
+
+<!--v-->
+
+# Definition: platform 
 - A (software) platform is anything you can build (applications) on
 - Provides reusable infrastructure
 - Takes care of recurring and tedious tasks
 - Should not hamper creativity
 
 <!--s-->
-# Streaming Data Platform 
 
-A platform that does something with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
-
-<!--v-->
-## Streaming Data
-
+# Definition: Streaming Data
 > &hellip;data that is generated continuously by thousands of data
 > sources, which typically send in the data records simultaneously, and in
 > small sizes (order of Kilobytes). 
 
 https://aws.amazon.com/streaming-data
 
-Note: speaker notes toevoegen
-
+Note: this is a quote, and as such only applies to the view of the person making the quote
 
 <!--v-->
-## And out?
+
+## Our definition: Streaming Data
 
 > A streaming data platform should also be able to continuously send selected
 > data records to thousands of data sinks.
 
-&ndash;according to us
+<!--v-->
+# Data Streams
 
-<!--s-->
+The DSH holds many different <!-- .element: class="fragment" data-fragment-index="1" -->_data streams_<!-- .element: class="fragment" data-fragment-index="1" -->
+
+<!--v-->
+## Data Stream
+
+> A sequence of digitally encoded signals used to represent information in transmission.
+
+[Federal Standard 1037C](https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm)
+
+<!--v-->
 # Types of streaming data
 
 Not all datastreams are created equal
-![Huge](./images/huge2.png) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
-![Manneke](./images/manneke.jpg) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
-Digitale waterval?
+![tap](./images/animated/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
-<!--v-->
-## Streaming data on DSH 
 
-Focus on two types of streams:
-- MQTT (manneke pis)
-- Kafka (waterval)
+$$
+\begin{align}
+\text{One source, low volume} &| \text{many sources, high volume} \\\\\\  
+\text{Single sensor} &| \text{Stream processing} \\\\\\  
+\text{MQTT} &| \text{Kafka} \\\\\\  
+\end{align}
+$$ <!-- .element: class="thinner fragment" data-fragment-index="2" -->
 
-Note: Kafka == waterval Mqtt == manneke
-<!--v-->
+<!--s-->
 ## MQTT
-
+- Messaging protocol
+- ISO/IEC 20922 and, OASIS standard
 - Lightweight messaging protocol
 - Suitable for many simultaneous connections
-- Widespread use in *Internet of Things*
+- Widespread in the *Internet of Things*
 
-Note: toevoegen; MQTT voordelen zoals bij SensorThings
+Note: more about MQTT later
 
 <!--v-->
+
 ## Kafka
 
-- Highly scalable in volume of data
-- Messaging backbone for LinkedIn, Netflix, Yahoo, Twiter, Goldman Sachs
+- Can handle huge volume of data
+- Event-based
+- Fast!
+- Messaging backbone for:  <!-- .element: class="fragment" data-fragment-index="1" -->
+    - LinkedIn
+    - Netflix
+    - Twitter
+    <!-- - Goldman Sachs -->
 
 <!--v-->
 ## MQTT vs Kafka
@@ -96,7 +130,6 @@ Note: toevoegen; MQTT voordelen zoals bij SensorThings
   - sources/sinks reside inside DSH
 
 $$ \text{MQTT} \cdot \frac{sources}{sinks} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ <!-- .element: class="fragment" data-fragment-index="1" -->
-$$ \frac{sources_{mqtt}}{sinks_{mqtt}}} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ <!-- .element: class="fragment" data-fragment-index="1" -->
 
 Note: kafka sources/ sinks can also reside outside of DSH
 
@@ -104,100 +137,93 @@ Note: kafka sources/ sinks can also reside outside of DSH
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-1](images/dsh-overview-1-dsh-overview.svg)<!-- .element: class="plain" -->
+![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-2](images/dsh-overview-2-dsh-overview.svg)<!-- .element: class="plain" -->
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-3](images/dsh-overview-3-dsh-overview.svg)<!-- .element: class="plain" -->
+![dsh-overview-2](images/dsh/dsh-sourcessinks.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 
-![dsh-overview-4](images/dsh-overview-4-dsh-overview.svg)<!-- .element: class="plain" -->
+![dsh-overview-3](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Overview
+
+![dsh-overview-4](images/dsh/dsh-tenants-contents.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--s-->
-# Bridge
-
-- MQTT protocol adapter
-	- acts _as if_ it is MQTT broker
-	- actually interfaces with Kafka
-- like MQTT
-	- allows wildcard subscriptions:
-
-    ```/platform/stream/topic/#```
-
-Note: @Casper go fix! Verhaal verbeteren
+# MQTT
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
-## Bridge
+## MQTT bridge
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="30%" -->
+- Protocol adapter
+    - MQTT interface with Kafka
+- Like MQTT: allows wildcard subscriptions:<!-- .element: class="fragment" data-fragment-index="2" -->
 
-$$\begin{align}
-\text{MQTT topic prefix} &= \text{Kafka cluster name} \\\\\\  
-\text{MQTT topic infix}  &= \text{Kafka topic name} \\\\\\
-\text{keys in Kafka}     &= \text{MQTT topic suffix} \\\\\\ 
-\end{align}$$
+ ```
+ /platform/stream/topic/#
+ ```
+ <!-- .element: class="fragment" data-fragment-index="2" -->
 
-```scala
-MQTT(topic="/tt/cam/id", data="...")
-```
-<!-- .element: class="fragment" data-fragment-index="2" -->
-$=$
-<!-- .element: class="fragment" data-fragment-index="2" -->
-```scala
-Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
-```
-<!-- .element: class="fragment" data-fragment-index="2" -->
-
-Note: clearly explain that Kafka only has a single topic, whereas MQTT has multiple levels
-
-<!--v-->
-## Rarely updated data sources
-
-- Latest value store indexing service
-- tracks keys in a stream
-- distributed in-memory key-value store
+Note: wildcard subscriptions later, in the MQTT part
 
 <!--v-->
 ## External data sources 
 
-- are not always MQTT
-- do not always stream
-- will require custom adapters
-    - allow tenants to write their own
+- are not always MQTT ... <!-- .element: class="fragment" data-fragment-index="2" -->
+<!-- - do not always stream -->
+- ... and will therefore require custom adapters  <!-- .element: class="fragment" data-fragment-index="3" -->
+
+We allow tenants to write their own adapters  <!-- .element: class="fragment" data-fragment-index="4" -->
+
+Note: do we say other adapters are in the works?
 
 <!--s-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 
-![dsh-overview-4](images/dsh-overview-4-dsh-overview.svg)<!-- .element: class="plain" -->
+# Kafka
+
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+<!--v-->
+
+## Kafka
+Three Kafka stream-types
+-  _stream._ topic
+-  _internal._ topic 
+-  _scratch._ topic
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
+![kafkastreams](images/dsh/dsh-kafkastreams.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
-![dsh-overview-5](images/dsh-overview-5-dsh-overview.svg)<!-- .element: class="plain" -->
 
+<!--v-->
+## Many data streams
+
+- Streams need organizing
+- DSH topics $ \approx $ Kafka topics
+- Need to control access to topics
+	<!-- - Manage at topic level using custom tooling
+    - Based on Access Control Lists (ACLs) -->
+
+Note: control access to topics will be dealt with later
 <!--s-->
-# Wrap-up
-
-- MQTT for low volume, many sources/sinks
-- Kafka for high volume, few sources/sinks
-- bridge (protocol adaptor) to tie them together 
-- custom data source adapters for external data 
-- latest value store for instant syncing with rarely changing data source
-
-<!--s-->
-# Stream Processing Platform
-A platform that does  <!-- .element: class="fragment" data-fragment-index="1" --> _stream processing_  <!-- .element: class="fragment" data-fragment-index="1" -->
+# Stream Processing
+The DSH is a platform that does  <!-- .element: class="fragment" data-fragment-index="1" --> _stream processing_  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--v-->
 ## Stream Processing
@@ -211,11 +237,13 @@ Note: key point; process the data while in motion.
 
 <!--v-->
 ## Where to process
+![dsh-overview-5](images/dsh/dsh-wheredoesprocessinghappen.svg)<!-- .element: class="plain" -->
 
-- At the edge where possible and necessary
-- Close to the data (on the DSH) if you need a lot of data from multiple sources
+- At the source?
+- On the DSH?
+- At the sink?
 
-Note: emphasize necessaty of data&mdash;ECG sensors. 
+Note: example ECG sensors. First, all data is processed at the computer of the doctor, so all data needs to be transferred and stored. All data is relevant, since all data is needed for processing. Migrating processing to the device allows for less data in need to be transferred: less power usage, less storage required, and faster decision making. Go over the limitations of all these strategies.
 
 <!--v-->
 ## Many ways to process the data
@@ -224,14 +252,9 @@ Note: emphasize necessaty of data&mdash;ECG sensors.
 - No framework fits all use-cases
 - DSH does not dictate a framework
 
-No _One framework to rule them all_, but the DSH to _bind them_.
+No _One framework to rule them all_, but the DSH to _bind them_.  
 
-<!--s-->
-# Wrap-up
-
-- DSH can process streams: 
-    - but is not always the right place to do it
-    - and does not dictate how to process them
+Note: analogy: you can bring your project to Black&Decker, and then you'll have a workshop with Black&Decker tools. We provide an empty toolshed; you want to use a Gamma drill? You use a Gamma drill. Alternatively: if you have a BMW, you'll to bring it to a garage that is familiar with BMW. However, we provide an empty shed, you bring your own tools. We don't care if you're going to come in with a BMW, Audi, or a horse.
 
 <!--s-->
 # Security nightmare
@@ -240,31 +263,33 @@ No _One framework to rule them all_, but the DSH to _bind them_.
 - And they can use whatever software they want on the platform
 
 <!--v-->
+<!-- .slide: data-transition="fade" -->
+## Base DSH
+![DC/OS](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Calico
+![DC/OS](images/dsh/dsh-calico.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+<!--v-->
+<!-- .slide: data-transition="fade" -->
 ## DC/OS
-
-- Started with DC/OS as base platform 
-- Supported by most stream processing frameworks
-- Tenants run docker containers on top
+![dsh-overview-5](images/dsh/dsh-dcos.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+<!--v-->
+![DC/OS](images/old/dsh-overview-6-dsh-overview.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: DC/OS is the base, tenants run their docker containers on top of it. DC/OS is supported by most stream processing frameworks
 
 <!--v-->
 ## Securing
 
-- Custom container manager to force correct use of Docker
-- Custom resource manager to control resource requests
-- Calico for network isolation
+- Custom container manager 
+    - for ease of use
+    - to _force_ correct use of Docker
+- Custom resource manager
+- Calico to ensure network isolation
+
+Note: docker is already quite secure, but the DSH ensures you can't hack your way out of your container (you can't be root)
 
 <!--v-->
-<!-- .slide: data-transition="fade" -->
-## DC/OS
-
-![DC/OS](images/dsh-overview-4-dsh-overview.svg)<!-- .element: class="plain" -->
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-## DC/OS
-
-![DC/OS](images/dsh-overview-6-dsh-overview.svg)<!-- .element: class="plain" -->
-<!--s-->
 
 # Wrap-up
 
@@ -275,28 +300,7 @@ No _One framework to rule them all_, but the DSH to _bind them_.
 Note: question to audience "how do tenants communicate?" KAFKAAAAA
 
 <!--s-->
-# Data Stream Platform
-
-a platform that holds many different <!-- .element: class="fragment" data-fragment-index="1" -->_data streams_<!-- .element: class="fragment" data-fragment-index="1" -->
-
-<!--v-->
-## Data Stream
-
-> A sequence of digitally encoded signals used to represent information in transmission.
-
-[Federal Standard 1037C](https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm)
-
-<!--v-->
-## Many data streams
-
-- Streams need organizing
-- DSH topics $ \approx $ Kafka topics
-- Need to control access to topics
-	- Manage at topic level using custom tooling
-    - Based on Access Control Lists (ACLs)
-
-<!--v-->
-## Authenticate
+# Authentication Nightmare
 
 - Certificates for tenant (container) authentication towards Kafka
 - API key to authenticate tenants that want to let devices/things/users connect to the platform
@@ -307,52 +311,43 @@ a platform that holds many different <!-- .element: class="fragment" data-fragme
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication-relations-1-auth.svg)<!-- .element: class="plain" -->
-
+![Authentication Relations](images/authentication/authentication-relations-1-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication-relations-2-auth.svg)<!-- .element: class="plain" -->
-
+![Authentication Relations](images/authentication/authentication-relations-2-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication-relations-3-auth.svg)<!-- .element: class="plain" -->
-
+![Authentication Relations](images/authentication/authentication-relations-3-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: emphasize why the REST token is required -> multiple protocols in future
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication-relations-4-auth.svg)<!-- .element: class="plain" -->
-
+![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 ## Device management
 
-- Provides the necessary building blocks
 - DSH does not manage devices
-- Up to the tenant to implement
+- Up to the tenant to implement <!-- .element: class="fragment" data-fragment-index="2" -->
+- Provides the necessary building blocks <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Note: improve!
+Note: which building blocks?
 
 <!--v-->
 ## Access control
 
 - Fine-grained on MQTT
+  - Access Control Lists (ACLs)
   - read `/tt/topic/fixed/tenant/+/#`
   - write `/tt/topic/other/tenant/`
 - Coarse-grained on Kafka
   - read/write on topic-level
-
-<!--v-->
-## Kafka
-Three Kafka stream-types
--  _stream._ topic
--  _internal._ topic 
--  _scratch._ topic
+  - implemented using custom tooling
 
 <!--s-->
 # Wrap-up
@@ -364,3 +359,6 @@ Three Kafka stream-types
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
+# Practical part; MQTT
+[MQTT](localhost:1948/mqtt.md)
+Note: tell the audience that the next part is for the technical people. The rest can go get coffee and feel inadequate.
