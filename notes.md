@@ -28,3 +28,88 @@ Aangenomen hierin is dat AJ voorafgaand aan onze training een presentatie geeft 
 2.5 betekent dat we een uur hebben voor mqtt, uur voor kafka, en half uur voor een koffiepauze en murphy’s law.
 
 Ook vraag ik me af of we dit stuk uberhaupt Kafka moeten noemen, we interacteren primair met data over MQTT. 
+
+# Mail Erdal, over SRE
+Harish:platform that does awesome things with streaming data
+
+left<->right ~ north bound<->south bound
+
+lot of tech talk-> differences with other kafka providers?
+
+limitations of tenant resources, restrictions, monitoring.
+replicas/partioning/consumer groups
+
+stream contract--> resource/pricing implications?
+
+inter tenant stream sharing?  share butten? 
+incident,problem,change:RFC, feature request-->PO:Laura,AJ
+kpn: forum,user experience
+
+Action: 
+  collecting requirements, internal and external teams. --> PO
+
+aj: endgoal every feature is self managed,
+   list of requested features -> decision making?
+   value: manual or automated
+
+# Feedback Marko
+MQTT
+ 
+Algemeen:
+•	Trainees erop attenderen dat alle benodigde variabelen die zij moeten invoeren in het env.sh bestand staan in hun home directory in de VM
+•	(de eerste die ze nodig hebben is de API key voor het stuk export=API_KEY)
+ 
+KAFKA
+ 
+Get tenant example slide:
+•	git clone [link] (toevoegen aan instructie bij het stukje clone this repo)
+ 
+Connect/setup UMP slide:
+•	Fill in the requested values wordt gevraagd, maar mensen weten wederom niet wat ze moeten invullen, noem dat: 
+o	Environment naam is vrije keuze - tenant is goed
+o	Adres kunnen ze vinden in env.sh (https://api.poc.kpn-dsh.com)
+
+# TioD training OLAB
+- instant "Why the DSH?"
+- speaker notes overview fontsize too high
+- M: kijk vooruit!
+- inschatting niveau en snelheid voor harde start MQTT gedeelte, om ingrijpmoment te bepalen
+- Video op de DSH blijft een vraag
+- Vraag over documentatie en voorbeelden
+- add how to send a single message to the MQTT part (before the stupid while loop).
+- USE SYNCPOINTS; motivation drops sharply for the non-gifted
+- remove mqtt wildcard part from intro
+- which other streams are there in kafka?
+- kafka streams in intro; likely needs simplification
+- verify knowledge level before MQTT part
+- pre-training checklist
+- change `dshdemoshared` and crap to `training`
+- Remove the THING_ID aspect of the stream, making it easier to understand, and allowing people to chat over the DSH (why didn't we do this in the first place!?)
+
+# feedback during retro-thing
+- Level of complexity is too high for non-technical people. Solutions:
+  - Require participants to tell us in advance what they are and expect
+  - Explicity state that a certain level of technical prowess is required
+  - Allow non-technical people to participate in the first part, and then leave.
+  - Lower the complexity of the first (non-practical part)
+  - Add more examples and 'why' questions for the non-technical people
+- "At the end, everything clicks": emphasize the larger whole, focus on element relation to the _function_
+- Provide overview (and schedule) of the day
+- "In the past, you'd plop data in a static database. Then we got datalakes, which turned into swamps. Now, it's events."
+- https://www.ververica.com/what-is-stream-processing
+- Verbal feedback (after the training) shouldn't be cut off, because there's a form coming.
+
+
+# feeedback from form
+
+# Approach/schedule
+## Before
+- 
+
+## During
+- Intro teacher
+- Intro others, ask for goal, and reason for being here, estimate level of technical expertise
+- Explanation of schedule
+- Explanation of course structure
+- Introduction of basic terminology, with estimation of level of technical expertise
+- 

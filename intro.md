@@ -19,6 +19,9 @@ AWESOME <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--v-->
 # Why is the DSH awesome?
+What is it?
+What does it do better than others?
+What are the key aspects?
 <!-- .slide: class="nobullets" -->
 - Data platform <!-- .element: class="fragment" data-fragment-index="1" -->
 - Data (as events) <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -111,7 +114,6 @@ Note: more about MQTT later
 - Messaging backbone for:  <!-- .element: class="fragment" data-fragment-index="1" -->
     - LinkedIn
     - Netflix
-    - Yahoo
     - Twitter
     <!-- - Goldman Sachs -->
 
