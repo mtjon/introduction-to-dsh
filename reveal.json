@@ -1,0 +1,16 @@
+{
+  "touch": true,
+  "overview": true,
+  "help": false,
+  "hash": true,
+  "shownotes": true,
+  "hideInactiveCursor": true,
+  "transitionSpeed": "slow",
+  "viewDistance": 15,
+	"width": "100%",
+	"height": "100%",
+	"margin": 0.1,
+	"minScale": 0.2,
+	"maxScale": 4
+}
+

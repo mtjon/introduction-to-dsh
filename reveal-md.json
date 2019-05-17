@@ -1,0 +1,10 @@
+{
+        "theme": "themes/kpn.css",
+        "title": "Data Services Hub",
+        "revealOptions": {
+                "transition": "slide"
+        },
+        "separator": "<!--s-->",
+        "verticalSeparator": "<!--v-->",
+        "css": "custom.css"
+}
