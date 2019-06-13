@@ -85,14 +85,13 @@ Not all datastreams are created equal
 ![tap](./images/animated/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 ![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
-
 $$
 \begin{align}
-\text{One source, low volume} &| \text{many sources, high volume} \\\\\\  
+\text{many sources, low volume} &| \text{few sources, high volume} \\\\\\  
 \text{Single sensor} &| \text{Stream processing} \\\\\\  
 \text{MQTT} &| \text{Kafka} \\\\\\  
 \end{align}
-$$ <!-- .element: class="thinner fragment" data-fragment-index="2" -->
+$$ <!-- .element: class="fragment" data-fragment-index="2" -->
 
 <!--s-->
 ## MQTT
