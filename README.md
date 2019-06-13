@@ -2,14 +2,16 @@
 <!--s-->
 This repo contains presentations that can be used to introduce DSH to new
 users. The are meant to be presented using
-[reveal-md](https://github.com/webpro/reveal-md). The raw markdown files serve
-as handouts and can be used to follow along with the tutorials.
+[reveal-md](https://github.com/webpro/reveal-md). A containerized version can 
+be found in [this repo](https://github.com/mtjon/reveal-md-containerized). The 
+raw markdown files serve as handouts and can be used to follow along with the 
+tutorials.
 
 <!--s-->
 
-* [An Introduction to the Data Services Hub](./intro.md) explains the DSH
-  concept and some of the design decisions that led to the DSH architecture.
-* [Streaming over MQTT](./mqtt.md) contains a basic tutorial on connecting to
-  DSH over MQTT.
-* [Streaming over Kafka](./kafka.md) shows how to launch a container on DSH and
-  connect to DSH kafka.
+* [an introduction to the data services hub](./intro.md) explains the dsh
+  concept and some of the design decisions that led to the dsh architecture.
+* [streaming over mqtt](./mqtt.md) a basic tutorial on connecting to the
+  dsh over mqtt.
+* [streaming over kafka](./deploying.md) shows how to deploy a service on the 
+  dSH and interact.
