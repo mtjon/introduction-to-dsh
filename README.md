@@ -11,7 +11,7 @@ tutorials.
 
 * [an introduction to the data services hub](./intro.md) explains the dsh
   concept and some of the design decisions that led to the dsh architecture.
-* [streaming over mqtt](./mqtt.md) a basic tutorial on connecting to the
+* [streaming over mqtt](./mqtt.md) is a basic tutorial on connecting to the
   dsh over mqtt.
-* [streaming over kafka](./deploying.md) shows how to deploy a service on the 
+* [deploying a service](./deploying.md) shows how to deploy a service on the 
   dSH and interact.
