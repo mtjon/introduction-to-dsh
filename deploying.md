@@ -90,12 +90,12 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 1. Get tenant example
 2. Build docker image
 3. Push docker image to tenant's docker registry
-4. Use UMP to deploy container on DSH
-5. Use MQTT to contact container
+4. Use UMP to deploy service on DSH
+5. Use MQTT to interact with service
 
 <!--s-->
 ## Get tenant example
-- Clone this repo from git: https://github.com/kpn-dsh/tenant-example
+- Clone this repo from git: https://github.com/mtjon/tenant-example
 - It contains a fully working tenant example
   - in java
   - built with maven
@@ -138,7 +138,7 @@ image tag name:
 ```bash
 dataserviceshub-docker-$TENANT.jfrog.io/image:...
 ```
-<!-- .element: class="lefty" -->You need to be logged in to use this registry (username `training`, password: `ZWQ1ZWEzNDY2`):
+<!-- .element: class="lefty" -->You need to be logged in to use this registry (credentials are provided through `env.sh` in the VM):
 ```bash
 docker login dataserviceshub-docker-$TENANT.jfrog.io
 ```
@@ -168,22 +168,28 @@ Next step: deploying a container on the DSH.
 - Click `+` to add a new environment
 - Fill in the requested values
   - Environment name doesn't matter. `training` is good for now.
-  - address is `https://api.poc.kpn-dsh.com`
+  - API endpoint is `https://api.poc.kpn-dsh.com`
+
+NOTE: Environment is for personal reference only. The connected tenant or 'login', if you will, is encoded in the API-key.
 
 <!--v-->
 ## Deploy application
 - Click on the _Add new service_-button 
-- and name it `tenant-example-<your_name>`
+- and name it something unique, e.g. `tenant-example-$YOUR_NAME`
+
 <!--v-->
 ![UMP add service: name](images/UMP-dshdemo-add-service1.png)
+
 <!--v-->
 ## Deploy application
 - create AMP definition (see `tenant-example.json`)
-- modify the name of the image
-- modify the user if needed (_verify_ that the user is set to 1054:1054, and ask the trainer if this is still the case)
-- and click _deploy_
+- modify the name of the image according to your build
+- ensure the `uid:gid` is appropriately set (this is provided to you as a tenant user)
+- click _deploy_
+
 <!--v-->
 ![UMP add service: amp definition](images/UMP-dshdemo-add-service2.png)
+
 <!--s-->
 ## Test application
 <!-- .element: class="lefty" -->The kpn-tenant-example listens to the `training` topics on the `command` key.  
@@ -192,6 +198,7 @@ Two commands are supported:
 - restart
 
 <!-- .element: class="lefty" -->Responses to those commands are written on the `response` key.
+
 <!--v-->
 ## Verify
 <!-- .element: class="lefty" -->You can set up an mqtt connection to verify:
