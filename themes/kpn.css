@@ -176,7 +176,7 @@ body {
   box-shadow: none; }
 
 .reveal code {
-  font-family: monospace;
+  font-family: 'Fira Code', monospace;
   font-size: 80%;
   text-transform: none; }
 
