@@ -1,8 +1,9 @@
 # Prerequisites to the Tenant-in-a-day-training
 ## General information
 
-This guide is ensure the training proceeds as desired, with all participants having fullfilled all basic requirements. 
+This guide is ensure the training proceeds as desired, with all participants having fullfilled all basic requirements.
 Steps everybody needs to perform:
+
 1. You will generate your own unique [keypair](##glossary).
 2. You will send your public key to your trainer.
 3. Your public key will be given to your [VM](##glossary), which will then be able to recognize and authenticate your [SSH](##glossary) session.
@@ -13,22 +14,23 @@ Optionally, if you don't already have it, you may need to set up a way to use SS
 If you are already familiar with SSH and creating a keypair, you can skip straight to your preferred version of 'connecting'.
 
 ## Options to connect over SSH
+
 - Linux and Mac have an SSH client built in. [Proceed to Generating a keypair in Linux/Mac](#linmac).
 - Windows sometimes comes with ssh. To check, you open Powershell (WIN+X, A, click `yes`) and type `ssh`. You will either get feedback stating:
-    - you didn't supply required parameters (meaning you have it, and should proceed to [generating a keypair in PowerShell](#powershellkeygen).
-    - ssh is unknown, meaning you don't have it, so you should continue to the next step.
+  - you didn't supply required parameters (meaning you have it, and should proceed to [generating a keypair in PowerShell](#powershellkeygen).
+  - ssh is unknown, meaning you don't have it, so you should continue to the next step.
 - If Windows doesn't have ssh, you have several options:
-    - [Windows Subsystem for Linux (WSL)](#getwsl) allows you to run Linux commands (including SSH) on your Windows system.
-    - [Git for windows](#getgit) allows you to run git commands, through a bash shell. There is even a portable version that does not require admin rights.
-    - Many more options. You can use whatever you're comfortable with. _(note that the format in which PuttyGen stores the keys is _not_ standard; you will need to copy the generated key in a new text file)_
+  - [Windows Subsystem for Linux (WSL)](#getwsl) allows you to run Linux commands (including SSH) on your Windows system.
+  - [Git for windows](#getgit) allows you to run git commands, through a bash shell. There is even a portable version that does not require admin rights.
+  - Many more options. You can use whatever you're comfortable with. _(note that the format in which PuttyGen stores the keys is _not_ standard; you will need to copy the generated key in a new text file)_
 
 WSL has our preference, with Git for Windows acting as a backup-option. Guide for both options have been included.
 
 <a name="powershellkeygen"></a>
 
 ## Generating a keypair in Windows PowerShell
-1. In PowerShell, type the following commands (press ENTER after each)
-```powershell
+
+1. In PowerShell, type the following commands (press ENTER after each ```powershell
 mkdir %userprofile%/.ssh
 cd %userprofile%/.ssh
 ssh-keygen -t rsa -C "your_email@example.com"
