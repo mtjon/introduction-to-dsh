@@ -1,7 +1,7 @@
 # Prerequisites to the Tenant-in-a-day-training
 ## General information
 
-This guide is ensure the training proceeds as desired, with all participants having fullfilled all basic requirements.
+This guide aims to ensure the training proceeds as desired, with all participants having fullfilled all basic pre-requisites.
 Steps everybody needs to perform:
 
 1. You will generate your own unique [keypair](##glossary).
