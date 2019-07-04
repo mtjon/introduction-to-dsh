@@ -59,7 +59,7 @@ Note: "We'll explain these concepts further, it should become clear why you shou
 > sources, which typically send in the data records simultaneously, and in
 > small sizes (order of Kilobytes).
 
-https://aws.amazon.com/streaming-data
+[https://aws.amazon.com/streaming-data](https://aws.amazon.com/streaming-data)
 
 A streaming platform should be able to handle thousands of data sources  <!-- .element: class="fragment"-->
 
@@ -70,6 +70,7 @@ Note: this is a quote, and as such only applies to the view of the person making
 ## We expect more
 
 A streaming data platform should be able to:
+
 - handle hundreds of thousands of sources <!-- .element: class="fragment"-->
 - send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
 - process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
@@ -128,9 +129,8 @@ Note: MQTT is a very good way to get data on the DSH. As a sidenote:
 - Maybe another protocol is already implemented?  <!-- .element: class="fragment" -->
 
 We allow tenants to write custom protocol adapters  <!-- .element: class="fragment" -->
- 
-Note: we do not say other adapters are in the works. Kafka is the backbone, MQTT is one very cool way of ingesting/extruding data
 
+Note: we do not say other adapters are in the works. Kafka is the backbone, MQTT is one very cool way of ingesting/extruding data
 
 <!--v-->
 
