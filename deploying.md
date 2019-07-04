@@ -5,17 +5,19 @@ title: "Introduction to DSH: deploying microservices"
 # Deploying microservices
 
 <!--s-->
-# Overview
+## Overview
 
 ![dsh-overview-2](images/dsh/dsh-tenants-contents.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 
 ## Kafka streams
+
 Three Kafka stream-types
--  _stream._ topic
--  _scratch._ topic
--  _internal._ topic 
+
+- _stream._ topic
+- _scratch._ topic
+- _internal._ topic
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
@@ -52,7 +54,7 @@ Three Kafka stream-types
 $$\begin{align}
 \text{MQTT topic prefix} &= \text{Kafka cluster name} \\\\\\  
 \text{MQTT topic infix}  &= \text{Kafka topic name} \\\\\\
-\text{MQTT topic suffix} &= \text{keys in Kafka} \\\\\\ 
+\text{MQTT topic suffix} &= \text{keys in Kafka} \\\\\\
 \end{align}$$
 
 ```scala
@@ -67,12 +69,13 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
 <!--s-->
-## Goal 
+## Goal
 
 Learn to deploy an application on DSH that connects to DSH kafka.
 
 <!--v-->
 ## Prerequisites
+
 - _Installed:_ Curl
 - _Installed:_ Mosquitto (MQTT-client)
 - _Installed:_ Docker-CE
@@ -95,7 +98,8 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 
 <!--s-->
 ## Get tenant example
-- Clone this repo from git: https://github.com/mtjon/tenant-example
+
+- Clone [this repo](https://github.com/mtjon/tenant-example) from git: 
 - It contains a fully working tenant example
   - in java
   - built with maven
@@ -103,6 +107,7 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 
 <!--v-->
 ## Inspect
+
 ### Dockerfile => UID
 
 - Change your pwd (present working directory) to `tenant-example`
@@ -112,36 +117,48 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 
 <!--v-->
 ## Inspect
-### pom.xml => tenant 
+
+### pom.xml => tenant
+
 - Open the `pom.xml` in your favorite text-editor
 - Modify the tenant to your tenant
+
 ```xml
 <tenant>training</tenant>
 ```
+
 - Modify version to something that contains your name: e.g.
+
 ```xml
-<version>1.0.1-bruno-SNAPSHOT</version> 
+<version>1.0.1-bruno-SNAPSHOT</version>
 ```
 
 <!--s-->
 ## Build
-```
+
+```bash
 mvn package
 ```
+
 <!-- .element: class="lefty" -->This will build the java binary and the docker image _locally_. Look in the
 output for the name of the docker image.
 
 <!--v-->
 ## Push
+
 <!-- .element: class="lefty" -->Since every tenant has its own docker registry this will be reflected in the
 image tag name:
+
 ```bash
 dataserviceshub-docker-$TENANT.jfrog.io/image:...
 ```
+
 <!-- .element: class="lefty" -->You need to be logged in to use this registry (credentials are provided through `env.sh` in the VM):
+
 ```bash
 docker login dataserviceshub-docker-$TENANT.jfrog.io
 ```
+
 <!-- .element: class="lefty" -->Now you can push your image to the tenant's docker registry:
 
 ```bash
@@ -151,13 +168,16 @@ docker push \
 
 <!--v-->
 ## Deploying
+
 <!-- .element: class="lefty" -->The docker image has now been built and safely stored in the docker
-registry.   
+registry.
+
 Next step: deploying a container on the DSH.
 
 <!--s-->
 ## UMP
-- is an angular-/ electron-based application 
+
+- is an angular-/ electron-based application
 - connects to DSH over MQTT
 - can be used to manage/ request resources (_CPUs_, _Memory_, _VHosts_ and _Volumes_)
 - can deploy services/ applications to DSH
@@ -174,6 +194,7 @@ NOTE: Environment is for personal reference only. The connected tenant or 'login
 
 <!--v-->
 ## Deploy application
+
 - Click on the _Add new service_-button 
 - and name it something unique, e.g. `tenant-example-$YOUR_NAME`
 
@@ -182,6 +203,7 @@ NOTE: Environment is for personal reference only. The connected tenant or 'login
 
 <!--v-->
 ## Deploy application
+
 - create AMP definition (see `tenant-example.json`)
 - modify the name of the image according to your build
 - ensure the `uid:gid` is appropriately set (this is provided to you as a tenant user)
@@ -192,8 +214,10 @@ NOTE: Environment is for personal reference only. The connected tenant or 'login
 
 <!--s-->
 ## Test application
+
 <!-- .element: class="lefty" -->The kpn-tenant-example listens to the `training` topics on the `command` key.  
 Two commands are supported:
+
 - whoami
 - restart
 
@@ -201,48 +225,63 @@ Two commands are supported:
 
 <!--v-->
 ## Verify
+
 <!-- .element: class="lefty" -->You can set up an mqtt connection to verify:
+
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -t "/tt/training/response/#" \
 --capath /etc/ssl/certs/ -d -P "`cat mqtt-token.txt`" \
 -u $THING_ID -v
 ```
+
 <!-- .element: class="lefty" -->On macOS use
+
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -t "/tt/training/response/#"  \
---cafile /usr/local/etc/openssl/cert.pem -d \ 
+--cafile /usr/local/etc/openssl/cert.pem -d \
 -P "`cat mqtt-token.txt`" -u $THING_ID -v
 ```
 
 <!--v-->
 ## Verify
+
 ```bash
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -t "/tt/training/command/" \
 --capath /etc/ssl/certs/ -d -P "`cat mqtt-token.txt`" \
 -u $THING_ID -l
 ```
+
 <!-- .element: class="lefty" -->On macOS use
+
 ```bash
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -t "/tt/training/command/" \
 --cafile /usr/local/etc/openssl/cert.pem -d \
 -P "`cat mqtt-token.txt`" -u $THING_ID -l
 ```
+
 <!-- .element: class="lefty" -->Type:
+
+```bash
+whoami
 ```
-whoami 
-```
+
 <!-- .element: class="lefty" -->and see what's returned in the subscription.
 <!--s-->
+
 ## Clean-up
+
 - Remove your service after testing
 - Select your service
 - Select _configuration_
 - Choose _destroy_ and confirm
+
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
-# Congratulations on completing the training!
+
+## Congratulations on completing the training!
+
 Please do remember to fill in the evaluation questionnaire

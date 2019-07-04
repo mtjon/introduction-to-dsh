@@ -13,8 +13,6 @@ title: "Introduction to DSH"
 
 # An introduction to the Data Services Hub
 
-Note: audience should have had a generic talk by bisdev before this part
-
 <!--s-->
 ## What is the DSH?
 
@@ -40,6 +38,7 @@ Note: we've established we have a platform, now we're going to talk about its pr
 ## Why is the DSH awesome?
 
 Key concepts:
+
 - Data as low-latency events (streams) <!-- .element: class="fragment"-->
 - Real-time processing <!-- .element: class="fragment"-->
 - Data sharing <!-- .element: class="fragment"-->
@@ -70,19 +69,14 @@ Note: this is a quote, and as such only applies to the view of the person making
 
 ## We expect more
 
-> A streaming data platform should be able to:
-> - handle hundreds of thousands of sources
-> - send data to hundreds of thousands of sinks
-> - process (clean, refine, aggregate, combine) data
-> - share data streams with other parties
-> - do all of this, with __high security standards__
+A streaming data platform should be able to:
+- handle hundreds of thousands of sources <!-- .element: class="fragment"-->
+- send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
+- process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
+- share data streams with other parties <!-- .element: class="fragment"-->
+- do all of this, with <!-- .element: class="fragment" --> __high security standards__ <!-- .element: class="fragment" data-fragment-index="6"-->
 
-Note: security is the biggest part of the DSH, and will annoy you
-
-<!--v-->
-## Data Streams
-
-The DSH holds many different <!-- .element: class="fragment" data-fragment-index="1" -->_data streams_<!-- .element: class="fragment" data-fragment-index="1" -->
+Note: security is a big part of the DSH, and can be perceived as annoying, at first
 
 <!--v-->
 ## Data Streams
@@ -111,20 +105,20 @@ Note: MQTT and Kafka are equally useful, but for very different reasons
 
 <!--s-->
 ## MQTT
-- _Lightweight_ messaging protocol 
-- Allows subscribe and publish <!-- .element: class="fragment" data-fragment-index="1"-->
-- Widespread in the  <!-- .element: class="fragment" data-fragment-index="2" --> *Internet of Things* <!-- .element: class="fragment" data-fragment-index="2" -->
+- Messaging protocol based around publish and subscribe<!-- .element: class="fragment" data-fragment-index="1"-->
+- _Lightweight_
+- Widespread use in the <!-- .element: class="fragment" data-fragment-index="2" --> *Internet of Things (IoT)* <!-- .element: class="fragment" data-fragment-index="2" -->
 - Suitable for many simultaneous connections <!-- .element: class="fragment" data-fragment-index="3" -->
 - ISO/IEC 20922 and OASIS standard <!-- .element: class="fragment" data-fragment-index="4" -->
-- Subscription-based with fine-grained access control<!-- .element: class="fragment" -->
+- Fine-grained access control<!-- .element: class="fragment" -->
 
 Note: MQTT is a very good way to get data on the DSH. As a sidenote:
-- Sensor op een brug, die een bericht stuurt wanneer de brug open gaat (en anders slaapt)
-- Deurschakelaar, die voor iedere opening een berichtje stuurt
-- Temperatuurssensor in een gekoelde scheepscontainer
-- Actieve hartmonitor, die 'events' detecteert
-- GPS op een mobiele telefoon (owntracks, Casper z'n telefoon)
-- Beveiligingscamera, die een foto van het gezicht van een overtreder doorstuurt
+- Sensor on a bridge, which sleeps unless the bridge state (open/closed) changes
+- Door contact, which sends a message when the door opens
+- Temperaturesensor in a refrigirated shipping container
+- Active heartmonitor, which sends messages on `events` (think irregular heartrate)
+- GPS on a smartphone (owntracks, Casper's phone)
+- Security camera, which sends the picture of the intruder
 
 <!--v-->
 ## Do I have to use MQTT?
@@ -149,19 +143,19 @@ Note: we do not say other adapters are in the works. Kafka is the backbone, MQTT
     - LinkedIn
     - Netflix
     - Twitter
-    - British Gas
-    - Goldman Sachs
-    - Cisco Systems
     - PayPal
-    - Spotify
-    - Salesforce
-    - Uber
-    - Yelp
-    - Pinterest
-    - eBay
-    - Cloudflare
 
-Note: remove items based on customer
+Note: other examples:
+- British Gas
+- Goldman Sachs
+- Cisco Systems
+- Spotify
+- Salesforce
+- Uber
+- Yelp
+- Pinterest
+- eBay
+- Cloudflare
 
 <!--v-->
 ## MQTT vs Kafka
@@ -177,10 +171,10 @@ Note: remove items based on customer
 
 <!-- $$ \text{MQTT} \cdot \frac{sources}{sinks} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ .element: class="fragment" data-fragment-index="1" -->
 
-Note: 
+Note:
 - kafka sources/sinks can also reside outside of DSH
-- Explicityly mention we're going to make the thing visual now
-- More technical details will follow
+- explicityly mention we're going to make the DSH visual now
+- more technical details will follow
 
 <!--s-->
 <!-- .slide: data-transition="fade" -->
@@ -229,25 +223,25 @@ Note: _point at member of audience_ this is your tenant
 <!-- .slide: data-transition="fade" -->
 ## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks-singletenant-stream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note: within your tenant, you run your stuff on your stream.
+Note: within your tenant, you run your services.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks-scratch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note: if you have multiple things running in your tenant, you can make use of a stream type that is not available outside your tenant. You cannot share this stream.
+Note: if you have multiple services running in your tenant, you can make use of a stream type that is not available outside your tenant. You cannot share this stream.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks-twotenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note: _point at fellow KPN critter_ this is your tenant. You cannot access the stream. You cannot see the stream.
+Note: _point at another member of the audience_ this is your tenant. You cannot access the stream. You cannot see the stream.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
 ![dsh-overview-4](images/dsh/dsh-sourcessinks-thirdtenant.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note  _point at another member of audience_ this is your tenant. You are allowed to access this data. 
+Note: _point at yet another member of audience_ this is your tenant. You are allowed to access this data.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
@@ -281,7 +275,7 @@ Note: example ECG sensors. First, all data is processed at the computer of the d
 
 - Many frameworks for (stream) processing
 - No framework fits all use-cases
-- DSH does not dictate a framework; you can use whatever you want
+- DSH does not dictate a framework
 
 No _One framework to rule them all_, but the DSH to _bind them_.  
 
@@ -291,15 +285,13 @@ Note: analogy: you can bring your project to Black&Decker, and then you'll have 
 # Security nightmare
 
 - You share the platform with others <!-- .element: class="fragment"-->
-- You can use whatever they want <!-- .element: class="fragment"-->
-- Streams have access control lists <!-- .element: class="fragment"-->
-- Tenants are separated <!-- .element: class="fragment"-->
+- You (and others) can use whatever they want <!-- .element: class="fragment"-->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Base DSH
 ![DC/OS](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note: in your tenant, you run docker containers. Correct use of docker is _forced_. Docker is already quite secure, but the DSH ensures you can't hack your way out of your container (you can't be root)
+Note: in your tenant, you run docker containers. Docker containers are meant to isolate processes from the host's environment they run on. This is extremely important when sharing underlying hosts with other processes, possibly owned by other tenants. Therefore, we regulate the use of Docker; your process cannot be root, and must run with a specific UID.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
