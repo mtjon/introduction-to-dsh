@@ -59,21 +59,22 @@ mosquitto_sub -t "house/Study/Tele/#"
 mosquitto_sub -t "house/+/Tele/SENSOR/#"
 ```
 
-Note: mention that MQTT stores the latest value _before_ going to the next slide
 <!--v-->
 
 [![asciicast](https://asciinema.org/a/242386.svg)](https://asciinema.org/a/242386)
 
-Note: clearly explain that MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the structure is kept, but ACLs are no longer applied.
+Note: MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the tree-like structure is kept, but fine-grained MQTT ACLs are no longer applied.
 
 <!--v-->
 
 ## Rarely updated data sources
+By default, MQTT does not store anything.
 
-- MQTT stores only the last value
-- DSH implements a 'latest value store'
-<!-- tracks keys in a stream -->
-Note: distributed in-memory key-value store. We saw that as the video started.
+This is a potential issue when working with rarely updated data sources.  <!-- .element: class="fragment"-->
+
+There is a 'retain'-flag  <!-- .element: class="fragment"-->
+
+Note: messages are simply passed through. A sensor update will be thrown to whoever is subscribed. But what about the status of a bridge? Or a message stating a door is open or closed?
 
 <!--s-->
 <!-- .slide: data-transition="fade" -->

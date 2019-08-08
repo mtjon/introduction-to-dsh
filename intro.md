@@ -10,75 +10,84 @@ title: "Introduction to DSH"
 });-->
 
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
+
 # An introduction to the Data Services Hub
 
 <!--s-->
-# What is the DSH?
+## What is the DSH?
+
+The DSH is an
+
 AWESOME <!-- .element: class="fragment" data-fragment-index="1" -->
 
+Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="2" -->
 
-<!--v-->
-# Why is the DSH awesome?
-What is it?
-What does it do better than others?
-What are the key aspects?
-<!-- .slide: class="nobullets" -->
-- Data platform <!-- .element: class="fragment" data-fragment-index="1" -->
-- Data (as events) <!-- .element: class="fragment" data-fragment-index="2" -->
-- Sharing <!-- .element: class="fragment" data-fragment-index="3" -->
-- Processing <!-- .element: class="fragment" data-fragment-index="4" -->
-- Scalable <!-- .element: class="fragment" data-fragment-index="5" -->
-- Secure <!-- .element: class="fragment" data-fragment-index="6" -->
-- Low-latency <!-- .element: class="fragment" data-fragment-index="7" -->
-
-Note: incomplete list, obvs'.
-
+Note: information dump starts in the next slide. We'll start on generic features and advantages, and spiral down to the fun details.
 <!--v-->
 
-# What is the DSH?
+## Definition: platform
 
-A platform that does something awesome with <!-- .element: class="fragment" data-fragment-index="1" --> _streaming data_ <!-- .element: class="fragment" data-fragment-index="1" -->
-
-<!--v-->
-
-# Definition: platform 
-- A (software) platform is anything you can build (applications) on
+- A (software) platform is something you can build (applications) on
 - Provides reusable infrastructure
 - Takes care of recurring and tedious tasks
 - Should not hamper creativity
 
+Note: we've established we have a platform, now we're going to talk about its properties
+
+<!--v-->
+## Why is the DSH awesome?
+
+Key concepts:
+
+- Data as low-latency events (streams) <!-- .element: class="fragment"-->
+- Real-time processing <!-- .element: class="fragment"-->
+- Data sharing <!-- .element: class="fragment"-->
+- Scalable platform <!-- .element: class="fragment"-->
+- Secure <!-- .element: class="fragment"-->
+
+What does the DSH do better than others?  <!-- .element: class="fragment"-->
+
+Everything on this list, and more! <!-- .element: class="fragment"-->
+
+Note: "We'll explain these concepts further, it should become clear why you should pick the DSH." Make audience remember 'streams,processing,sharing,scalable,secure'.
+
 <!--s-->
 
-# Definition: Streaming Data
+## Definition: Streaming Data
+
 > &hellip;data that is generated continuously by thousands of data
 > sources, which typically send in the data records simultaneously, and in
-> small sizes (order of Kilobytes). 
+> small sizes (order of Kilobytes).
 
-https://aws.amazon.com/streaming-data
+[https://aws.amazon.com/streaming-data](https://aws.amazon.com/streaming-data)
+
+A streaming platform should be able to handle thousands of data sources  <!-- .element: class="fragment"-->
 
 Note: this is a quote, and as such only applies to the view of the person making the quote
 
 <!--v-->
 
-## Our definition: Streaming Data
+## We expect more
 
-> A streaming data platform should also be able to continuously send selected
-> data records to thousands of data sinks.
+A streaming data platform should be able to:
+
+- handle hundreds of thousands of sources <!-- .element: class="fragment"-->
+- send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
+- process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
+- share data streams with other parties <!-- .element: class="fragment"-->
+- do all of this, with <!-- .element: class="fragment" --> __high security standards__ <!-- .element: class="fragment" data-fragment-index="6"-->
+
+Note: security is a big part of the DSH, and can be perceived as annoying, at first
 
 <!--v-->
-# Data Streams
-
-The DSH holds many different <!-- .element: class="fragment" data-fragment-index="1" -->_data streams_<!-- .element: class="fragment" data-fragment-index="1" -->
-
-<!--v-->
-## Data Stream
-
-> A sequence of digitally encoded signals used to represent information in transmission.
+## Data Streams
+<!-- .slide: data-transition="fade" -->
+> A sequence of digitally encoded signals, used to represent information in transmission.
 
 [Federal Standard 1037C](https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm)
 
 <!--v-->
-# Types of streaming data
+## Types of streaming data
 
 Not all datastreams are created equal
 
@@ -93,28 +102,60 @@ $$
 \end{align}
 $$ <!-- .element: class="fragment" data-fragment-index="2" -->
 
+Note: MQTT and Kafka are equally useful, but for very different reasons
+
 <!--s-->
 ## MQTT
-- Messaging protocol
-- ISO/IEC 20922 and, OASIS standard
-- Lightweight messaging protocol
-- Suitable for many simultaneous connections
-- Widespread in the *Internet of Things*
+- Messaging protocol based around publish and subscribe<!-- .element: class="fragment" data-fragment-index="1"-->
+- _Lightweight_
+- Widespread use in the <!-- .element: class="fragment" data-fragment-index="2" --> *Internet of Things (IoT)* <!-- .element: class="fragment" data-fragment-index="2" -->
+- Suitable for many simultaneous connections <!-- .element: class="fragment" data-fragment-index="3" -->
+- ISO/IEC 20922 and OASIS standard <!-- .element: class="fragment" data-fragment-index="4" -->
+- Fine-grained access control<!-- .element: class="fragment" -->
 
-Note: more about MQTT later
+Note: MQTT is a very good way to get data on the DSH. As a sidenote:
+- Sensor on a bridge, which sleeps unless the bridge state (open/closed) changes
+- Door contact, which sends a message when the door opens
+- Temperaturesensor in a refrigirated shipping container
+- Active heartmonitor, which sends messages on `events` (think irregular heartrate)
+- GPS on a smartphone (owntracks, Casper's phone)
+- Security camera, which sends the picture of the intruder
+
+<!--v-->
+## Do I have to use MQTT?
+
+- Maybe you don't need the features MQTT brings? <!-- .element: class="fragment" -->
+- Maybe MQTT is hard to implement in your case?  <!-- .element: class="fragment" -->
+- Maybe another protocol is already implemented?  <!-- .element: class="fragment" -->
+
+We allow tenants to write custom protocol adapters  <!-- .element: class="fragment" -->
+
+Note: we do not say other adapters are in the works. Kafka is the backbone, MQTT is one very cool way of ingesting/extruding data
 
 <!--v-->
 
 ## Kafka
 
-- Can handle huge volume of data
-- Event-based
-- Fast!
-- Messaging backbone for:  <!-- .element: class="fragment" data-fragment-index="1" -->
+- Can handle _huge_ volumes of data
+- Event-based <!-- .element: class="fragment"-->
+- Allows subscribe and publish <!-- .element: class="fragment"-->
+- Used by:  <!-- .element: class="fragment"-->
     - LinkedIn
     - Netflix
     - Twitter
-    <!-- - Goldman Sachs -->
+    - PayPal
+
+Note: other examples:
+- British Gas
+- Goldman Sachs
+- Cisco Systems
+- Spotify
+- Salesforce
+- Uber
+- Yelp
+- Pinterest
+- eBay
+- Cloudflare
 
 <!--v-->
 ## MQTT vs Kafka
@@ -128,14 +169,16 @@ Note: more about MQTT later
   - _must_ have few sources/sinks
   - sources/sinks reside inside DSH
 
-$$ \text{MQTT} \cdot \frac{sources}{sinks} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ <!-- .element: class="fragment" data-fragment-index="1" -->
+<!-- $$ \text{MQTT} \cdot \frac{sources}{sinks} \approx \text{Kafka} \cdot \frac{sources}{sinks} $$ .element: class="fragment" data-fragment-index="1" -->
 
-Note: kafka sources/ sinks can also reside outside of DSH
+Note:
+- kafka sources/sinks can also reside outside of DSH
+- explicityly mention we're going to make the DSH visual now
+- more technical details will follow
 
 <!--s-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
-
 ![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
@@ -144,87 +187,70 @@ Note: kafka sources/ sinks can also reside outside of DSH
 
 ![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
+Note: the core of the DSH messaging is a Kafka bus. Note the MQTT bridge.
+
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
+![dsh-overview-2](images/dsh/dsh-sourcessinks.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: we connect sources and sinks through MQTT bridges. The messages they send, end up on a 'stream'.
 
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Overview
+![dsh-overview-2](images/dsh/dsh-sensorsdashboards.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: we connect sources and sinks through MQTT bridges. The messages they send, end up on a 'stream'.
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
+![dsh-overview-2](images/dsh/dsh-sourcessinks-singlestream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: access to this stream has two sides; from outside, and from inside (the DSH). First, we'll deal with the 'inside'. 
+Let's say the data source (sensor) is _point at member of audience_ yours. That makes the data, and the stream, yours as well.
 
-![dsh-overview-3](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Overview
-
-![dsh-overview-4](images/dsh/dsh-tenants-contents.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--s-->
-# MQTT
-![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-## MQTT bridge
-![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="30%" -->
-- Protocol adapter
-    - MQTT interface with Kafka
-- Like MQTT: allows wildcard subscriptions:<!-- .element: class="fragment" data-fragment-index="2" -->
-
- ```
- /platform/stream/topic/#
- ```
- <!-- .element: class="fragment" data-fragment-index="2" -->
-
-Note: wildcard subscriptions later, in the MQTT part
-
-<!--v-->
-## External data sources 
-
-- are not always MQTT ... <!-- .element: class="fragment" data-fragment-index="2" -->
-<!-- - do not always stream -->
-- ... and will therefore require custom adapters  <!-- .element: class="fragment" data-fragment-index="3" -->
-
-We allow tenants to write their own adapters  <!-- .element: class="fragment" data-fragment-index="4" -->
-
-Note: do we say other adapters are in the works?
-
-<!--s-->
-<!-- .slide: data-transition="fade" -->
-
-# Kafka
-
-![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-
-## Kafka
-Three Kafka stream-types
--  _stream._ topic
--  _internal._ topic 
--  _scratch._ topic
+![dsh-overview-2](images/dsh/dsh-sourcessinks-singletenant.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: _point at member of audience_ this is your tenant
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-![kafkastreams](images/dsh/dsh-kafkastreams.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
+## Overview
+![dsh-overview-2](images/dsh/dsh-sourcessinks-singletenant-stream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: within your tenant, you run your services.
 
 <!--v-->
-## Many data streams
+<!-- .slide: data-transition="fade" -->
+## Overview
+![dsh-overview-2](images/dsh/dsh-sourcessinks-scratch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: if you have multiple services running in your tenant, you can make use of a stream type that is not available outside your tenant. You cannot share this stream.
 
-- Streams need organizing
-- DSH topics $ \approx $ Kafka topics
-- Need to control access to topics
-	<!-- - Manage at topic level using custom tooling
-    - Based on Access Control Lists (ACLs) -->
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Overview
+![dsh-overview-2](images/dsh/dsh-sourcessinks-twotenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: _point at another member of the audience_ this is your tenant. You cannot access the stream. You cannot see the stream.
 
-Note: control access to topics will be dealt with later
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Overview
+![dsh-overview-4](images/dsh/dsh-sourcessinks-thirdtenant.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: _point at yet another member of audience_ this is your tenant. You are allowed to access this data.
+
+<!--v-->
+<!-- .slide: data-transition="fade" -->
+## Overview
+![dsh-overview-4](images/dsh/dsh-sourcessinks-thirdtenant-access.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: there is another type of stream that stays _inside_ the DSH. This is ideal for sharing data streams. The same access control things apply; tenant C cannot access, or even see, this stream.
+Long complex story, but the takeaway is simple: security is extreme, you are in control.
+
 <!--s-->
-# Stream Processing
-The DSH is a platform that does  <!-- .element: class="fragment" data-fragment-index="1" --> _stream processing_  <!-- .element: class="fragment" data-fragment-index="1" -->
-
-<!--v-->
 ## Stream Processing
 
 > &hellip; is the processing of data in motion, or in other words,
@@ -247,7 +273,7 @@ Note: example ECG sensors. First, all data is processed at the computer of the d
 <!--v-->
 ## Many ways to process the data
 
-- Many frameworks for stream processing
+- Many frameworks for (stream) processing
 - No framework fits all use-cases
 - DSH does not dictate a framework
 
@@ -258,45 +284,41 @@ Note: analogy: you can bring your project to Black&Decker, and then you'll have 
 <!--s-->
 # Security nightmare
 
-- Need to allow other people on your platform for proximity
-- And they can use whatever software they want on the platform
+- You share the platform with others <!-- .element: class="fragment"-->
+- You (and others) can use whatever they want <!-- .element: class="fragment"-->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Base DSH
 ![DC/OS](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: in your tenant, you run docker containers. Docker containers are meant to isolate processes from the host's environment they run on. This is extremely important when sharing underlying hosts with other processes, possibly owned by other tenants. Therefore, we regulate the use of Docker; your process cannot be root, and must run with a specific UID.
+
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## Calico
 ![DC/OS](images/dsh/dsh-calico.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+Note: Calico separates tenants.
+
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ## DC/OS
 ![dsh-overview-5](images/dsh/dsh-dcos.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-<!--v-->
-![DC/OS](images/old/dsh-overview-6-dsh-overview.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: DC/OS is the base, tenants run their docker containers on top of it. DC/OS is supported by most stream processing frameworks
-
-<!--v-->
-## Securing
-
-- Custom container manager 
-    - for ease of use
-    - to _force_ correct use of Docker
-- Custom resource manager
-- Calico to ensure network isolation
-
-Note: docker is already quite secure, but the DSH ensures you can't hack your way out of your container (you can't be root)
 
 <!--v-->
 
 # Wrap-up
 
 - DC/OS as base
-- Docker + extra security
-- Tenant network isolation
+- Tenants
+    - Calico to ensure network isolation
+- Docker containers
+    - Custom container manager
+    - Correct use of docker _forced_
+- Custom resource manager
 
 Note: question to audience "how do tenants communicate?" KAFKAAAAA
+Marathon is our docker orchestrator
 
 <!--s-->
 # Authentication Nightmare
@@ -351,7 +373,7 @@ Note: which building blocks?
 <!--s-->
 # Wrap-up
 
-- API keys, REST token & MQTT tokens 
+- API keys, REST token & MQTT tokens
 - Kafka certificates
 - ACLs on all streams/topics
 - Kafka topics scheme
