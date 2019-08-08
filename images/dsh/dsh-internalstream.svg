@@ -19,6 +19,21 @@
   <defs
      id="defs2">
     <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7684"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7682"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:#ff0000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(0.6)" />
+    </marker>
+    <marker
        inkscape:isstock="true"
        style="overflow:visible"
        id="marker2725"
@@ -31,21 +46,6 @@
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
          id="path2723"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       inkscape:isstock="true"
-       style="overflow:visible"
-       id="marker2721"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Mstart">
-      <path
-         transform="scale(0.6)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:#ff0000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
-         id="path2719"
          inkscape:connector-curvature="0" />
     </marker>
     <marker
@@ -1575,15 +1575,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="763.65147"
-     inkscape:cy="294.99738"
+     inkscape:cx="844.50818"
+     inkscape:cy="271.78829"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer27"
+     inkscape:current-layer="layer29"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="-9"
-     inkscape:window-y="41"
+     inkscape:window-height="1017"
+     inkscape:window-x="2905"
+     inkscape:window-y="1480"
      inkscape:window-maximized="1"
      showguides="true">
     <sodipodi:guide
@@ -1920,7 +1920,7 @@
        inkscape:groupmode="layer"
        id="layer4"
        inkscape:label="Tenant contents"
-       style="display:none">
+       style="display:inline">
       <rect
          style="display:inline;opacity:1;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.47839093;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect251019"
@@ -3312,7 +3312,7 @@
          style="opacity:1;fill:none;stroke:#000000;stroke-width:1.05245435;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Mstart-18-1-4-7)" />
     </g>
     <path
-       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Mstart-18-1-4)"
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.14999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Mstart-18-1-4)"
        d="M 198.32302,90.066479 H 174.00264"
        id="path243684-7-5-4-7-9"
        inkscape:connector-curvature="0" />
@@ -3322,6 +3322,26 @@
      id="layer27"
      inkscape:label="Kafka Streams information flow"
      style="display:inline">
+    <g
+       inkscape:groupmode="layer"
+       id="layer17"
+       inkscape:label="Nope"
+       style="display:none">
+      <g
+         style="display:inline"
+         id="g8293">
+        <path
+           inkscape:connector-curvature="0"
+           id="path7680"
+           d="m 274.23947,125.31745 -7.7448,-13.41439"
+           style="display:inline;opacity:1;fill:none;stroke:#ff0000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="display:inline;opacity:1;fill:none;stroke:#ff0000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 274.23947,111.90306 -7.7448,13.41439"
+           id="path8289"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
     <g
        inkscape:groupmode="layer"
        id="layer30"
@@ -3394,13 +3414,6 @@
        id="layer29"
        inkscape:label="Internal 1"
        style="display:inline">
-      <rect
-         y="108.05158"
-         x="228.27403"
-         height="20.109934"
-         width="4.233357"
-         id="rect2728"
-         style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2.0309999;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
       <path
          style="display:inline;fill:none;stroke:#0000ff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 165.97006,138.79679 112.359,-0.12901"
@@ -3426,11 +3439,6 @@
          d="m 230.33767,104.63276 v -4.36534"
          id="path2705"
          inkscape:connector-curvature="0" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path2713"
-         d="M 230.38124,140.91909 V 107.52242"
-         style="display:inline;opacity:1;fill:none;stroke:#ff0000;stroke-width:1.35628068;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker2721)" />
       <path
          style="display:inline;opacity:1;fill:none;fill-opacity:0;stroke:#0000ff;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker2683)"
          d="m 221.29854,100.72097 v 4.36535"
