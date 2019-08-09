@@ -288,7 +288,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 
 - The username (`-u ...`) is not required for the DSH; it gets overruled
   by the `THING_ID` in the token. We put it here because some versions of the
-  mosquitto client expect it to be there. 
+  mosquitto client expect it to be there.
 - `--capath` or `--cafile` is where the mosquitto client can find the SSL root
   certificates on your system, required to be able to connect to our mqtt
   protocol-adapter over SSL
