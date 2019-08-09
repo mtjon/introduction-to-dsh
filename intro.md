@@ -177,7 +177,7 @@ Note:
 <!--s-->
 ## Visual representation of the DSH
 
-<!--s-->
+<!--v-->
 <!-- .slide: data-transition="fade" -->
 ![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
