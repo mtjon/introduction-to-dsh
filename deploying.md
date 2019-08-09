@@ -2,7 +2,7 @@
 title: "Introduction to DSH: deploying microservices"
 ---
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
-# Deploying microservices
+## Deploying microservices
 
 <!--s-->
 ## Overview
@@ -11,7 +11,7 @@ title: "Introduction to DSH: deploying microservices"
 
 <!--v-->
 
-## Kafka streams
+### Kafka streams
 
 Three Kafka stream-types
 
@@ -22,7 +22,6 @@ Three Kafka stream-types
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ![kafkastreams](images/dsh/dsh-sourcessinks-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
@@ -42,14 +41,13 @@ Three Kafka stream-types
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Kafka
 
 ![dsh-topics-coloured](images/dsh/dsh-topics-coloured.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!-- ## Kafka and streams -->
 
 <!--v-->
-## Kafka and the MQTT Bridge
+### Kafka and the MQTT Bridge
 
 $$\begin{align}
 \text{MQTT topic prefix} &= \text{Kafka cluster name} \\\\\\  
@@ -73,7 +71,7 @@ Kafka(cluster="tt", topic="stream.cam.*", key="id", data="...")
 
 Learn to deploy an application on DSH that connects to DSH kafka.
 
-<!--v-->
+<!--s-->
 ## Prerequisites
 
 - _Installed:_ Curl
@@ -81,7 +79,7 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 - _Installed:_ Docker-CE
 - _Installed:_ Git
 - _Installed:_ java SDK 8
-- _Installed:_ maven (mvn) 
+- _Installed:_ maven (mvn)
 - _Installed:_ DSH UMP-client
 - _Available:_ tenant UID
 - _Available:_ docker registry credentials
@@ -99,15 +97,13 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 <!--s-->
 ## Get tenant example
 
-- Clone [this repo](https://github.com/mtjon/tenant-example) from git: 
+- Clone [this repo](https://github.com/mtjon/tenant-example) from git:
 - It contains a fully working tenant example
   - in java
   - built with maven
   - builds docker image
 
 <!--v-->
-## Inspect
-
 ### Dockerfile => UID
 
 - Change your pwd (present working directory) to `tenant-example`
@@ -116,8 +112,6 @@ Learn to deploy an application on DSH that connects to DSH kafka.
   modification
 
 <!--v-->
-## Inspect
-
 ### pom.xml => tenant
 
 - Open the `pom.xml` in your favorite text-editor
@@ -144,7 +138,7 @@ mvn package
 output for the name of the docker image.
 
 <!--v-->
-## Push
+### Push
 
 <!-- .element: class="lefty" -->Since every tenant has its own docker registry this will be reflected in the
 image tag name:
@@ -167,7 +161,7 @@ docker push \
 ```
 
 <!--v-->
-## Deploying
+### Deploying
 
 <!-- .element: class="lefty" -->The docker image has now been built and safely stored in the docker
 registry.
@@ -183,7 +177,7 @@ Next step: deploying a container on the DSH.
 - can deploy services/ applications to DSH
 
 <!--v-->
-## Connect/Setup UMP
+### Connect/Setup UMP
 
 - Click `+` to add a new environment
 - Fill in the requested values
@@ -193,16 +187,16 @@ Next step: deploying a container on the DSH.
 NOTE: Environment is for personal reference only. The connected tenant or 'login', if you will, is encoded in the API-key.
 
 <!--v-->
-## Deploy application
+### Creating a service
 
-- Click on the _Add new service_-button 
+- Click on the _Add new service_-button
 - and name it something unique, e.g. `tenant-example-$YOUR_NAME`
 
 <!--v-->
 ![UMP add service: name](images/UMP-dshdemo-add-service1.png)
 
 <!--v-->
-## Deploy application
+### Deploying your application/service
 
 - create AMP definition (see `tenant-example.json`)
 - modify the name of the image according to your build
@@ -213,7 +207,7 @@ NOTE: Environment is for personal reference only. The connected tenant or 'login
 ![UMP add service: amp definition](images/UMP-dshdemo-add-service2.png)
 
 <!--s-->
-## Test application
+## Function of the application
 
 <!-- .element: class="lefty" -->The kpn-tenant-example listens to the `training` topics on the `command` key.  
 Two commands are supported:
@@ -224,7 +218,7 @@ Two commands are supported:
 <!-- .element: class="lefty" -->Responses to those commands are written on the `response` key.
 
 <!--v-->
-## Verify
+## Testing of the application
 
 <!-- .element: class="lefty" -->You can set up an mqtt connection to verify:
 
