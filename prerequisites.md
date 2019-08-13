@@ -52,7 +52,7 @@ The rest of the instructions are the same as those under [Using WSL](#usewsl)
 1. Open PowerShell (WIN+X, A), and run the following command:
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -Featureame Microsoft-Windows-Subsystem-Linux
+Enable-WindowsOptionalFeature -Online -Featurename Microsoft-Windows-Subsystem-Linux
 ```
 
 Note: this simple command tells Windows to go and collect the Windows Subsystem for Linux, without you needing to go through all the menu's and clickyboxes.
