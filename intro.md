@@ -11,10 +11,10 @@ title: "Introduction to DSH"
 
 <!-- .slide: data-background="./images/kpn-intro-bg-md.jpg" -->
 
-# An introduction to the Data Services Hub
+## An introduction to the Data Services Hub
 
 <!--s-->
-## What is the DSH?
+### What is the DSH?
 
 The DSH is an
 
@@ -25,7 +25,7 @@ Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="2" 
 Note: information dump starts in the next slide. We'll start on generic features and advantages, and spiral down to the fun details.
 <!--v-->
 
-## Definition: platform
+### Definition: platform
 
 - A (software) platform is something you can build (applications) on
 - Provides reusable infrastructure
@@ -35,7 +35,7 @@ Note: information dump starts in the next slide. We'll start on generic features
 Note: we've established we have a platform, now we're going to talk about its properties
 
 <!--v-->
-## Why is the DSH awesome?
+### Why is the DSH awesome?
 
 Key concepts:
 
@@ -67,7 +67,7 @@ Note: this is a quote, and as such only applies to the view of the person making
 
 <!--v-->
 
-## We expect more
+### We expect more
 
 A streaming data platform should be able to:
 
@@ -80,14 +80,14 @@ A streaming data platform should be able to:
 Note: security is a big part of the DSH, and can be perceived as annoying, at first
 
 <!--v-->
-## Data Streams
+### Data Streams
 <!-- .slide: data-transition="fade" -->
 > A sequence of digitally encoded signals, used to represent information in transmission.
 
 [Federal Standard 1037C](https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm)
 
 <!--v-->
-## Types of streaming data
+### Types of streaming data
 
 Not all datastreams are created equal
 
@@ -122,7 +122,7 @@ Note: MQTT is a very good way to get data on the DSH. As a sidenote:
 - Security camera, which sends the picture of the intruder
 
 <!--v-->
-## Do I have to use MQTT?
+### Do I have to use MQTT?
 
 - Maybe you don't need the features MQTT brings? <!-- .element: class="fragment" -->
 - Maybe MQTT is hard to implement in your case?  <!-- .element: class="fragment" -->
@@ -133,8 +133,7 @@ We allow tenants to write custom protocol adapters  <!-- .element: class="fragme
 Note: we do not say other adapters are in the works. Kafka is the backbone, MQTT is one very cool way of ingesting/extruding data
 
 <!--v-->
-
-## Kafka
+### Kafka
 
 - Can handle _huge_ volumes of data
 - Event-based <!-- .element: class="fragment"-->
@@ -158,7 +157,7 @@ Note: other examples:
 - Cloudflare
 
 <!--v-->
-## MQTT vs Kafka
+### MQTT vs Kafka
 
 - MQTT
   - _usually_ low volume _(default 10 msgs/sec)_
@@ -173,79 +172,68 @@ Note: other examples:
 
 Note:
 - kafka sources/sinks can also reside outside of DSH
-- explicityly mention we're going to make the DSH visual now
 - more technical details will follow
 
 <!--s-->
+## Visual representation of the DSH
+
+<!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
-
 ![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 Note: the core of the DSH messaging is a Kafka bus. Note the MQTT bridge.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: we connect sources and sinks through MQTT bridges. The messages they send, end up on a 'stream'.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-2](images/dsh/dsh-sensorsdashboards.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: we connect sources and sinks through MQTT bridges. The messages they send, end up on a 'stream'.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks-singlestream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note: access to this stream has two sides; from outside, and from inside (the DSH). First, we'll deal with the 'inside'. 
+Note: access to this stream has two sides; from outside, and from inside (the DSH). First, we'll deal with the 'inside'.
 Let's say the data source (sensor) is _point at member of audience_ yours. That makes the data, and the stream, yours as well.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks-singletenant.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: _point at member of audience_ this is your tenant
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks-singletenant-stream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: within your tenant, you run your services.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks-scratch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: if you have multiple services running in your tenant, you can make use of a stream type that is not available outside your tenant. You cannot share this stream.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-2](images/dsh/dsh-sourcessinks-twotenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: _point at another member of the audience_ this is your tenant. You cannot access the stream. You cannot see the stream.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-4](images/dsh/dsh-sourcessinks-thirdtenant.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: _point at yet another member of audience_ this is your tenant. You are allowed to access this data.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Overview
 ![dsh-overview-4](images/dsh/dsh-sourcessinks-thirdtenant-access.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: there is another type of stream that stays _inside_ the DSH. This is ideal for sharing data streams. The same access control things apply; tenant C cannot access, or even see, this stream.
 Long complex story, but the takeaway is simple: security is extreme, you are in control.
@@ -261,7 +249,7 @@ https://data-artisans.com/what-is-stream-processing
 Note: key point; process the data while in motion.
 
 <!--v-->
-## Where to process
+### Where to process
 ![dsh-overview-5](images/dsh/dsh-wheredoesprocessinghappen.svg)<!-- .element: class="plain" -->
 
 - At the source?
@@ -271,7 +259,7 @@ Note: key point; process the data while in motion.
 Note: example ECG sensors. First, all data is processed at the computer of the doctor, so all data needs to be transferred and stored. All data is relevant, since all data is needed for processing. Migrating processing to the device allows for less data in need to be transferred: less power usage, less storage required, and faster decision making. Go over the limitations of all these strategies.
 
 <!--v-->
-## Many ways to process the data
+### Many ways to process the data
 
 - Many frameworks for (stream) processing
 - No framework fits all use-cases
@@ -282,32 +270,32 @@ No _One framework to rule them all_, but the DSH to _bind them_.
 Note: analogy: you can bring your project to Black&Decker, and then you'll have a workshop with Black&Decker tools. We provide an empty toolshed; you want to use a Gamma drill? You use a Gamma drill. Alternatively: if you have a BMW, you'll to bring it to a garage that is familiar with BMW. However, we provide an empty shed, you bring your own tools. We don't care if you're going to come in with a BMW, Audi, or a horse.
 
 <!--s-->
-# Security nightmare
+## Security nightmare
 
 - You share the platform with others <!-- .element: class="fragment"-->
 - You (and others) can use whatever they want <!-- .element: class="fragment"-->
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Base DSH
+### Base DSH
 ![DC/OS](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: in your tenant, you run docker containers. Docker containers are meant to isolate processes from the host's environment they run on. This is extremely important when sharing underlying hosts with other processes, possibly owned by other tenants. Therefore, we regulate the use of Docker; your process cannot be root, and must run with a specific UID.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Calico
+### Calico
 ![DC/OS](images/dsh/dsh-calico.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: Calico separates tenants.
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## DC/OS
+### DC/OS
 ![dsh-overview-5](images/dsh/dsh-dcos.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: DC/OS is the base, tenants run their docker containers on top of it. DC/OS is supported by most stream processing frameworks
 
 <!--v-->
 
-# Wrap-up
+## Wrap-up
 
 - DC/OS as base
 - Tenants
@@ -321,7 +309,7 @@ Note: question to audience "how do tenants communicate?" KAFKAAAAA
 Marathon is our docker orchestrator
 
 <!--s-->
-# Authentication Nightmare
+### Authentication Nightmare
 
 - Certificates for tenant (container) authentication towards Kafka
 - API key to authenticate tenants that want to let devices/things/users connect to the platform
@@ -330,28 +318,24 @@ Marathon is our docker orchestrator
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Authentication relations
 
 ![Authentication Relations](images/authentication/authentication-relations-1-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Authentication relations
 
 ![Authentication Relations](images/authentication/authentication-relations-2-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Authentication relations
 
 ![Authentication Relations](images/authentication/authentication-relations-3-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 Note: emphasize why the REST token is required -> multiple protocols in future
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-## Authentication relations
 
 ![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 <!--v-->
-## Device management
+### Device management
 
 - DSH does not manage devices
 - Up to the tenant to implement <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -360,7 +344,7 @@ Note: emphasize why the REST token is required -> multiple protocols in future
 Note: which building blocks?
 
 <!--v-->
-## Access control
+### Access control
 
 - Fine-grained on MQTT
   - Access Control Lists (ACLs)
@@ -371,7 +355,7 @@ Note: which building blocks?
   - implemented using custom tooling
 
 <!--s-->
-# Wrap-up
+## Wrap-up
 
 - API keys, REST token & MQTT tokens
 - Kafka certificates
@@ -380,6 +364,6 @@ Note: which building blocks?
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
-# Practical part; MQTT
+## Practical part; MQTT
 [MQTT](localhost:1948/mqtt.md)
 Note: tell the audience that the next part is for the technical people. The rest can go get coffee and feel inadequate.
