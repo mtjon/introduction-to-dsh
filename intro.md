@@ -107,13 +107,13 @@ Note: MQTT and Kafka are equally useful, but for very different reasons
 <!--s-->
 ## MQTT
 - Messaging protocol based around publish and subscribe<!-- .element: class="fragment" data-fragment-index="1"-->
-- _Lightweight_
-- Widespread use in the <!-- .element: class="fragment" data-fragment-index="2" --> *Internet of Things (IoT)* <!-- .element: class="fragment" data-fragment-index="2" -->
-- Suitable for many simultaneous connections <!-- .element: class="fragment" data-fragment-index="3" -->
-- ISO/IEC 20922 and OASIS standard <!-- .element: class="fragment" data-fragment-index="4" -->
+- Lightweight<!-- .element: class="fragment" data-fragment-index="2"-->
+- Widespread use in the <!-- .element: class="fragment" data-fragment-index="3" --> *Internet of Things (IoT)* <!-- .element: class="fragment" data-fragment-index="4" -->
+- Suitable for many simultaneous connections <!-- .element: class="fragment" data-fragment-index="5" -->
+- ISO/IEC 20922 and OASIS standard <!-- .element: class="fragment" data-fragment-index="6" -->
 - Fine-grained access control<!-- .element: class="fragment" -->
 
-Note: MQTT is a very good way to get data on the DSH. As a sidenote:
+Note: MQTT is a very good way to get data on the DSH.
 - Sensor on a bridge, which sleeps unless the bridge state (open/closed) changes
 - Door contact, which sends a message when the door opens
 - Temperaturesensor in a refrigirated shipping container
