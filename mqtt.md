@@ -137,6 +137,8 @@ echo API_KEY=...
 <!--v-->
 ### Getting a REST token
 
+<!-- .element: class="lefty" -->Execute the following command:
+
 ```bash
 curl -X POST \
   "https://api.$PLATFORM.kpn-dsh.com/auth/v0/token" \
@@ -173,21 +175,12 @@ Did you just blindly give away credentials to an unknown website?  <!-- .element
 <!--v-->
 ### Contents of a JWT (local)
 
-<!-- .element: class="lefty" -->Command-line alternative for Linux:
+<!-- .element: class="lefty" -->Command-line alternative:
 
 ```bash
 cat rest-token.txt | \
 sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
 base64 -d | \
-jq .
-```
-
-<!-- .element: class="lefty" -->Command-line alternative for macOS:
-
-```bash
-cat rest-token.txt | \
-sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
-base64 -D | \
 jq .
 ```
 
@@ -232,21 +225,12 @@ Note that:
 <!--s-->
 ## Contents of an MQTT token
 
-<!-- .element: class="lefty" -->Use [jwt.io](https://jwt.io) or use the command-line alternative for Linux:
+<!-- .element: class="lefty" -->Use [jwt.io](https://jwt.io) or use the command-line alternative:
 
 ```bash
 cat mqtt-token.txt | \
 sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
 base64 -d | \
-jq .
-```
-
-<!-- .element: class="lefty" -->Use jwt.io or use the command-line alternative for macOS:
-
-```bash
-cat mqtt-token.txt | \
-sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
-base64 -D | \
 jq .
 ```
 
@@ -264,21 +248,11 @@ jq .
 <!--v-->
 ### Mosquitto_sub
 
-<!-- .element: class="lefty" -->On Linux, execute the following command:
+<!-- .element: class="lefty" -->Execute the following command:
 
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -t "/tt/training/$THING_ID/#" --capath /etc/ssl/certs/ \
--d -P "`cat mqtt-token.txt`" -u $THING_ID -v
-```
-
-<!-- .element: class="lefty" -->On macOS, use `--cafile iso --capath`:
-
-```bash
-
-mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/training/$THING_ID/#" \
---cafile /usr/local/etc/openssl/cert.pem \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -v
 ```
 
@@ -302,23 +276,13 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 <!--v-->
 ### Mosquitt_pub
 
-<!-- .element: class="lefty" -->On Linux, execute the following command:
+<!-- .element: class="lefty" -->Execute the following command:
 
 ```bash
 while sleep 1; do date "+$THING_ID%S"; done | \
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 -p 8883 -t "/tt/training/$THING_ID/" \
 --capath /etc/ssl/certs/ \
--d -P "`cat mqtt-token.txt`" -u $THING_ID -l
-```
-
-<!-- .element: class="lefty" -->On macOS, execute the following command:
-
-```bash
-while sleep 1; do date "+$THING_ID%S"; done | \
-mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
--p 8883 -t "/tt/training/$THING_ID/" \
---cafile /usr/local/etc/openssl/cert.pem \
 -d -P "`cat mqtt-token.txt`" -u $THING_ID -l
 ```
 
