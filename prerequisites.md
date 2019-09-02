@@ -43,7 +43,6 @@ You will likely first need to install WSL. While this can be done through the Wi
 4. Click `install` or `download`, and wait for it to complete.
 5. When it's done, there should be an icon for Ubuntu. Click it, set (and remember!) your password.
 
-
 ## Using WSL
 
 After you've mailed your public key to the trainer, you will receive the IP of your [VM](#glossary). So:
@@ -99,7 +98,6 @@ Use one of the following links to download UMP, and install it.
 [Windows](https://s3.eu-central-1.amazonaws.com/dsh-ump/auto-update/DSH-UMP+Setup+1.2.0.exe)
 
 You will be guided through the usage of UMP during the training.
-<!-- for now, simply install it, and leave it alone. -->
 
 ## Glossary
 
