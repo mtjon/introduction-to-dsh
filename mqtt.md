@@ -85,8 +85,7 @@ Note: messages are simply passed through. A sensor update will be thrown to whoe
 <!--s-->
 ## Goal
 
-Learn how to subscribe and publish data on one of the DSH public datastreams
-via MQTT
+Learn how to _subscribe_ and _publish_ data on one of the DSH public datastreams via _MQTT_
 
 <!--v-->
 ### Steps
