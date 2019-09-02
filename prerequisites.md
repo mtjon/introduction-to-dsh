@@ -129,6 +129,7 @@ You will then navigate to the folder where your private key exists, and run:
 ```bash
 ssh -i id_iot ubuntu@52.59.203.96
 ```
+
 Where the -i flag stands for `identity`, and `ubuntu` is the default username.
 
 <a name="linmac"></a>
