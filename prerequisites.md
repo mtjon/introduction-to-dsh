@@ -34,18 +34,15 @@ WSL has our preference, with Git for Windows acting as a backup-option. Guides f
 
 ## Getting WSL
 
+You will likely first need to install WSL. While this can be done through the Windows features dialog, there is also an easier way.
+
 1. Open PowerShell (WIN+X, A), and run the following command:
-
-```powershell
-Enable-WindowsOptionalFeature -Online -Featurename Microsoft-Windows-Subsystem-Linux
-```
-
-Note: this simple command tells Windows to go and collect the Windows Subsystem for Linux, without you needing to go through all the menu's and clickyboxes.
-
+  ```Enable-WindowsOptionalFeature -Online -Featurename Microsoft-Windows-Subsystem-Linux```
 2. Reboot when prompted.
 3. After rebooting, open the Windows Store, and search for `Ubuntu`.
 4. Click `install` or `download`, and wait for it to complete.
 5. When it's done, there should be an icon for Ubuntu. Click it, set (and remember!) your password.
+
 
 ## Using WSL
 
