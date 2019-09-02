@@ -101,17 +101,19 @@ cd tenant-example
 ```
 
 ```bash
+vim Dockerfile
 nano Dockerfile
 ```
 
 `ENV id 1054`
 
 ```bash
+vim pom.xml
 nano pom.xml
 ```
 
 ```xml
-<version>1.0.1-SNAPSHOT-MARCO</version>
+<version>1.0.1-trainer</version>
 <tenant>training</tenant>
 ```
 
@@ -125,7 +127,7 @@ docker login dataserviceshub-docker-$TENANT.jfrog.io -p $jfrog_password -u $jfro
 
 ```bash
 docker push \
-  dataserviceshub-docker-$TENANT.jfrog.io/tenant-example:1.0.1-SNAPSHOT-MARCO
+  dataserviceshub-docker-$TENANT.jfrog.io/tenant-example:1.0.1-trainer
  ```
 
 ## OR Simplified
@@ -136,7 +138,7 @@ docker login $jfrog_url -p $jfrog_password -u $jfrog_login
 
 ```bash
 docker push \
-  $jfrog_url/tenant-example:1.0.1-SNAPSHOT-MARCO
+  $jfrog_url/tenant-example:1.0.1-trainer
  ```
 
 ## UMP
@@ -146,11 +148,11 @@ echo $ump_api_endpoint
 echo $API_KEY
 ```
 
-## marco snapshot
+## Tenant example
 
 ```json
 {
-  "image": "dataserviceshub-docker-training.jfrog.io/tenant-example:1.0.1-SNAPSHOT-MARCO",
+  "image": "dataserviceshub-docker-training.jfrog.io/tenant-example:1.0.1-trainer",
   "cpus": 0.1,
   "mem": 128,
   "env": {
