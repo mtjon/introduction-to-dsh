@@ -33,8 +33,6 @@ If you are already familiar with SSH, have a working shell or client, then you c
 WSL has our preference, with Git for Windows acting as a backup-option. Guides for both options have been included.
 
 
-<a name="powershellkeygen"></a>
-
 ## Generating a keypair in Windows PowerShell
 
 1. In PowerShell, type the following commands (press ENTER after each command)
@@ -50,8 +48,6 @@ ssh-keygen -t rsa -C "your_email@example.com"
 4. Mail the [public key](#glossary) file to the trainer.
 
 The rest of the instructions are the same as those under [Using WSL](#usewsl)
-
-<a name="getwsl"></a>
 
 ## Getting WSL
 
@@ -84,8 +80,6 @@ ssh-keygen -t rsa
 13. Open the folder corresponding to your Ubuntu username, and open the .ssh folder.
 14. Mail the [public key](#glossary) file to the trainer.
 
-<a name="usewsl"></a>
-
 ## Using WSL
 
 After you've mailed your public key to the trainer, you will receive the IP of your [VM](#glossary). So:
@@ -101,8 +95,6 @@ ssh -i .ssh/id_iot ubuntu@52.59.203.96
 
 Where the -i flag stands for `identity`, and `ubuntu` is the default username.
 
-<a name="getgit"></a>
-
 ## Getting Git Bash
 
 1. Download Git for Windows.
@@ -113,8 +105,6 @@ Where the -i flag stands for `identity`, and `ubuntu` is the default username.
     - If Git for Windows was installed, it will create an entry in the context menu, allowing you to open a Git Bash in whatever folder you prefer.
     - If the portable version is used, you will need to start the bash from the executable found in the unpacked folder.
 4. If needed, navigate to a preferred folder. (use `pwd` to figure out where you are, use `cd` to navigate)
-
-<a name="gitbash"></a>
 
 ## Generating a keypair in Git Bash
 
@@ -137,8 +127,6 @@ ssh -i id_iot ubuntu@52.59.203.96
 ```
 
 Where the -i flag stands for `identity`, and `ubuntu` is the default username.
-
-<a name="linmac"></a>
 
 ## Generating a keypair in Linux/Mac
 
