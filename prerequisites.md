@@ -2,17 +2,23 @@
 
 ## General information
 
-This guide aims to ensure the training proceeds as desired, with all participants having fullfilled all basic pre-requisites.
-Steps everybody needs to perform:
+This guide aims to ensure the Tenant-in-one-Day-training proceeds as desired, with all participants having fullfilled all basic pre-requisites.
 
-1. You will generate your own unique [keypair](#glossary).
-2. You will send your public key to your trainer.
-3. Your public key will be given to your [VM](#glossary), which will then be able to recognize and authenticate your [SSH](#glossary) session.
-4. You will download [UMP](#glossary), to be able to interact with the [DSH](#glossary).
+Required:
 
-Optionally, if you don't already have it, you may need to set up a way to use SSH.
+- Basic knowledge of [SSH](#glossary)
+- A shell capable of SSH, or an ssh client
 
-If you are already familiar with SSH and creating a keypair, you can skip straight to your preferred version of 'connecting'.
+Optional:
+
+- [UMP](#glossary), to be able to interact with the [DSH](#glossary)
+
+Before the training starts, you will receive:
+
+- The IP-address of your [virtual machine (VM)](#glossary), which will be created for the purposes of this training
+- A private SSH key. This key is part of a [keypair](#glossary), with the other part being given to your VM
+
+If you are already familiar with SSH, have a working shell or client, then you can skip straight to your preferred version of 'connecting'.
 
 ## Options to connect over SSH
 
