@@ -5,10 +5,10 @@
 This guide aims to ensure the training proceeds as desired, with all participants having fullfilled all basic pre-requisites.
 Steps everybody needs to perform:
 
-1. You will generate your own unique [keypair](##glossary).
+1. You will generate your own unique [keypair](#glossary).
 2. You will send your public key to your trainer.
-3. Your public key will be given to your [VM](##glossary), which will then be able to recognize and authenticate your [SSH](##glossary) session.
-4. You will download [UMP](##glossary), to be able to interact with the [DSH](##glossary).
+3. Your public key will be given to your [VM](#glossary), which will then be able to recognize and authenticate your [SSH](#glossary) session.
+4. You will download [UMP](#glossary), to be able to interact with the [DSH](#glossary).
 
 Optionally, if you don't already have it, you may need to set up a way to use SSH.
 
@@ -16,7 +16,7 @@ If you are already familiar with SSH and creating a keypair, you can skip straig
 
 ## Options to connect over SSH
 
-- Linux and Mac have an SSH client built in. [Proceed to Generating a keypair in Linux/Mac](#linmac).
+- Linux and Mac have an SSH client built in. [Proceed to Generating a keypair in Linux/Mac](#using-linux-or-mac).
 - Windows sometimes comes with ssh. To check, you open Powershell (WIN+X, A, click `yes`) and type `ssh`. You will either get feedback stating:
   - you didn't supply required parameters (meaning you have it, and should proceed to [generating a keypair in PowerShell](#powershellkeygen).
   - ssh is unknown, meaning you don't have it, so you should continue to the next step.
@@ -41,7 +41,7 @@ ssh-keygen -t rsa -C "your_email@example.com"
 
 2. Follow the instructions. Note that you will have to set a password.
 3. It will save the key in the folder %userprofile%/.ssh. Use a file explorer to navigate to this folder.
-4. Mail the [public key](##glossary) file to the trainer.
+4. Mail the [public key](#glossary) file to the trainer.
 
 The rest of the instructions are the same as those under [Using WSL](#usewsl)
 
@@ -76,13 +76,13 @@ ssh-keygen -t rsa
 9. Find the folder that has `Ubuntu` in its name. For example `CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc`
 12. Drill down to `\LocalState\rootfs\home\`
 13. Open the folder corresponding to your Ubuntu username, and open the .ssh folder.
-14. Mail the [public key](##glossary) file to the trainer.
+14. Mail the [public key](#glossary) file to the trainer.
 
 <a name="usewsl"></a>
 
 ## Using WSL
 
-After you've mailed your public key to the trainer, you will receive the IP of your [VM](##glossary). So:
+After you've mailed your public key to the trainer, you will receive the IP of your [VM](#glossary). So:
 
 - Your `ssh key` is in `.ssh`, and is called `id_iot`.
 - The IP you got is 52.59.203.96.
@@ -116,11 +116,11 @@ Where the -i flag stands for `identity`, and `ubuntu` is the default username.
     - Note that you will have to set a password.
     - If the .ssh folder does not exist, it will give an error. You can solve this by navigating to `%userprofile%` and running `mkdir .ssh`.
 2. Locate the keypair, which by default ends up in `%userprofile%/.ssh`.
-3. Mail the [public key](##glossary) file to the trainer.
+3. Mail the [public key](#glossary) file to the trainer.
 
 ## Using Git Bash
 
-After you've mailed your public key to the trainer, you will receive the IP of your [VM](##glossary). So:
+After you've mailed your public key to the trainer, you will receive the IP of your [VM](#glossary). So:
 
 - Your `ssh key` is in `.ssh`, and is called `id_iot`.
 - The IP you got is 52.59.203.96.
@@ -144,7 +144,7 @@ ssh-keygen -t rsa
 
 2. Follow the instructions. Note that you will have to set a password.
 3. It will state in which folder your keypair will have been saved. Use a file explorer to navigate to this folder.
-4. Mail the [public key](##glossary) file to the trainer.
+4. Mail the [public key](#glossary) file to the trainer.
 
 The rest of the instructions are the same as those under [Using WSL](#usewsl)
 
