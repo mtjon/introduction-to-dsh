@@ -1,4 +1,4 @@
-# Prerequisites to the Tenant-in-a-day-training
+# Prerequisites to the Tenant-in-one-day-training
 
 ## General information
 
