@@ -110,5 +110,5 @@ You will be guided through the usage of UMP during the training.
 - SSH: secure shell. A way to interact with remote systems (such as our VM).
 - Authentication: the VM only allows SSH connections from systems it knows. So, you'll need to authenticate.
 - A keypair authenticates you as a user. These files should start with `id_` followed by your name (`id_jan`), and consists of two parts:
-  - A private key. You do _NOT_ share this, ever.
-  - A public key, which you can share. This file tends to end in `.pub`
+  - A private key. You do _NOT_ share this
+  - A public key, which you can share. This file tends to end in `.pub`. In our training, the public key is placed inside your VM
