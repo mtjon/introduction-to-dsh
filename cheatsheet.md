@@ -36,7 +36,7 @@ export THING_ID_1=trainer_sub
 
 ```bash
 curl -X POST \
-"https://api."$PLATFORM".kpn-dsh.com/datastreams/v0/mqtt/token" \
+"https://api.$PLATFORM.kpn-dsh.com/datastreams/v0/mqtt/token" \
 -H "Authorization: Bearer `cat rest-token.txt`" \
 -d '{"id":"'$THING_ID_1'"}' > mqtt-token_1.txt
 ```
@@ -51,7 +51,7 @@ jq .
 ## Subscribe
 
 ```bash
-mosquitto_sub -h mqtt."$PLATFORM".kpn-dsh.com -p 8883 \
+mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -t "/tt/training/#" \
 --capath /etc/ssl/certs/ -d -P "`cat mqtt-token_1.txt`" \
 -u $THING_ID_1 -v
@@ -69,7 +69,7 @@ export ThiNG_ID_2=trainer_pub
 
 ```bash
 curl -X POST \
-"https://api."$PLATFORM".kpn-dsh.com/datastreams/v0/mqtt/token" \
+"https://api.$PLATFORM.kpn-dsh.com/datastreams/v0/mqtt/token" \
 -H "Authorization: Bearer `cat rest-token.txt`" \
 -d '{"id":"'$THING_ID_2'"}' > mqtt-token_2.txt
 ```
