@@ -292,10 +292,10 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 <!--v-->
 ### Result
 
-- What do you see? Why?
-- Try replacing `sleep 1` by `true`; what happens?
-- To allow the platform to scale, publish rate over MQTT is limited to 10
-  msgs/sec.<!-- .element: class="fragment" -->
+- What do you see? <!-- .element: class="fragment" -->
+- Why? <!-- .element: class="fragment" -->
+- Why is this a potential issue? <!-- .element: class="fragment" -->
+- How do we solve this? <!-- .element: class="fragment" -->
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
