@@ -289,6 +289,8 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 -u $THING_ID -m $THING_ID
 ```
 
+Note: if you got an error, you may have forgotten to generate a second token.
+
 <!--v-->
 ### Result
 
