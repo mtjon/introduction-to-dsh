@@ -32,23 +32,6 @@ If you are already familiar with SSH, have a working shell or client, then you c
 
 WSL has our preference, with Git for Windows acting as a backup-option. Guides for both options have been included.
 
-
-## Generating a keypair in Windows PowerShell
-
-1. In PowerShell, type the following commands (press ENTER after each command)
-
-```powershell
-mkdir %userprofile%/.ssh
-cd %userprofile%/.ssh
-ssh-keygen -t rsa -C "your_email@example.com"
-```
-
-2. Follow the instructions. Note that you will have to set a password.
-3. It will save the key in the folder %userprofile%/.ssh. Use a file explorer to navigate to this folder.
-4. Mail the [public key](#glossary) file to the trainer.
-
-The rest of the instructions are the same as those under [Using WSL](#usewsl)
-
 ## Getting WSL
 
 1. Open PowerShell (WIN+X, A), and run the following command:
@@ -63,22 +46,6 @@ Note: this simple command tells Windows to go and collect the Windows Subsystem 
 3. After rebooting, open the Windows Store, and search for `Ubuntu`.
 4. Click `install` or `download`, and wait for it to complete.
 5. When it's done, there should be an icon for Ubuntu. Click it, set (and remember!) your password.
-
-## Generating a keypair in WSL
-
-6. In your Ubuntu terminal, type:
-
-```bash
-sudo apt install ssh
-ssh-keygen -t rsa
-```
-
-7. Follow the instructions. Note that you will have to set a password.
-8. Open the `run` dialog in Windows (WIN+R), and enter `%LocalAppData%\Packages\`
-9. Find the folder that has `Ubuntu` in its name. For example `CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc`
-12. Drill down to `\LocalState\rootfs\home\`
-13. Open the folder corresponding to your Ubuntu username, and open the .ssh folder.
-14. Mail the [public key](#glossary) file to the trainer.
 
 ## Using WSL
 
@@ -106,14 +73,6 @@ Where the -i flag stands for `identity`, and `ubuntu` is the default username.
     - If the portable version is used, you will need to start the bash from the executable found in the unpacked folder.
 4. If needed, navigate to a preferred folder. (use `pwd` to figure out where you are, use `cd` to navigate)
 
-## Generating a keypair in Git Bash
-
-1. In Git Bash, type `ssh-keygen -o`, and follow the instructions.
-    - Note that you will have to set a password.
-    - If the .ssh folder does not exist, it will give an error. You can solve this by navigating to `%userprofile%` and running `mkdir .ssh`.
-2. Locate the keypair, which by default ends up in `%userprofile%/.ssh`.
-3. Mail the [public key](#glossary) file to the trainer.
-
 ## Using Git Bash
 
 After you've mailed your public key to the trainer, you will receive the IP of your [VM](#glossary). So:
@@ -127,20 +86,6 @@ ssh -i id_iot ubuntu@52.59.203.96
 ```
 
 Where the -i flag stands for `identity`, and `ubuntu` is the default username.
-
-## Generating a keypair in Linux/Mac
-
-1. In your terminal, type:
-
-```bash
-ssh-keygen -t rsa
-```
-
-2. Follow the instructions. Note that you will have to set a password.
-3. It will state in which folder your keypair will have been saved. Use a file explorer to navigate to this folder.
-4. Mail the [public key](#glossary) file to the trainer.
-
-The rest of the instructions are the same as those under [Using WSL](#usewsl)
 
 ## Getting UMP
 
