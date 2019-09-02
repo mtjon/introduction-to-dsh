@@ -229,15 +229,6 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -u $THING_ID -v
 ```
 
-<!-- .element: class="lefty" -->On macOS use
-
-```bash
-mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/training/response/#"  \
---cafile /usr/local/etc/openssl/cert.pem -d \
--P "`cat mqtt-token.txt`" -u $THING_ID -v
-```
-
 <!--v-->
 ## Verify
 
@@ -246,15 +237,6 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -t "/tt/training/command/" \
 --capath /etc/ssl/certs/ -d -P "`cat mqtt-token.txt`" \
 -u $THING_ID -l
-```
-
-<!-- .element: class="lefty" -->On macOS use
-
-```bash
-mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/training/command/" \
---cafile /usr/local/etc/openssl/cert.pem -d \
--P "`cat mqtt-token.txt`" -u $THING_ID -l
 ```
 
 <!-- .element: class="lefty" -->Type:
