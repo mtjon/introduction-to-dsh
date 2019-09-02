@@ -87,6 +87,10 @@ ssh -i id_iot ubuntu@52.59.203.96
 
 Where the -i flag stands for `identity`, and `ubuntu` is the default username.
 
+## Using Linux or Mac
+
+The instructions for Linux and Mac are the same as those under [Using WSL](#usewsl)
+
 ## Getting UMP
 
 Use one of the following links to download UMP, and install it.
