@@ -276,7 +276,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com \
   - Ensure the required environment variables are available
 
 <!--v-->
-### Mosquitt_pub
+### Mosquitto_pub
 
 <!-- .element: class="lefty" -->Execute the following command:
 
