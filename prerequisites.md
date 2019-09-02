@@ -24,14 +24,14 @@ If you are already familiar with SSH, have a working shell or client, then you c
 
 - Linux and Mac have an SSH client built in. [Proceed to Generating a keypair in Linux/Mac](#using-linux-or-mac).
 - Windows sometimes comes with ssh. To check, you open Powershell (WIN+X, A, click `yes`) and type `ssh`. You will either get feedback stating:
-  - you didn't supply required parameters (meaning you have it, and should proceed to [generating a keypair in PowerShell](#powershellkeygen).
-  - ssh is unknown, meaning you don't have it, so you should continue to the next step.
-- If Windows doesn't have ssh, you have several options:
-  - [Windows Subsystem for Linux (WSL)](#getwsl) allows you to run Linux commands (including SSH) on your Windows system.
-  - [Git for windows](#getgit) allows you to run git commands, through a bash shell. There is even a portable version that does not require admin rights.
-  - Many more options. You can use whatever you're comfortable with. _(note that the format in which PuttyGen stores the keys is _not_ standard; you will need to copy the generated key in a new text file)_
+  - you didn't supply required parameters. This means Powershell understands SSH, and you can proceed to treat it as a relatively normal [Linux shell](#using-wsl) for the commands that we use here. However, if commands result in unexpected behaviour, you should switch to one of the alternatives below.
+  - ssh is unknown, meaning PowerShell does not understand SSH. you should then proceed to install one of the following:
+    - [Windows Subsystem for Linux (WSL)](#getting-wsl) allows you to run Linux commands (including SSH) on your Windows system, by running an integrated [Linux shell](#using-wsl).
+    - [Git for windows](#getting-git-bash) allows you to run git commands, through a [bash shell](#using-git-bash). There is even a portable version that does not require admin rights.
+    - If already have another preferred way, such as Putty, you are free to use it, assuming it does not create issues during the training. _(note, however, that the format in which PuttyGen stores the keys is __not__ standard; you will need to copy the generated key in a new text file)_
 
-WSL has our preference, with Git for Windows acting as a backup-option. Guide for both options have been included.
+WSL has our preference, with Git for Windows acting as a backup-option. Guides for both options have been included.
+
 
 <a name="powershellkeygen"></a>
 
