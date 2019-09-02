@@ -201,7 +201,7 @@ export THING_ID=...
 
 ```bash
 curl -X POST \
-"https://api."$PLATFORM".kpn-dsh.com/datastreams/v0/mqtt/token" \
+"https://api.$PLATFORM.kpn-dsh.com/datastreams/v0/mqtt/token" \
 -H "Authorization: Bearer `cat rest-token.txt`" \
 -d '{"id":"'$THING_ID'"}' > mqtt-token_1.txt
 ```
