@@ -203,7 +203,7 @@ export THING_ID=...
 curl -X POST \
 "https://api.$PLATFORM.kpn-dsh.com/datastreams/v0/mqtt/token" \
 -H "Authorization: Bearer `cat rest-token.txt`" \
--d '{"id":"'$THING_ID'"}' > mqtt-token_1.txt
+-d '{"id":"'$THING_ID'"}' > mqtt-token.txt
 ```
 
 <!--v-->
@@ -227,7 +227,7 @@ Note that:
 <!-- .element: class="lefty" -->Use [jwt.io](https://jwt.io) or use the command-line alternative:
 
 ```bash
-cat mqtt-token_1.txt | \
+cat mqtt-token.txt | \
 sed "s/[^.]*\.\([^.]*\)\.[^.]*/\1===/;s/\(\(....\)*\).*/\1/" | \
 base64 -d | \
 jq .
@@ -254,7 +254,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com \
 -p 8883 \
 -t "/tt/training/#" \
 --capath /etc/ssl/certs/ \
--d -P "`cat mqtt-token_1.txt`" \
+-d -P "`cat mqtt-token.txt`" \
 -u $THING_ID -v
 ```
 
@@ -285,7 +285,7 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
 -p 8883 \
  -t "/tt/training/$THING_ID" \
 --capath /etc/ssl/certs/ \
--d -P "`cat mqtt-token_2.txt`" \
+-d -P "`cat mqtt-token.txt`" \
 -u $THING_ID -m $THING_ID
 ```
 
