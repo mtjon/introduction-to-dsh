@@ -85,8 +85,7 @@ Note: messages are simply passed through. A sensor update will be thrown to whoe
 <!--s-->
 ## Goal
 
-Learn how to subscribe and publish data on one of the DSH public datastreams
-via MQTT
+Learn how to _subscribe_ and _publish_ data on one of the DSH public datastreams via _MQTT_
 
 <!--v-->
 ### Steps
@@ -251,9 +250,12 @@ jq .
 <!-- .element: class="lefty" -->Execute the following command:
 
 ```bash
-mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
--t "/tt/training/$THING_ID/#" --capath /etc/ssl/certs/ \
--d -P "`cat mqtt-token.txt`" -u $THING_ID -v
+mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com \
+-p 8883 \
+-t "/tt/training/#" \
+--capath /etc/ssl/certs/ \
+-d -P "`cat mqtt-token.txt`" \
+-u $THING_ID -v
 ```
 
 <!--v-->
@@ -274,25 +276,28 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
   - Ensure the required environment variables are available
 
 <!--v-->
-### Mosquitt_pub
+### Mosquitto_pub
 
 <!-- .element: class="lefty" -->Execute the following command:
 
 ```bash
-while sleep 1; do date "+$THING_ID%S"; done | \
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \
--p 8883 -t "/tt/training/$THING_ID/" \
+-p 8883 \
+ -t "/tt/training/$THING_ID" \
 --capath /etc/ssl/certs/ \
--d -P "`cat mqtt-token.txt`" -u $THING_ID -l
+-d -P "`cat mqtt-token.txt`" \
+-u $THING_ID -m $THING_ID
 ```
+
+Note: if you got an error, you may have forgotten to generate a second token.
 
 <!--v-->
 ### Result
 
-- What do you see? Why?
-- Try replacing `sleep 1` by `true`; what happens?
-- To allow the platform to scale, publish rate over MQTT is limited to 10
-  msgs/sec.<!-- .element: class="fragment" -->
+- What do you see? <!-- .element: class="fragment" -->
+- Why? <!-- .element: class="fragment" -->
+- Why is this a potential issue? <!-- .element: class="fragment" -->
+- How do we solve this? <!-- .element: class="fragment" -->
 
 <!--s-->
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
