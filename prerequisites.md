@@ -7,28 +7,28 @@ This guide aims to ensure the Tenant-in-one-Day-training proceeds as desired, wi
 Required:
 
 - Basic knowledge of [SSH](#glossary)
-- A shell capable of SSH, or an ssh client
+- A shell capable of SSH, or an SSH client
 
 Optional:
 
 - [UMP](#glossary), to be able to interact with the [DSH](#glossary)
 
-Before the training starts, you will receive:
+During the training, you will receive:
 
 - The IP-address of your [virtual machine (VM)](#glossary), which will be created for the purposes of this training
 - A private SSH key. This key is part of a [keypair](#glossary), with the other part being given to your VM
 
-If you are already familiar with SSH, have a working shell or client, then you can skip straight to your preferred version of 'connecting'.
+If you are already familiar with SSH, and have a working shell or client, then you can skip straight to the instructions to connect over [WSL](#using-wsl) or [Git Bash](#using-git-bash).
 
 ## Options to connect over SSH
 
 - Linux and Mac have an SSH client built in. [Proceed to Generating a keypair in Linux/Mac](#using-linux-or-mac).
-- Windows sometimes comes with ssh. To check, you open Powershell (WIN+X, A, click `yes`) and type `ssh`. You will either get feedback stating:
+- Windows sometimes comes with SSH. To check, you open Powershell (`win` + `x`, `a`, click `yes`) and type `ssh`. You will either get feedback stating:
   - you didn't supply required parameters. This means Powershell understands SSH, and you can proceed to treat it as a relatively normal [Linux shell](#using-wsl) for the commands that we use here. However, if commands result in unexpected behaviour, you should switch to one of the alternatives below.
-  - ssh is unknown, meaning PowerShell does not understand SSH. you should then proceed to install one of the following:
+  - SSH is unknown, meaning PowerShell does not understand SSH. you should then proceed to install one of the following:
     - [Windows Subsystem for Linux (WSL)](#getting-wsl) allows you to run Linux commands (including SSH) on your Windows system, by running an integrated [Linux shell](#using-wsl).
     - [Git for windows](#getting-git-bash) allows you to run git commands, through a [bash shell](#using-git-bash). There is even a portable version that does not require admin rights.
-    - If already have another preferred way, such as Putty, you are free to use it, assuming it does not create issues during the training. _(note, however, that the format in which PuttyGen stores the keys is __not__ standard; you will need to copy the generated key in a new text file)_
+    - If already have another preferred way, such as Putty, you are free to use it, assuming it does not create issues during the training.
 
 WSL has our preference, with Git for Windows acting as a backup-option. Guides for both options have been included.
 
@@ -36,7 +36,7 @@ WSL has our preference, with Git for Windows acting as a backup-option. Guides f
 
 You will likely first need to install WSL. While this can be done through the Windows features dialog, there is also an easier way.
 
-1. Open PowerShell (WIN+X, A), and run the following command:
+1. Open PowerShell (`win` + `x`, `a`, click `yes`), and run the following command:
   ```Enable-WindowsOptionalFeature -Online -Featurename Microsoft-Windows-Subsystem-Linux```
 2. Reboot when prompted.
 3. After rebooting, open the Windows Store, and search for `Ubuntu`.
@@ -45,14 +45,14 @@ You will likely first need to install WSL. While this can be done through the Wi
 
 ## Using WSL
 
-After you've mailed your public key to the trainer, you will receive the IP of your [VM](#glossary). So:
+You will receive the IP of your [VM](#glossary) and the key from the trainer, which you will need to store. For example:
 
-- Your `ssh key` is in `.ssh`, and is called `id_iot`.
+- Your `SSH key` is in `.ssh`, and is called `id_iot`.
 - The IP you got is 52.59.203.96.
 
 You will then run:
 
-```powershell
+```wsl
 ssh -i .ssh/id_iot ubuntu@52.59.203.96
 ```
 
@@ -71,9 +71,9 @@ Where the -i flag stands for `identity`, and `ubuntu` is the default username.
 
 ## Using Git Bash
 
-After you've mailed your public key to the trainer, you will receive the IP of your [VM](#glossary). So:
+You will receive the IP of your [VM](#glossary) and the key from the trainer, which you will need to store. For example:
 
-- Your `ssh key` is in `.ssh`, and is called `id_iot`.
+- Your `SSH key` is in `.ssh`, and is called `id_iot`.
 - The IP you got is 52.59.203.96.
 You will then navigate to the folder where your private key exists, and run:
 
