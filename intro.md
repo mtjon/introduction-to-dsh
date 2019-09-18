@@ -77,10 +77,6 @@ Key concepts:
 - Real-time processing <!-- .element: class="fragment"-->
 - Data sharing <!-- .element: class="fragment"-->
 
-What does the DSH do better than others?  <!-- .element: class="fragment"-->
-
-Everything on this list, and more! <!-- .element: class="fragment"-->
-
 Note: "We'll explain these concepts further, it should become clear why you should pick the DSH." Make audience remember 'streams,processing,sharing,scalable,secure'.
 
 <!--v-->
