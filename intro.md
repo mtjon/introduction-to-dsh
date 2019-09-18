@@ -56,7 +56,7 @@ Note: a collection of streaming data is called a data stream
 - share data streams with other parties <!-- .element: class="fragment"-->
 - do all of this, with <!-- .element: class="fragment" --> __high security standards__ <!-- .element: class="fragment" data-fragment-index="6"-->
 
-Note: security is a big part of the DSH, and can be perceived as annoying, at first
+Note: security is a big part of the DSH
 
 <!--v-->
 ### Why is the DSH awesome?
