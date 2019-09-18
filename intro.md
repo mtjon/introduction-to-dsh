@@ -27,10 +27,10 @@ Note: information dump starts in the next slide. We'll start on generic features
 
 ### Definition: platform
 
-- A (software) platform is something you can build (applications) on
-- Provides reusable infrastructure
-- Takes care of recurring and tedious tasks
-- Should not hamper creativity
+- A (software) platform is something you can build (applications) on <!-- .element: class="fragment"-->
+- Provides reusable infrastructure <!-- .element: class="fragment"-->
+- Takes care of recurring and tedious tasks <!-- .element: class="fragment"-->
+- Should not hamper creativity <!-- .element: class="fragment"-->
 
 Note: we've established we have a platform, now we're going to talk about its properties
 
