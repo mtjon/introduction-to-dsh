@@ -48,6 +48,14 @@ Streaming Data Platform <!-- .element: class="fragment"-->
 Note: a collection of streaming data is called a data stream
 
 <!--v-->
+### Types of streaming data
+
+Not all datastreams are created equal
+
+![tap](./images/animated/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+
+<!--v-->
 ## What should a streaming data platform be able to do?
 
 - handle hundreds of thousands of sources <!-- .element: class="fragment"-->
@@ -76,7 +84,7 @@ Everything on this list, and more! <!-- .element: class="fragment"-->
 Note: "We'll explain these concepts further, it should become clear why you should pick the DSH." Make audience remember 'streams,processing,sharing,scalable,secure'.
 
 <!--v-->
-### Types of streaming data
+### Types of streaming data, for the DSH
 
 Not all datastreams are created equal
 
