@@ -62,7 +62,7 @@ Not all datastreams are created equal
 - send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
 - process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
 - share data streams with other parties <!-- .element: class="fragment"-->
-- do all of this, with <!-- .element: class="fragment" --> __high security standards__ <!-- .element: class="fragment" data-fragment-index="6"-->
+- do all of this, with <!-- .element: class="fragment" --> __high security standards__ <!-- .element: class="fragment" -->
 
 Note: security is a big part of the DSH
 
