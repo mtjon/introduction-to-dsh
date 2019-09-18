@@ -16,11 +16,11 @@ title: "Introduction to DSH"
 <!--s-->
 ### What is the DSH?
 
-The DSH is an
+The DSH is an <!-- .element: class="fragment" data-fragment-index="1" -->
 
-AWESOME <!-- .element: class="fragment" data-fragment-index="1" -->
+AWESOME <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="2" -->
+Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="3" -->
 
 Note: information dump starts in the next slide. We'll start on generic features and advantages, and spiral down to the fun details.
 <!--v-->
