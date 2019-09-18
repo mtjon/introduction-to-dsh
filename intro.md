@@ -25,7 +25,7 @@ Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="3" 
 Note: information dump starts in the next slide. We'll start on generic features and advantages, and spiral down to the fun details.
 <!--v-->
 
-### Definition: platform
+## Definition: platform
 
 - A (software) platform is something you can build (applications) on <!-- .element: class="fragment"-->
 - Provides reusable infrastructure <!-- .element: class="fragment"-->
@@ -35,41 +35,20 @@ Note: information dump starts in the next slide. We'll start on generic features
 Note: we've established we have a platform, now we're going to talk about its properties
 
 <!--v-->
-### Why is the DSH awesome?
+## What is the DSH again?
 
-Key concepts:
-
-- Data as low-latency events (streams) <!-- .element: class="fragment"-->
-- Real-time processing <!-- .element: class="fragment"-->
-- Data sharing <!-- .element: class="fragment"-->
-- Scalable platform <!-- .element: class="fragment"-->
-- Secure <!-- .element: class="fragment"-->
-
-What does the DSH do better than others?  <!-- .element: class="fragment"-->
-
-Everything on this list, and more! <!-- .element: class="fragment"-->
-
-Note: "We'll explain these concepts further, it should become clear why you should pick the DSH." Make audience remember 'streams,processing,sharing,scalable,secure'.
-
-<!--s-->
-
-## Definition: Streaming Data
-
-> &hellip;data that is generated continuously by thousands of data
-> sources, which typically send in the data records simultaneously, and in
-> small sizes (order of Kilobytes).
-
-[https://aws.amazon.com/streaming-data](https://aws.amazon.com/streaming-data)
-
-A streaming platform should be able to handle thousands of data sources  <!-- .element: class="fragment"-->
-
-Note: this is a quote, and as such only applies to the view of the person making the quote
+Streaming Data Platform <!-- .element: class="fragment"-->
 
 <!--v-->
+## Definition: streaming data
 
-### We expect more
+> &hellip; data that is generated continuously by many independent data
+> sources. Typically, this data is of small size (order of Kilobytes).
 
-A streaming data platform should be able to:
+Note: a collection of streaming data is called a data stream
+
+<!--v-->
+## What should a streaming data platform be able to do?
 
 - handle hundreds of thousands of sources <!-- .element: class="fragment"-->
 - send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
@@ -80,11 +59,21 @@ A streaming data platform should be able to:
 Note: security is a big part of the DSH, and can be perceived as annoying, at first
 
 <!--v-->
-### Data Streams
-<!-- .slide: data-transition="fade" -->
-> A sequence of digitally encoded signals, used to represent information in transmission.
+### Why is the DSH awesome?
 
-[Federal Standard 1037C](https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm)
+Key concepts:
+
+- Scalable platform <!-- .element: class="fragment"-->
+- Secure <!-- .element: class="fragment"-->
+- Data as low-latency events (streams) <!-- .element: class="fragment"-->
+- Real-time processing <!-- .element: class="fragment"-->
+- Data sharing <!-- .element: class="fragment"-->
+
+What does the DSH do better than others?  <!-- .element: class="fragment"-->
+
+Everything on this list, and more! <!-- .element: class="fragment"-->
+
+Note: "We'll explain these concepts further, it should become clear why you should pick the DSH." Make audience remember 'streams,processing,sharing,scalable,secure'.
 
 <!--v-->
 ### Types of streaming data
