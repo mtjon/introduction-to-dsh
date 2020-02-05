@@ -16,78 +16,71 @@ title: "Introduction to DSH"
 <!--s-->
 ### What is the DSH?
 
-The DSH is an
+The DSH is an <!-- .element: class="fragment" data-fragment-index="1" -->
 
-AWESOME <!-- .element: class="fragment" data-fragment-index="1" -->
+AWESOME <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="2" -->
+Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="3" -->
 
 Note: information dump starts in the next slide. We'll start on generic features and advantages, and spiral down to the fun details.
 <!--v-->
 
-### Definition: platform
+## Definition: platform
 
-- A (software) platform is something you can build (applications) on
-- Provides reusable infrastructure
-- Takes care of recurring and tedious tasks
-- Should not hamper creativity
+- A (software) platform is something you can build (applications) on <!-- .element: class="fragment"-->
+- Provides reusable infrastructure <!-- .element: class="fragment"-->
+- Takes care of recurring and tedious tasks <!-- .element: class="fragment"-->
+- Should not hamper creativity <!-- .element: class="fragment"-->
 
 Note: we've established we have a platform, now we're going to talk about its properties
+
+<!--v-->
+## What is the DSH again?
+
+Streaming Data Platform <!-- .element: class="fragment"-->
+
+<!--v-->
+## Definition: streaming data
+
+> &hellip; data that is generated continuously by many independent data
+> sources. Typically, this data is of small size (order of Kilobytes).
+
+Note: a collection of streaming data is called a data stream
+
+<!--v-->
+### Types of streaming data
+
+Not all datastreams are created equal
+
+![tap](./images/animated/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
+
+<!--v-->
+## What should a streaming data platform be able to do?
+
+- handle hundreds of thousands of sources <!-- .element: class="fragment"-->
+- send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
+- process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
+- share data streams with other parties <!-- .element: class="fragment"-->
+- do all of this, with <!-- .element: class="fragment" --> __high security standards__ <!-- .element: class="fragment" -->
+
+Note: security is a big part of the DSH
 
 <!--v-->
 ### Why is the DSH awesome?
 
 Key concepts:
 
+- Scalable platform <!-- .element: class="fragment"-->
+- Secure <!-- .element: class="fragment"-->
 - Data as low-latency events (streams) <!-- .element: class="fragment"-->
 - Real-time processing <!-- .element: class="fragment"-->
 - Data sharing <!-- .element: class="fragment"-->
-- Scalable platform <!-- .element: class="fragment"-->
-- Secure <!-- .element: class="fragment"-->
-
-What does the DSH do better than others?  <!-- .element: class="fragment"-->
-
-Everything on this list, and more! <!-- .element: class="fragment"-->
 
 Note: "We'll explain these concepts further, it should become clear why you should pick the DSH." Make audience remember 'streams,processing,sharing,scalable,secure'.
 
-<!--s-->
-
-## Definition: Streaming Data
-
-> &hellip;data that is generated continuously by thousands of data
-> sources, which typically send in the data records simultaneously, and in
-> small sizes (order of Kilobytes).
-
-[https://aws.amazon.com/streaming-data](https://aws.amazon.com/streaming-data)
-
-A streaming platform should be able to handle thousands of data sources  <!-- .element: class="fragment"-->
-
-Note: this is a quote, and as such only applies to the view of the person making the quote
-
 <!--v-->
-
-### We expect more
-
-A streaming data platform should be able to:
-
-- handle hundreds of thousands of sources <!-- .element: class="fragment"-->
-- send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
-- process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
-- share data streams with other parties <!-- .element: class="fragment"-->
-- do all of this, with <!-- .element: class="fragment" --> __high security standards__ <!-- .element: class="fragment" data-fragment-index="6"-->
-
-Note: security is a big part of the DSH, and can be perceived as annoying, at first
-
-<!--v-->
-### Data Streams
-<!-- .slide: data-transition="fade" -->
-> A sequence of digitally encoded signals, used to represent information in transmission.
-
-[Federal Standard 1037C](https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm)
-
-<!--v-->
-### Types of streaming data
+### Types of streaming data, for the DSH
 
 Not all datastreams are created equal
 
