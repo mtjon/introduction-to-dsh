@@ -16,23 +16,20 @@ title: "Introduction to DSH"
 <!--s-->
 ### What is the DSH?
 
-The DSH is an <!-- .element: class="fragment" data-fragment-index="1" -->
+The DSH is a <!-- .element: class="fragment" data-fragment-index="1" -->
 
-AWESOME <!-- .element: class="fragment" data-fragment-index="2" -->
+Streaming Data <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Streaming Data Platform <!-- .element: class="fragment" data-fragment-index="3" -->
+Platform <!-- .element: class="fragment" data-fragment-index="3" -->
 
-Note: information dump starts in the next slide. We'll start on generic features and advantages, and spiral down to the fun details.
 <!--v-->
-
 ## Definition: platform
 
-- A (software) platform is something you can build (applications) on <!-- .element: class="fragment"-->
-- Provides reusable infrastructure <!-- .element: class="fragment"-->
-- Takes care of recurring and tedious tasks <!-- .element: class="fragment"-->
-- Should not hamper creativity <!-- .element: class="fragment"-->
-
-Note: we've established we have a platform, now we're going to talk about its properties
+- According to us, a platform ...
+  - is something you can build (applications) on <!-- .element: class="fragment"-->
+  - provides reusable infrastructure <!-- .element: class="fragment"-->
+  - takes care of recurring and tedious tasks <!-- .element: class="fragment"-->
+  - should not hamper creativity <!-- .element: class="fragment"-->
 
 <!--v-->
 ## What is the DSH again?
@@ -45,7 +42,11 @@ Streaming Data Platform <!-- .element: class="fragment"-->
 > &hellip; data that is generated continuously by many independent data
 > sources. Typically, this data is of small size (order of Kilobytes).
 
-Note: a collection of streaming data is called a data stream
+- <!-- .element: class="fragment"--> Data is _streaming_ if it is produced and transmitted __without delays or batching__
+- <!-- .element: class="fragment"--> The smallest unit of streamed data is called a _message_ or _event_
+- <!-- .element: class="fragment"--> Streaming data is sorted, collected, or aggregated in a _stream_ or _topic_
+
+Note: the underlying technologies use the term 'topic' in different ways, so we will denote it as a _stream_, primarily
 
 <!--v-->
 ### Types of streaming data
@@ -55,34 +56,30 @@ Not all datastreams are created equal
 ![tap](./images/animated/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 ![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 
-<!--v-->
+<!--s-->
 ## What should a streaming data platform be able to do?
 
-- handle hundreds of thousands of sources <!-- .element: class="fragment"-->
-- send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
-- process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
-- share data streams with other parties <!-- .element: class="fragment"-->
-- do all of this, with <!-- .element: class="fragment" --> __high security standards__ <!-- .element: class="fragment" -->
-
-Note: security is a big part of the DSH
+- 
+  - handle hundreds of thousands of sources <!-- .element: class="fragment"-->
+  - send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
+  - process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
+  - share data streams with other parties <!-- .element: class="fragment"-->
+  - <!-- .element: class="fragment" --> do all of this, with _high security standards_ 
 
 <!--v-->
-### Why is the DSH awesome?
+### Key concepts:
 
-Key concepts:
+- 
+  - Scalable <!-- .element: class="fragment"-->
+  - Data as low-latency events (streams) <!-- .element: class="fragment"-->
+  - Real-time processing <!-- .element: class="fragment"-->
+  - Data sharing <!-- .element: class="fragment"-->
+  - Secure <!-- .element: class="fragment"-->
 
-- Scalable platform <!-- .element: class="fragment"-->
-- Secure <!-- .element: class="fragment"-->
-- Data as low-latency events (streams) <!-- .element: class="fragment"-->
-- Real-time processing <!-- .element: class="fragment"-->
-- Data sharing <!-- .element: class="fragment"-->
-
-Note: "We'll explain these concepts further, it should become clear why you should pick the DSH." Make audience remember 'streams,processing,sharing,scalable,secure'.
+Note: remember these key concepts!
 
 <!--v-->
 ### Types of streaming data, for the DSH
-
-Not all datastreams are created equal
 
 ![tap](./images/animated/leaky-tap.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
 ![rain](./images/animated/spillway.gif) <!-- .element: class="thinner fragment" data-fragment-index="1" -->
@@ -98,40 +95,26 @@ $$ <!-- .element: class="fragment" data-fragment-index="2" -->
 Note: MQTT and Kafka are equally useful, but for very different reasons
 
 <!--s-->
-## MQTT
-- Messaging protocol based around publish and subscribe<!-- .element: class="fragment" data-fragment-index="1"-->
-- Lightweight<!-- .element: class="fragment" data-fragment-index="2"-->
-- Widespread use in the <!-- .element: class="fragment" data-fragment-index="3" --> *Internet of Things (IoT)* <!-- .element: class="fragment" data-fragment-index="4" -->
-- Suitable for many simultaneous connections <!-- .element: class="fragment" data-fragment-index="5" -->
-- ISO/IEC 20922 and OASIS standard <!-- .element: class="fragment" data-fragment-index="6" -->
-- Fine-grained access control<!-- .element: class="fragment" -->
-
-Note: MQTT is a very good way to get data on the DSH.
-- Sensor on a bridge, which sleeps unless the bridge state (open/closed) changes
-- Door contact, which sends a message when the door opens
-- Temperaturesensor in a refrigirated shipping container
-- Active heartmonitor, which sends messages on `events` (think irregular heartrate)
-- GPS on a smartphone (owntracks, Casper's phone)
-- Security camera, which sends the picture of the intruder
+## Visual representation of the DSH
 
 <!--v-->
-### Do I have to use MQTT?
-
-- Maybe you don't need the features MQTT brings? <!-- .element: class="fragment" -->
-- Maybe MQTT is hard to implement in your case?  <!-- .element: class="fragment" -->
-- Maybe another protocol is already implemented?  <!-- .element: class="fragment" -->
-
-We allow tenants to write custom protocol adapters  <!-- .element: class="fragment" -->
-
-Note: we do not say other adapters are in the works. Kafka is the backbone, MQTT is one very cool way of ingesting/extruding data
+<!-- .slide: data-transition="fade" -->
+![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--v-->
+<!-- .slide: data-transition="fade" -->
+![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+Note: the core of the DSH messaging is a Kafka bus. Note the MQTT bridge.
+
+<!--s-->
 ### Kafka
 
-- Can handle _huge_ volumes of data
-- Event-based <!-- .element: class="fragment"-->
-- Allows subscribe and publish <!-- .element: class="fragment"-->
-- Used by:  <!-- .element: class="fragment"-->
+- Why:
+  - Can handle _huge_ volumes of data
+  - Event-based <!-- .element: class="fragment"-->
+  - Allows subscribe and publish <!-- .element: class="fragment"-->
+  - Used by:  <!-- .element: class="fragment"-->
     - LinkedIn
     - Netflix
     - Twitter
@@ -149,7 +132,38 @@ Note: other examples:
 - eBay
 - Cloudflare
 
+<!--s-->
+## MQTT
+- 
+  - Messaging protocol based around publish and subscribe<!-- .element: class="fragment" data-fragment-index="1"-->
+  - Lightweight<!-- .element: class="fragment" data-fragment-index="2"-->
+  - Widespread use in the <!-- .element: class="fragment" data-fragment-index="3" --> *Internet of Things (IoT)* <!-- .element: class="fragment" data-fragment-index="4" -->
+  - Suitable for many simultaneous connections <!-- .element: class="fragment" data-fragment-index="5" -->
+  - ISO/IEC 20922 and OASIS standard <!-- .element: class="fragment" data-fragment-index="6" -->
+  - Fine-grained access control<!-- .element: class="fragment" -->
+
+Note: MQTT is a very good way to get data on the DSH.
+- Sensor on a bridge, which sleeps unless the bridge state (open/closed) changes
+- Door contact, which sends a message when the door opens
+- Temperaturesensor in a refrigirated shipping container
+- Active heartmonitor, which sends messages on `events` (think irregular heartrate)
+- GPS on a smartphone (owntracks, Casper's phone)
+- Security camera, which sends the picture of the intruder
+
 <!--v-->
+### Do I have to use MQTT?
+
+- 
+  - Maybe you don't need the features MQTT brings? <!-- .element: class="fragment" -->
+  - Maybe MQTT is hard to implement in your case?  <!-- .element: class="fragment" -->
+  - Maybe another protocol is already implemented?  <!-- .element: class="fragment" -->
+
+We allow tenants to write custom protocol adapters  <!-- .element: class="fragment" -->
+
+Note: we do not say other adapters are in the works. Kafka is the backbone, MQTT is one very cool way of ingesting/extruding data
+
+
+<!--s-->
 ### MQTT vs Kafka
 
 - MQTT
@@ -168,11 +182,7 @@ Note:
 - more technical details will follow
 
 <!--s-->
-## Visual representation of the DSH
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-![dsh-overview-1](images/dsh/dsh-empty.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+## Back to the visual representation of the DSH
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
