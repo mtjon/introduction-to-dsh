@@ -297,12 +297,7 @@ Note: analogy: if you have a BMW, you'll to bring it to a garage that is familia
 Note: This is also enforced by User IDs (UIDs)
 
 <!--s-->
-### Authentication Nightmare
-
-- 
-  - <!-- .element: class="fragment" --> _Certificates_ for container authentication towards Kafka
-  - <!-- .element: class="fragment" --> _API_ keys for total access
-  - <!-- .element: class="fragment" --> _MQTT tokens_ for device/service authentication
+### MQTT authentication relations
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
@@ -315,7 +310,8 @@ Note: API Key is to authenticate tenants
 
 ![Authentication Relations](images/authentication/authentication-2.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
-Note: REST Token is to hand out permissions to individuals
+Note: REST token is to hand out permissions to individuals
+Do be aware REST-tokens also 
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
