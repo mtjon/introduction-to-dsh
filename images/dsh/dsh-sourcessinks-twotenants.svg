@@ -1606,7 +1606,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="844.50818"
+     inkscape:cx="612.36532"
      inkscape:cy="272.50258"
      inkscape:document-units="mm"
      inkscape:current-layer="layer30"
@@ -1956,7 +1956,7 @@
        id="layer10"
        inkscape:label="last tenant"
        transform="translate(-117.5978,-50.267429)"
-       style="display:inline">
+       style="display:none">
       <g
          style="display:inline"
          transform="translate(135.29139,43.822136)"
@@ -1997,7 +1997,7 @@
       </g>
     </g>
     <g
-       style="display:none"
+       style="display:inline"
        transform="translate(-117.5978,-50.267429)"
        inkscape:label="extra tenant"
        id="g8512"

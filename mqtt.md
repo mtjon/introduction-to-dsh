@@ -7,13 +7,13 @@ title: "Introduction to DSH: MQTT"
 <!--s-->
 ## MQTT bridge
 
-![dsh-overview-2](images/dsh/dsh-kafkamqtt.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-2](images/dsh/dsh-publicstream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 Note: MQTT Protocol adapter allows MQTT interface with Kafka
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-![dsh-overview-4](images/dsh/MQTTtopicstructure_base.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+![dsh-overview-4](images/mqtt/base.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 ```bash
 mosquitto_sub -t ""
@@ -21,7 +21,7 @@ mosquitto_sub -t ""
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-![dsh-overview-4](images/dsh/MQTTtopicstructure_everything.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+![dsh-overview-4](images/mqtt/everything.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 ```bash
 mosquitto_sub -t "#"
@@ -29,32 +29,27 @@ mosquitto_sub -t "#"
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-![dsh-overview-4](images/dsh/MQTTtopicstructure_sensor.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+![dsh-overview-4](images/mqtt/specific.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 ```bash
-mosquitto_sub -t "house/Study/Tele/SENSOR/#"
+mosquitto_sub -t "House/Study/Tele/SENSOR/#"
 ```
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-![dsh-overview-4](images/dsh/MQTTtopicstructure_branch.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+![dsh-overview-4](images/mqtt/subtree.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 ```bash
-mosquitto_sub -t "house/Study/Tele/#"
+mosquitto_sub -t "House/Study/#"
 ```
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-![dsh-overview-4](images/dsh/MQTTtopicstructure_sensorS.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
+![dsh-overview-4](images/mqtt/wildcard.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="50%" -->
 
 ```bash
-mosquitto_sub -t "house/+/Tele/SENSOR/#"
+mosquitto_sub -t "House/+/Tele/SENSOR/#"
 ```
-
-<!--v-->
-[![asciicast](https://asciinema.org/a/242386.svg)](https://asciinema.org/a/242386)
-
-Note: MQTT has a tree-like topic-structure, while Kafka puts everything under a single stream; the tree-like structure is kept, but fine-grained MQTT ACLs are no longer applied.
 
 <!--v-->
 ### Rarely updated data sources
@@ -71,7 +66,7 @@ Note: messages are simply passed through. A sensor update will be thrown to whoe
 <!-- .slide: data-transition="fade" -->
 ## Authentication relations
 
-![Authentication Relations](images/authentication/authentication-relations-4-auth.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![Authentication Relations](images/authentication/authentication-5.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 <!--s-->
 ## Prerequisites
