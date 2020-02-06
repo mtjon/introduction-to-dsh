@@ -280,20 +280,21 @@ Note: analogy: if you have a BMW, you'll to bring it to a garage that is familia
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ### Base DSH
-![DC/OS](images/dsh/dsh-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note: in your tenant, you run docker containers. Docker containers are meant to isolate processes from the host's environment they run on. This is extremely important when sharing underlying hosts with other processes, possibly owned by other tenants. Therefore, we regulate the use of Docker; your process cannot be root, and must run with a specific UID.
+![DC/OS](images/dsh/dsh-core-story.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+
+- 
+  - <!-- .element: class="fragment"--> _Docker_ containers
+  - <!-- .element: class="fragment"--> Force proper Docker usage (no __root__)
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
 ### Calico
 ![DC/OS](images/dsh/dsh-calico.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note: Calico separates tenants.
 
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-### DC/OS
-![dsh-overview-5](images/dsh/dsh-dcos.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-Note: DC/OS is the base, tenants run their docker containers on top of it. DC/OS is supported by most stream processing frameworks
+- 
+  - <!-- .element: class="fragment"--> _Network isolation_ through Calico
+  - <!-- .element: class="fragment"--> _Certificates_ for container authentication towards Kafka
+Note: This is also enforced by User IDs (UIDs)
 
 <!--s-->
 ### Authentication Nightmare
