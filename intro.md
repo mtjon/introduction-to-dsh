@@ -103,7 +103,7 @@ Note: MQTT and Kafka are equally useful, but for very different reasons
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
-![dsh-overview-2](images/dsh/dsh_core.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-2](images/dsh/dsh-core.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 Note: the core of the DSH messaging is a Kafka bus. Note the MQTT bridge.
 
