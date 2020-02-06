@@ -341,3 +341,7 @@ Note: MQTT tokens are to give devices and applications claims and permissions
 <!-- .slide: data-background="./images/kpn-end-bg-md.jpg" -->
 ## Practical part; MQTT
 [MQTT](localhost:1948/mqtt.md)
+
+[Deployment](localhost:1948/deploying.md)
+
+[Console](console.poc.kpn-dsh.com)
