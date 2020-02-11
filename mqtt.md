@@ -58,7 +58,7 @@ By default, MQTT does not store anything.
 
 This is a potential issue when working with rarely updated data sources.  <!-- .element: class="fragment"-->
 
-There is a 'retain'-flag  <!-- .element: class="fragment"-->
+There <!-- .element: class="fragment"--> is a _retain_-flag
 
 Note: messages are simply passed through. A sensor update will be thrown to whoever is subscribed. But what about the status of a bridge? Or a message stating a door is open or closed?
 
@@ -71,11 +71,12 @@ Note: messages are simply passed through. A sensor update will be thrown to whoe
 <!--s-->
 ## Prerequisites
 
-- Required: [Curl](https://curl.haxx.se)
-- Required: [Mosquitto](https://mosquitto.org) (MQTT-client)
-- Optional: [jq](https://stedolan.github.io/jq/)
-- Alternative: [Virtual Machine](https://github.com/mtjon/dsh-tut-vm) containing the tools
-- Available: An API-Key (will be provided)
+- 
+  - Required: [Curl](https://curl.haxx.se)
+  - Required: [Mosquitto](https://mosquitto.org) (MQTT-client)
+  - Optional: [jq](https://stedolan.github.io/jq/)
+  - Alternative: [Virtual Machine](https://github.com/mtjon/dsh-tut-vm) containing the tools
+  - Available: an _API-Key_ (will be provided)
 
 <!--s-->
 ## Goal
@@ -94,27 +95,19 @@ Learn how to _subscribe_ and _publish_ data on one of the DSH public datastreams
 <!--s-->
 ## API-keys on DSH
 
-Are used to _identify_ entities that can manage DSH MQTT access for a group of things.
+Are used to identify __entities__ that can manage DSH MQTT access
 
-Each of these entities can use this API-key to:  
-<!-- .element: class="lefty fragment" data-fragment-index="1" -->
-- onboard<!-- .element: class="fragment" data-fragment-index="1" --> _multiple_ things to DSH MQTT
-<!-- .element: class="fragment" data-fragment-index="1" -->
-- give things access to a <!-- .element: class="fragment" data-fragment-index="1" --> _limited set_ of streams <!-- .element: class="fragment" data-fragment-index="1" -->
-- control on a <!-- .element: class="fragment" data-fragment-index="1" --> _per thing basis_ what streams a thing can access (out-of-scope) <!-- .element: class="fragment" data-fragment-index="1" -->
-
-we call these entities<!-- .element: class="lefty fragment" data-fragment-index="2" --> _tenants_<!-- .element: class="lefty fragment" data-fragment-index="2" -->
+we <!-- .element: class="fragment" --> call these __entities__ _tenants_
 
 <!--v-->
 ### Get an API-key
 
-Along with the API-key you will also receive: <!-- .element: class="lefty" -->
+- Along with the API-key you will also receive:
+  - the name of a DSH deployment (_`PLATFORM`_)
+  - the name of the tenant (__`TENANT`__)
+  - other info you do not need for this tutorial
 
-- the name of a DSH deployment (`PLATFORM`)
-- the name of the tenant (`TENANT`)
-- other info you do not need for this tutorial
-
-Take a look at the existing variables. <!-- .element: class="lefty" -->
+Take a look at the existing variables.
 
 ```bash
 echo PLATFORM=...
@@ -131,7 +124,7 @@ echo API_KEY=...
 <!--v-->
 ### Getting a REST token
 
-<!-- .element: class="lefty" -->Execute the following command:
+Execute the following command:
 
 ```bash
 curl -X POST \
@@ -148,28 +141,28 @@ curl -X POST \
 - These claims describe
   - what _other_ REST APIs you can access
   - which _actions_ are allowed on those APIs
-- The `datastreams/v0/mqtt/token` claim should be in the token, otherwise it
+- The __`datastreams/v0/mqtt/token`__ claim should be in the token, otherwise it
   will be impossible to request an MQTT token
 
 <!--s-->
 ### Contents of a REST token (JWT)
 
-Execute<!-- .element: class="lefty" -->
+Execute
 
 ```bash
 cat rest-token.txt
 ```
 
-to see the token and navigate to <!-- .element: class="lefty" -->[jwt.io](https://jwt.io)
+to see the token and navigate to [jwt.io](https://jwt.io)
 and replace the data in the encoded form on the webpage by the contents of the
-JWT (REST token) you received in the previous step.<!-- .element: class="lefty" -->
+JWT (REST token) you received in the previous step.
 
-Did you just blindly give away credentials to an unknown website?  <!-- .element: class="lefty fragment" data-fragment-index="1" -->
+Did you just blindly give away credentials to an unknown website?  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--v-->
 ### Contents of a JWT (local)
 
-<!-- .element: class="lefty" -->Command-line alternative:
+Command-line alternative:
 
 ```bash
 cat rest-token.txt | \
@@ -181,11 +174,10 @@ jq .
 <!--s-->
 ## MQTT tokens
 
-- can be requested over the _REST API_ of DSH
-  at `/datastreams/v0/mqtt/token`
-- this requires a _REST token_
-  with the `datastreams/v0/mqtt/token` claim
-- required to request the token for a named thing
+- 
+  - can be requested over the _REST API_ of DSH at `/datastreams/v0/mqtt/token`
+  - this requires a _REST token_ with the `datastreams/v0/mqtt/token` claim
+  - required to request the token for a named thing
 
 ```bash
 export THING_ID=...
@@ -219,7 +211,7 @@ Note that:
 <!--s-->
 ## Contents of an MQTT token
 
-<!-- .element: class="lefty" -->Use [jwt.io](https://jwt.io) or use the command-line alternative:
+Use [jwt.io](https://jwt.io) or use the command-line alternative:
 
 ```bash
 cat mqtt-token.txt | \
@@ -242,7 +234,7 @@ jq .
 <!--v-->
 ### Mosquitto_sub
 
-<!-- .element: class="lefty" -->Execute the following command:
+Execute the following command:
 
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com \
@@ -273,7 +265,7 @@ mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com \
 <!--v-->
 ### Mosquitto_pub
 
-<!-- .element: class="lefty" -->Execute the following command:
+Execute the following command:
 
 ```bash
 mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com \

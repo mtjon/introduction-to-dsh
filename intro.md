@@ -42,9 +42,9 @@ Streaming Data Platform <!-- .element: class="fragment"-->
 > &hellip; data that is generated continuously by many independent data
 > sources. Typically, this data is of small size (order of Kilobytes).
 
-- <!-- .element: class="fragment"--> Data is _streaming_ if it is produced and transmitted __without delays or batching__
-- <!-- .element: class="fragment"--> The smallest unit of streamed data is called a _message_ or _event_
-- <!-- .element: class="fragment"--> Streaming data is sorted, collected, or aggregated in a _stream_ or _topic_
+- Data <!-- .element: class="fragment"--> is _streaming_ if it is produced and transmitted __without delays or batching__
+- The <!-- .element: class="fragment"--> smallest unit of streamed data is called a _message_ or _event_ 
+- Streaming <!-- .element: class="fragment"--> data is sorted, collected, or aggregated in a _stream_ or _topic_
 
 Note: the underlying technologies use the term 'topic' in different ways, so we will denote it as a _stream_, primarily
 
@@ -64,7 +64,7 @@ Not all datastreams are created equal
   - send data to hundreds of thousands of sinks <!-- .element: class="fragment"-->
   - process (clean, refine, aggregate, combine) data <!-- .element: class="fragment"-->
   - share data streams with other parties <!-- .element: class="fragment"-->
-  - <!-- .element: class="fragment" --> do all of this, with _high security standards_ 
+  - do <!-- .element: class="fragment" --> all of this, with _high security standards_
 
 <!--v-->
 ### Key concepts:
@@ -108,10 +108,15 @@ Note: MQTT and Kafka are equally useful, but for very different reasons
 Note: the core of the DSH messaging is a Kafka bus. Note the MQTT bridge.
 
 <!--s-->
-### Kafka
+## Kafka
+
+Do we know what Kafka is?
+
+<!--v-->
+## Kafka is ...
 
 - 
-  - <!-- .element: class="fragment"--> Can handle _huge_ volumes of data
+  - Can <!-- .element: class="fragment"--> handle _huge_ volumes of data
   - Event-based <!-- .element: class="fragment"-->
   - Allows subscribe and publish <!-- .element: class="fragment"-->
   - Used by:  <!-- .element: class="fragment"-->
@@ -134,6 +139,11 @@ Note: other examples:
 
 <!--s-->
 ## MQTT
+
+Do we know what MQTT is?
+
+<!--v-->
+## MQTT is ...
 - 
   - Messaging protocol based around publish and subscribe<!-- .element: class="fragment" data-fragment-index="1"-->
   - Lightweight<!-- .element: class="fragment" data-fragment-index="2"-->
@@ -283,8 +293,8 @@ Note: analogy: if you have a BMW, you'll to bring it to a garage that is familia
 ![DC/OS](images/dsh/dsh-core-story.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 - 
-  - <!-- .element: class="fragment"--> _Docker_ containers
-  - <!-- .element: class="fragment"--> Force proper Docker usage (no __root__)
+  - Containers <!-- .element: class="fragment"--> (_Docker_)
+  - Force <!-- .element: class="fragment"--> proper Docker usage (no __root__)
 
 <!--v-->
 <!-- .slide: data-transition="fade" -->
@@ -292,8 +302,9 @@ Note: analogy: if you have a BMW, you'll to bring it to a garage that is familia
 ![DC/OS](images/dsh/dsh-calico.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
 - 
-  - <!-- .element: class="fragment"--> _Network isolation_ through Calico
-  - <!-- .element: class="fragment"--> _Certificates_ for container authentication towards Kafka
+  - Network <!-- .element: class="fragment"--> isolation through __Calico__
+  - Container <!-- .element: class="fragment"--> authentication towards Kafka through _certificates_
+
 Note: This is also enforced by User IDs (UIDs)
 
 <!--s-->
@@ -344,4 +355,4 @@ Note: MQTT tokens are to give devices and applications claims and permissions
 
 [Deployment](localhost:1948/deploying.md)
 
-[Console](console.poc.kpn-dsh.com)
+[Console](http://console.poc.kpn-dsh.com)
