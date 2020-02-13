@@ -147,7 +147,7 @@ Do we know what MQTT is?
 - MQTT is network protocol that transports messages
   - Lightweight<!-- .element: class="fragment"-->
   - Based around publish and subscribe<!-- .element: class="fragment"-->
-  - Widespread <!-- .element: class="fragment"--> use in the *Internet of Things (IoT)* 
+  - Widespread <!-- .element: class="fragment"--> use in the *Internet of Things (IoT)*
   - Suitable for many simultaneous connections <!-- .element: class="fragment" -->
   - ISO/IEC 20922 and OASIS standard <!-- .element: class="fragment" -->
   - Fine-grained access control<!-- .element: class="fragment" -->
@@ -355,4 +355,4 @@ Note: MQTT tokens are to give devices and applications claims and permissions
 
 [Deployment](localhost:1948/deploying.md)
 
-[Console](http://console.poc.kpn-dsh.com)
+[Console](https://console.poc.kpn-dsh.com)
