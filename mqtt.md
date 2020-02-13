@@ -71,12 +71,11 @@ Note: messages are simply passed through. A sensor update will be thrown to whoe
 <!--s-->
 ## Prerequisites
 
-- 
-  - Required: [Curl](https://curl.haxx.se)
-  - Required: [Mosquitto](https://mosquitto.org) (MQTT-client)
-  - Optional: [jq](https://stedolan.github.io/jq/)
-  - Alternative: [Virtual Machine](https://github.com/mtjon/dsh-tut-vm) containing the tools
-  - Available: an _API-Key_ (will be provided)
+- Required: [Curl](https://curl.haxx.se)
+- Required: [Mosquitto](https://mosquitto.org) (MQTT-client)
+- Optional: [jq](https://stedolan.github.io/jq/)
+- Alternative: [Virtual Machine](https://github.com/mtjon/dsh-tut-vm) containing the tools
+- Available: an _API-Key_ (will be provided)
 
 <!--s-->
 ## Goal
