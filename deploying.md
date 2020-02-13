@@ -7,44 +7,9 @@ title: "Introduction to DSH: deploying microservices"
 <!--s-->
 ## Overview
 
-![dsh-overview-2](images/dsh/dsh-tenants-contents.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
+![dsh-overview-2](images/dsh/dsh-tenantCsad.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
 
-<!--v-->
-
-### Kafka streams
-
-Three Kafka stream-types
-
-- _stream._ topic
-- _scratch._ topic
-- _internal._ topic
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-![kafkastreams](images/dsh/dsh-sourcessinks-tenants.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-![dsh-topics](images/dsh/dsh-streamstream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-![dsh-topics](images/dsh/dsh-scratchstream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-![dsh-topics](images/dsh/dsh-internalstream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-![dsh-topics](images/dsh/dsh-nopestream.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!--v-->
-<!-- .slide: data-transition="fade" -->
-
-![dsh-topics-coloured](images/dsh/dsh-topics-coloured.svg)<!-- .element: class="stretch" style="background:none; border:none; box-shadow:none;" width="100%" -->
-
-<!-- ## Kafka and streams -->
+Note: pay attention to the three types of streams, and from where they can be approached
 
 <!--v-->
 ### Kafka and the MQTT Bridge
@@ -74,16 +39,17 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 <!--s-->
 ## Prerequisites
 
-- _Installed:_ Curl
-- _Installed:_ Mosquitto (MQTT-client)
-- _Installed:_ Docker-CE
-- _Installed:_ Git
-- _Installed:_ java SDK 8
-- _Installed:_ maven (mvn)
-- _Installed:_ DSH UMP-client
-- _Available:_ tenant UID
-- _Available:_ docker registry credentials
-- _Available:_ API-Key
+- 
+  - _Installed:_ Curl
+  - _Installed:_ Mosquitto (MQTT-client)
+  - _Installed:_ Docker-CE
+  - _Installed:_ Git
+  - _Installed:_ java SDK 8
+  - _Installed:_ maven (mvn)
+  - _Installed:_ DSH UMP-client
+  - _Available:_ tenant UID
+  - _Available:_ docker registry credentials
+  - _Available:_ API-Key
 
 <!--s-->
 ## Steps
@@ -107,8 +73,8 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 ### Dockerfile => UID
 
 - Change your pwd (present working directory) to `tenant-example`
-- Open the `Dockerfile` in your favorite text-editor (when in doubt, use [nano](https://wiki.gentoo.org/wiki/Nano/Basics_Guide))
-- Modify the `ENV id 1024` line according to the comment above it and save the
+- Open the __`Dockerfile`__ in your favorite text-editor (when in doubt, use [nano](https://wiki.gentoo.org/wiki/Nano/Basics_Guide))
+- Modify the __`ENV id 1024`__ line according to the comment above it and save the
   modification
 
 <!--v-->
@@ -134,26 +100,26 @@ Learn to deploy an application on DSH that connects to DSH kafka.
 mvn package
 ```
 
-<!-- .element: class="lefty" -->This will build the java binary and the docker image _locally_. Look in the
+This will build the java binary and the docker image _locally_. Look in the
 output for the name of the docker image.
 
 <!--v-->
 ### Push
 
-<!-- .element: class="lefty" -->Since every tenant has its own docker registry this will be reflected in the
+Since every tenant has its own docker registry this will be reflected in the
 image tag name:
 
 ```bash
 dataserviceshub-docker-$TENANT.jfrog.io/image:...
 ```
 
-<!-- .element: class="lefty" -->You need to be logged in to use this registry (credentials are provided through `env.sh` in the VM):
+You need to be logged in to use this registry (credentials are provided through `env.sh` in the VM):
 
 ```bash
 docker login dataserviceshub-docker-$TENANT.jfrog.io
 ```
 
-<!-- .element: class="lefty" -->Now you can push your image to the tenant's docker registry:
+Now you can push your image to the tenant's docker registry:
 
 ```bash
 docker push \
@@ -163,7 +129,7 @@ docker push \
 <!--v-->
 ### Deploying
 
-<!-- .element: class="lefty" -->The docker image has now been built and safely stored in the docker
+The docker image has now been built and safely stored in the docker
 registry.
 
 Next step: deploying a container on the DSH.
@@ -209,18 +175,16 @@ NOTE: Environment is for personal reference only. The connected tenant or 'login
 <!--s-->
 ## Function of the application
 
-<!-- .element: class="lefty" -->The kpn-tenant-example listens to the `training` topics on the `command` key.  
-Two commands are supported:
-
-- whoami
-- restart
-
-<!-- .element: class="lefty" -->Responses to those commands are written on the `response` key.
+- The kpn-tenant-example listens to the __`training`__ topics on the __`command`__ key.
+- Two commands are supported:
+  - _whoami_
+  - _restart_
+- Responses to those commands are written on the __`response`__ key.
 
 <!--v-->
 ## Testing of the application
 
-<!-- .element: class="lefty" -->You can set up an mqtt connection to verify:
+You can set up an mqtt connection to verify:
 
 ```bash
 mosquitto_sub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
@@ -239,13 +203,13 @@ mosquitto_pub -h mqtt.$PLATFORM.kpn-dsh.com -p 8883 \
 -u $THING_ID -l
 ```
 
-<!-- .element: class="lefty" -->Type:
+Type:
 
 ```bash
 whoami
 ```
 
-<!-- .element: class="lefty" -->and see what's returned in the subscription.
+and see what's returned in the subscription.
 <!--s-->
 
 ## Clean-up
