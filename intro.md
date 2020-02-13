@@ -113,9 +113,9 @@ Note: the core of the DSH messaging is a Kafka bus. Note the MQTT bridge.
 Do we know what Kafka is?
 
 <!--v-->
-## Kafka is ...
+## What is Kafka?
 
-- 
+- Kafka is a distributed scaling platform
   - Can <!-- .element: class="fragment"--> handle _huge_ volumes of data
   - Event-based <!-- .element: class="fragment"-->
   - Allows subscribe and publish <!-- .element: class="fragment"-->
@@ -143,10 +143,10 @@ Note: other examples:
 Do we know what MQTT is?
 
 <!--v-->
-## MQTT is ...
-- 
-  - Messaging protocol based around publish and subscribe<!-- .element: class="fragment" data-fragment-index="1"-->
-  - Lightweight<!-- .element: class="fragment" data-fragment-index="2"-->
+## What is MQTT?
+- MQTT is network protocol that transports messages
+  - Lightweight<!-- .element: class="fragment" data-fragment-index="1"-->
+  - Based around publish and subscribe<!-- .element: class="fragment" data-fragment-index="2"-->
   - Widespread use in the <!-- .element: class="fragment" data-fragment-index="3" --> *Internet of Things (IoT)* <!-- .element: class="fragment" data-fragment-index="4" -->
   - Suitable for many simultaneous connections <!-- .element: class="fragment" data-fragment-index="5" -->
   - ISO/IEC 20922 and OASIS standard <!-- .element: class="fragment" data-fragment-index="6" -->
